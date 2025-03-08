@@ -1,7 +1,8 @@
 import Foundation
 import UIKit
 #if canImport(WidgetKit)
-import WidgetKit
+//import WidgetKit
+//import AppIntents
 #endif
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

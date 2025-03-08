@@ -88,8 +88,6 @@
 				<dict>
 					<key>INIntentParameterConfigurable</key>
 					<true/>
-					<key>INIntentParameterCustomDisambiguation</key>
-					<true/>
 					<key>INIntentParameterDisplayName</key>
 					<string>Appearance</string>
 					<key>INIntentParameterDisplayNameID</key>
@@ -142,8 +140,6 @@
 							<string>Confirmation</string>
 						</dict>
 					</array>
-					<key>INIntentParameterSupportsResolution</key>
-					<true/>
 					<key>INIntentParameterTag</key>
 					<integer>19</integer>
 					<key>INIntentParameterType</key>

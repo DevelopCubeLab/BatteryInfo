@@ -22,5 +22,10 @@
     	<string>IOGPUDeviceUserClient</string>
     	<string>IOSurfaceRootUserClient</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+    <array>
+        <string>group.com.developlab.batteryinfo.group</string>
+    </array>
+
 </dict>
 </plist>
