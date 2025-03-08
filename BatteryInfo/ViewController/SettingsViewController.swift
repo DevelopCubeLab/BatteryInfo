@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     private let tableTitleList = [nil, NSLocalizedString("MaximumCapacityAccuracy", comment: ""), NSLocalizedString("About", comment: "")]
     
-    private let tableCellList = [[NSLocalizedString("AutoRefreshDataViewSetting", comment: ""), NSLocalizedString("ForceShowChargeingData", comment: ""), NSLocalizedString("ShowSettingsBatteryInfo", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", NSLocalizedString("ThanksForXiaoboVlog", comment: "")]]
+    private var tableCellList = [[NSLocalizedString("AutoRefreshDataViewSetting", comment: ""), NSLocalizedString("ForceShowChargeingData", comment: ""), NSLocalizedString("ShowSettingsBatteryInfo", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", NSLocalizedString("ThanksForXiaoboVlog", comment: "")]]
     // NSLocalizedString("ShowCPUFrequency", comment: "")
     
     // 标记一下每个分组的编号，防止新增一组还需要修改好几处的代码
@@ -30,6 +30,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             tableView = UITableView(frame: .zero, style: .grouped)
         }
 
+        if #available(iOS 14.0, *) { // 只在iOS 14.0或者以上系统版本才显示Widget设置
+            tableCellList[0].append(NSLocalizedString("WidgetSettings", comment: ""))
+        }
+        
         // 设置表格视图的代理和数据源
         tableView.delegate = self
         tableView.dataSource = self
@@ -102,7 +106,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 switchView.addTarget(self, action: #selector(self.onSwitchChanged(_:)), for: .valueChanged)
                 cell.accessoryView = switchView
                 cell.selectionStyle = .none
-            } else if indexPath.row == 3 {
+            } else if indexPath.row == 3 || indexPath.row == 4 {
                 cell.accessoryType = .disclosureIndicator
                 cell.selectionStyle = .default // 启用选中效果
             }
@@ -139,10 +143,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
-            if indexPath.row == 3 {
+            if indexPath.row == 3 { // 打开数据记录设置界面
                 let dataRecordSettingsViewController = DataRecordSettingsViewController()
                 dataRecordSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
                 self.navigationController?.pushViewController(dataRecordSettingsViewController, animated: true)
+            } else if indexPath.row == 4 { // 打开Widget 设置记录界面
+                if #available(iOS 14.0, *) {
+                    let widgetSettingsViewController = WidgetSettingsViewController()
+                    widgetSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
+                    self.navigationController?.pushViewController(widgetSettingsViewController, animated: true)
+                }
             }
         } else if indexPath.section == maximumCapacityAccuracyAtSection { // 切换设置
             // 取消之前的选择

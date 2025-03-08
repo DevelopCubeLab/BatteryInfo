@@ -20,12 +20,17 @@ before-package::
 	fi
 	@echo -e "\033[32mRemoving _CodeSignature folder..."
 	@rm -rf $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/_CodeSignature
+	@rm -rf $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/PlugIns/BatteryInfoWidgetExtension.appex/BatteryInfoWidgetExtension/_CodeSignature
+	@echo -e "\033[32mRemoving Frameworks folder..."
+	@rm -rf $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/Frameworks
 	@echo -e "\033[32mCopy RootHelper to package..."
 	# 这里必须要手动复制RootHelper到包内，不要放到Xcode工程目录下，不然就无法运行二进制文件
 	@cp -f SettingsBatteryHelper/SettingsBatteryHelper $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/
 
-# 打包后重命名为 .tipa
+# 打包后重命名为 .tipa 只有打ipa包的时候才需要，打deb包不需要
 after-package::
-	@echo -e "\033[32mRenaming .ipa to .tipa...\033[0m"
-	@mv ./packages/com.developlab.batteryinfo_$(BUILD_VERSION).ipa ./packages/com.developlab.batteryinfo_$(BUILD_VERSION).tipa || @echo -e "\033[31mNo .ipa file found.\033[0m"
-	@echo -e "\033[1;32m\n** Build Succeeded **\n\033[0m"
+	@if [ "$(PACKAGE_FORMAT)" = "ipa" ]; then \
+		echo -e "\033[32mRenaming .ipa to .tipa...\033[0m"; \
+		mv ./packages/com.developlab.batteryinfo_$(BUILD_VERSION).ipa ./packages/com.developlab.batteryinfo_$(BUILD_VERSION).tipa || echo -e "\033[31mNo .ipa file found.\033[0m"; \
+		echo -e "\033[1;32m\n** Build Succeeded **\n\033[0m"; \
+	fi

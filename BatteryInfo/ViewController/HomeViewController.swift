@@ -1,5 +1,8 @@
 import Foundation
 import UIKit
+#if canImport(WidgetKit)
+import WidgetKit
+#endif
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -94,11 +97,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             settingsBatteryInfo = BatteryDataController.getSettingsBatteryInfoData()
         }
         
-        // 记录历史数据
-        if let cycleCount = batteryInfo?.cycleCount, let nominalChargeCapacity = batteryInfo?.nominalChargeCapacity, let designCapacity = batteryInfo?.designCapacity {
+        // 记录历史数据和给Widget传递数据
+        if let cycleCount = batteryInfo?.cycleCount, let nominalChargeCapacity = batteryInfo?.nominalChargeCapacity, let designCapacity = batteryInfo?.designCapacity, let maximumCapacity = batteryInfo?.maximumCapacity {
             
             if BatteryDataController.recordBatteryData(manualRecord: false, cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity) {
                 print("历史记录增加新的记录成功")
+            }
+            
+            if #available(iOS 14.0, *) {
+                if WidgetController.instance.setWidgetBatteryData(batteryData: WidgetBatteryData(maximumCapacity: maximumCapacity, cycleCount: cycleCount)) {
+//                    WidgetCenter.shared.reloadAllTimelines()
+//                    WidgetCenter.shared.reloadTimelines(ofKind: "BatteryInfoWidget")
+//                    WidgetCenter.shared.reloadTimelines(ofKind: "BatteryInfoSymbolWidget")
+                    NSLog("给Widget数据保存成功,已经刷新Widget")
+                } else {
+                    NSLog("给Widget数据保存失败")
+                }
             }
         }
         

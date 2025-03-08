@@ -142,5 +142,39 @@ class SettingsUtils {
         plistManager.apply()
     }
     
+    /// 获取是否启用Widget
+    func getEnableWidget() -> Bool {
+        if #available(iOS 14.0, *) {
+            return plistManager.getBool(key: "EnableWidget", defaultValue: true)
+        } else { // iOS 14.0开始才支持Widget
+            return false
+        }
+    }
     
+    /// 设置是否启用Widget
+    func setEnableWidget(enable: Bool) {
+        if #available(iOS 14.0, *) {
+            plistManager.setBool(key: "EnableWidget", value: enable)
+        } else {
+            plistManager.setBool(key: "EnableWidget", value: false)
+        }
+        plistManager.apply()
+    }
+    
+    /// 获取Widget沙盒的根目录
+    func getWidgetSandboxDirectoryPath() -> String {
+        return plistManager.getString(key: "WidgetSandboxPath", defaultValue: "")
+    }
+    
+    /// 设置Widget沙盒的根目录
+    func setWidgetSandboxDirectoryPath(path: String) {
+        plistManager.setString(key: "WidgetSandboxPath", value: path)
+        plistManager.apply()
+    }
+    
+    /// 删除Widget沙盒目录
+    func removeWidgetSandboxDirectoryPath() {
+        plistManager.remove(key: "WidgetSandboxPath")
+        plistManager.apply()
+    }
 }

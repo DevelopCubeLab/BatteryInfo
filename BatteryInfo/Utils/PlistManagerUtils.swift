@@ -11,31 +11,39 @@ class PlistManagerUtils {
     private var cachedChanges: [String: Any] = [:]
     private var isDirty = false
 
-	// 获取实例方法（支持多实例）
-    static func instance(for plistName: String) -> PlistManagerUtils {
+    // 获取实例方法（支持多实例 + 自定义路径）
+    static func instance(for plistName: String, customPath: String? = nil) -> PlistManagerUtils {
+        let key = customPath ?? "DEFAULT" // 如果没有自定义路径，就用 "DEFAULT"
+        let instanceKey = "\(plistName)-\(key)"
+
         // 如果实例已存在，则返回现有实例
-        if let instance = instances[plistName] {
+        if let instance = instances[instanceKey] {
             return instance
         }
 
-        // 否则创建新的实例并存储
-        let instance = PlistManagerUtils(plistName: plistName)
-        instances[plistName] = instance
+        // 创建新的实例并存储
+        let instance = PlistManagerUtils(plistName: plistName, customPath: customPath)
+        instances[instanceKey] = instance
         return instance
     }
 
-    // 初始化 PlistManager，指定 plist 文件名
-    private init(plistName: String) {
-        // 获取沙盒中的 Preferences 目录路径
-        let preferencesDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
-        let preferencesPath = preferencesDirectory.appendingPathComponent("Preferences")
-        self.plistFileURL = preferencesPath.appendingPathComponent("\(plistName).plist")
+    // 初始化 PlistManager，支持自定义路径
+    private init(plistName: String, customPath: String? = nil) {
+        if let customPath = customPath {
+            let customDirectory = URL(fileURLWithPath: customPath, isDirectory: true)
+            self.plistFileURL = customDirectory.appendingPathComponent("\(plistName).plist")
+        } else {
+            // 默认存储到 Preferences 目录
+            let preferencesDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
+            let preferencesPath = preferencesDirectory.appendingPathComponent("Preferences")
+            self.plistFileURL = preferencesPath.appendingPathComponent("\(plistName).plist")
+        }
 
         // 如果 plist 文件不存在，则创建一个空的文件
         if !FileManager.default.fileExists(atPath: plistFileURL.path) {
             preferences = [:]
             save()
-            plistExist = false //增加一个标识，让外界知道这个配置文件是新创建的
+            plistExist = false
         } else {
             self.preferences = PlistManagerUtils.loadPreferences(from: plistFileURL)
             plistExist = true
@@ -57,7 +65,7 @@ class PlistManagerUtils {
             let data = try PropertyListSerialization.data(fromPropertyList: preferences, format: .xml, options: 0)
             try data.write(to: plistFileURL)
         } catch {
-            print("Error saving preferences to plist: \(error.localizedDescription)")
+            NSLog("Error saving \(plistFileURL) preferences to plist: \(error.localizedDescription)")
         }
     }
     
@@ -178,7 +186,7 @@ class PlistManagerUtils {
             try FileManager.default.removeItem(at: plistFileURL)
             preferences = [:]
         } catch {
-            print("Error clearing plist file: \(error.localizedDescription)")
+            print("Error clearing \(plistFileURL) plist file: \(error.localizedDescription)")
         }
     }
 
