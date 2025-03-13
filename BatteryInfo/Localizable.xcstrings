@@ -938,6 +938,22 @@
         }
       }
     },
+    "ForceRefreshWidget" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Force refresh Widget state"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "强制刷新小组件状态"
+          }
+        }
+      }
+    },
     "ForceShowChargeingData" : {
       "localizations" : {
         "en" : {
@@ -1472,6 +1488,22 @@
         }
       }
     },
+    "ResetWidgetSandBoxPath" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Widget SandBox Path"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置小组件沙盒目录"
+          }
+        }
+      }
+    },
     "Round" : {
       "localizations" : {
         "en" : {
@@ -1683,18 +1715,34 @@
         }
       }
     },
-    "WidgetSettings" : {
+    "WidgetSandBoxPath" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Widget settings"
+            "value" : "Widget SandBox Path"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "小组件设置"
+            "value" : "小组件沙盒目录"
+          }
+        }
+      }
+    },
+    "WidgetSettings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小组件"
           }
         }
       }

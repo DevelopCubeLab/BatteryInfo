@@ -384,7 +384,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X2WABLB38D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BatteryInfoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoWidget;
@@ -423,7 +423,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X2WABLB38D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BatteryInfoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoWidget;
@@ -606,7 +606,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X2WABLB38D;
 				FRAMEWORK_SEARCH_PATHS = (
 					/System/Library/Frameworks,
 					/System/Library/PrivateFrameworks,
@@ -634,7 +634,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BatteryInfo",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = "1.1.8-widget-alpha";
 				OTHER_CFLAGS = "-Wno-error=unguarded-availability-new";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developlab.BatteryInfo;
@@ -664,7 +664,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X2WABLB38D;
 				FRAMEWORK_SEARCH_PATHS = (
 					/System/Library/Frameworks,
 					/System/Library/PrivateFrameworks,
@@ -692,7 +692,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BatteryInfo",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = "1.1.8-widget-alpha";
 				OTHER_CFLAGS = "-Wno-error=unguarded-availability-new";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developlab.BatteryInfo;

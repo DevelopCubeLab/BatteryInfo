@@ -13,18 +13,18 @@ struct SimpleEntry: TimelineEntry {
 }
 
 // 定义外观枚举，匹配 Intent
-enum AppearanceType: String {
-    case system = "system"
-    case light = "light"
-    case dark = "dark"
+enum AppearanceType: Int {
+    case system = 1
+    case light = 2
+    case dark = 3
 
     static func from(intent: BatteryInfoWidgetIntent) -> AppearanceType {
-        guard let appearanceString = intent.value(forKey: "Appearance") as? String else {
-            return .system
-        }
-        return AppearanceType(rawValue: appearanceString) ?? .system
+        let rawValue = intent.Appearance.rawValue
+        return AppearanceType(rawValue: rawValue) ?? .system
     }
 }
+
+
 
 // Timeline Provider（提供 Widget 数据）
 struct Provider: IntentTimelineProvider {
@@ -43,15 +43,42 @@ struct Provider: IntentTimelineProvider {
     // 获取时间线
     func getTimeline(for configuration: BatteryInfoWidgetIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         let entry = createEntry(with: configuration)
-        let timeline = Timeline(entries: [entry], policy: .atEnd)
-        completion(timeline)
+        
+        // 如果 updateTimeStamp 为 0，表示数据无效
+        if entry.batteryData.updateTimeStamp == 0 {
+            // 立即刷新 widget 并显示占位符
+            let timeline = Timeline(entries: [entry], policy: .atEnd)
+            completion(timeline)
+            return
+        }
+        
+        // 获取当前时间戳和数据时间戳
+        let currentTimeStamp = Int(Date().timeIntervalSince1970)
+        let dataTimeStamp = entry.batteryData.updateTimeStamp
+        
+        // 判断数据是否更新（5 分钟内更新过）
+        let hasNewData = currentTimeStamp - dataTimeStamp < 60 * 5
+        
+        if hasNewData {
+            let timeline = Timeline(entries: [entry], policy: .atEnd) // 立即刷新
+            completion(timeline)
+        } else {
+            // 45分钟刷新一次，防止浪费Widget的刷新次数
+            let nextUpdate = Date().addingTimeInterval(60 * 45)
+            let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
+            completion(timeline)
+        }
+        
+//        let nextUpdate = hasNewData ? Date().addingTimeInterval(60 * 5) : Date().addingTimeInterval(60 * 45)
+//        let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
+//        completion(timeline)
     }
 
     // 解析 Intent 设置，返回 `SimpleEntry`
     private func createEntry(with configuration: BatteryInfoWidgetIntent) -> SimpleEntry {
         let batteryData = WidgetController.instance.getWidgetBatteryData()
         let appearance = AppearanceType.from(intent: configuration)
-        let showUpdateTime = configuration.ShowUpdateTime?.boolValue ?? false
+        let showUpdateTime = configuration.ShowUpdateTime?.boolValue ?? true
 
         return SimpleEntry(
             date: Date(),
@@ -62,6 +89,7 @@ struct Provider: IntentTimelineProvider {
         )
     }
 
+
 }
 
 // 默认的Widget UI
@@ -69,47 +97,64 @@ struct BatteryInfoWidgetEntryView: View {
     var entry: Provider.Entry
     
     var body: some View {
-        ZStack(alignment: .topLeading, content: {
+        ZStack(alignment: .topLeading) {
             VStack(alignment: .leading, spacing: 5) {
                 Text(String.localizedStringWithFormat(
                     NSLocalizedString("WidgetMaximumCapacity", comment: ""), entry.batteryData.maximumCapacity))
                 .font(.footnote)
-
+                .foregroundColor(getTextColor(for: entry.appearance))
+                
                 Text(String.localizedStringWithFormat(
                     NSLocalizedString("CycleCount", comment: ""), String(entry.batteryData.cycleCount)))
                 .font(.footnote)
+                .foregroundColor(getTextColor(for: entry.appearance))
                 
                 if entry.showUpdateTime {
                     Text(String.localizedStringWithFormat(
                         NSLocalizedString("UpdateTime", comment: ""), entry.batteryData.updateDate))
                     .font(.footnote)
+                    .foregroundColor(getTextColor(for: entry.appearance))
                 }
             }
             .padding(15)
-        }).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .background(Color.clear)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(getBackgroundColor(for: entry.appearance))
+    }
+    
+    private func getBackgroundColor(for appearance: AppearanceType) -> Color {
+        switch appearance {
+        case .system: return Color(UIColor.systemBackground) // 跟随系统
+        case .light: return Color.white
+        case .dark: return Color.black
+        }
+    }
+
+    private func getTextColor(for appearance: AppearanceType) -> Color {
+        switch appearance {
+        case .system: return Color(UIColor.label) // 跟随系统
+        case .light: return Color.black
+        case .dark: return Color.white
+        }
     }
 }
 
+
 // 带图标的Widget UI
 struct BatteryInfoWidgetSymbolEntryView: View {
-    
     var entry: Provider.Entry
 
     var body: some View {
         
         let data: [(symbol: String, value: String, applyFontRule: Bool)] = [
-//            ("minus.plus.batteryblock.fill", "100%"),
-//            ("arrow.triangle.2.circlepath.circle.fill", "99")
-            
             ("cross.case.fill", entry.batteryData.maximumCapacity.appending("%"), true),
-            ("minus.plus.batteryblock.fill", String(entry.batteryData.cycleCount), false),
-            ("clock.fill", entry.batteryData.updateDate, false)
-        ]
-        
+            ("minus.plus.batteryblock.fill", String(entry.batteryData.cycleCount), false)
+        ] + (entry.showUpdateTime ? [("clock.fill", entry.batteryData.updateDate, false)] : [])
+
+
         let columns = [
-            GridItem(.fixed(26), alignment: .center), // 图标
-            GridItem(.flexible(), alignment: .leading) // 数值
+            GridItem(.fixed(26), alignment: .center), // 图标列
+            GridItem(.flexible(), alignment: .leading) // 数值列
         ]
 
         ZStack(alignment: .topLeading) {
@@ -117,17 +162,36 @@ struct BatteryInfoWidgetSymbolEntryView: View {
                 ForEach(data, id: \.symbol) { item in
                     Image(systemName: item.symbol)
                         .font(.system(size: 22))
-                        .foregroundColor(.primary)
+                        .foregroundColor(getTextColor(for: entry.appearance))
                     
                     Text(item.value)
-                        .font(item.applyFontRule && (Double(item.value) ?? 0) > 100 ? .title3 : .title2) // 这里如果是高于100%那么久.title3
+                        .font(item.applyFontRule && (Double(item.value) ?? 0) > 100 ? .title3 : .title2)
+                        .foregroundColor(getTextColor(for: entry.appearance))
                 }
             }
-            .padding(15) // 添加边距，防止贴边
+            .padding(15)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(getBackgroundColor(for: entry.appearance))
+    }
+
+    private func getBackgroundColor(for appearance: AppearanceType) -> Color {
+        switch appearance {
+        case .system: return Color(UIColor.systemBackground)
+        case .light: return Color.white
+        case .dark: return Color.black
+        }
+    }
+
+    private func getTextColor(for appearance: AppearanceType) -> Color {
+        switch appearance {
+        case .system: return Color(UIColor.label)
+        case .light: return Color.black
+        case .dark: return Color.white
+        }
     }
 }
+
 
 /// @See https://stackoverflow.com/questions/76595240/widget-on-ios-17-beta-device-adopt-containerbackground-api
 //extension View {

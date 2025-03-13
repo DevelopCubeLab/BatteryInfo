@@ -5,14 +5,23 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     
     private var tableView = UITableView()
     
-    private let tableTitleList = [nil, NSLocalizedString("WidgetSettings", comment: "")]
+    private let tableTitleList = [nil, nil, NSLocalizedString("WidgetSandBoxPath", comment: ""),nil]
     
-    private let tableCellList = [[NSLocalizedString("Enable", comment: "启用")], []]
+    private var tableCellList = [
+        [NSLocalizedString("Enable", comment: "启用")],
+        [NSLocalizedString("ForceRefreshWidget", comment: "")],
+        [],
+        [NSLocalizedString("ResetWidgetSandBoxPath", comment: "")]
+    ]
+    
+    private let widgetController = WidgetController.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = NSLocalizedString("WidgetSettings", comment: "")
+        
+        tableCellList[2] = widgetController.getWidgetSandboxDirectory() // 加载widget的沙盒目录
         
         // iOS 15 之后的版本使用新的UITableView样式
         if #available(iOS 15.0, *) {
@@ -41,6 +50,10 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
         ])
         
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//    }
     
     // MARK: - 设置总分组数量
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,9 +90,33 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
                 cell.accessoryView = switchView
                 cell.selectionStyle = .none
             }
+        } else if indexPath.section == 1 {
+            cell.textLabel?.textAlignment = .center
+            cell.selectionStyle = .default
+            cell.textLabel?.textColor = .systemBlue
+        } else if indexPath.section == 3 {
+            cell.textLabel?.textAlignment = .center
+            cell.selectionStyle = .default
+            cell.textLabel?.textColor = .systemRed
         }
         
         return cell
+    }
+    
+    // MARK: - Cell的点击事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                if widgetController.reloadWidgetSandboxPathRecord() {
+                    NSLog("重置Widget沙盒成功")
+                }
+            } else if indexPath.row == 1 {
+                widgetController.refreshWidget()
+            }
+        }
     }
     
     @objc func onSwitchChanged(_ sender: UISwitch) {

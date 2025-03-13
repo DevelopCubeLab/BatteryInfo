@@ -1,9 +1,5 @@
 import Foundation
 import UIKit
-#if canImport(WidgetKit)
-//import WidgetKit
-//import AppIntents
-#endif
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -107,9 +103,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             if #available(iOS 14.0, *) {
                 if WidgetController.instance.setWidgetBatteryData(batteryData: WidgetBatteryData(maximumCapacity: maximumCapacity, cycleCount: cycleCount)) {
-//                    WidgetCenter.shared.reloadAllTimelines()
-//                    WidgetCenter.shared.reloadTimelines(ofKind: "BatteryInfoWidget")
-//                    WidgetCenter.shared.reloadTimelines(ofKind: "BatteryInfoSymbolWidget")
+                    WidgetController.instance.refreshWidget()
                     NSLog("给Widget数据保存成功,已经刷新Widget")
                 } else {
                     NSLog("给Widget数据保存失败")

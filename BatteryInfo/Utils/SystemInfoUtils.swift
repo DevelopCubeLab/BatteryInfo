@@ -117,6 +117,45 @@ func getDiskTotalSpace() -> String {
     return closestSize >= 1024 ? "\(Int(closestSize / 1024)) TB" : "\(Int(closestSize)) GB"
 }
 
+// 获取设备的型号代码
+func getDeviceRegionCode() -> String? {
+    let path = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+
+    // 读取 plist 文件
+    guard let dict = NSDictionary(contentsOfFile: path) as? [String: Any] else {
+        NSLog("Battery Info----> 无法加载 MobileGestalt.plist")
+        return nil
+    }
+
+    // 获取 `CacheExtra` 字典
+    guard let cacheExtra = dict["CacheExtra"] as? [String: Any] else {
+        NSLog("Battery Info----> MobileGestalt无法找到 `CacheExtra` 字典")
+        return nil
+    }
+
+    // 先尝试直接获取 `zHeENZu+wbg7PUprwNwBWg`
+    if let regionCode = cacheExtra["zHeENZu+wbg7PUprwNwBWg"] as? String {
+        if isValidRegionCode(regionCode) {
+            return regionCode
+        }
+    }
+
+    // 遍历 `CacheExtra` 并匹配设备型号代码格式
+    for (key, value) in cacheExtra {
+        if let regionCode = value as? String, isValidRegionCode(regionCode) {
+            NSLog("Battery Info----> MobileGestalt未找到默认 key，使用遍历找到的 key: \(key) -> \(regionCode)")
+            return regionCode
+        }
+    }
+    return nil
+}
+
+// 匹配设备发售型号格式
+private func isValidRegionCode(_ code: String) -> Bool {
+    let pattern = "^[A-Z]{2}/A$"  // 匹配 XX/A 格式，例如 CH/A、LL/A、ZA/A
+    return code.range(of: pattern, options: .regularExpression) != nil
+}
+
 func getDeviceName() -> String {
     switch getDeviceModel() {
         
@@ -170,6 +209,7 @@ func getDeviceName() -> String {
         case "iPhone17,2": return "iPhone 16 Pro Max"
         case "iPhone17,3": return "iPhone 16"
         case "iPhone17,4": return "iPhone 16 Plus"
+        case "iPhone17,5": return "iPhone 16e" // 新2025.2.19 新增iPhone 16e
             
         // iPod
         case "iPod1,1": return "iPod Touch (1st Gen)"
