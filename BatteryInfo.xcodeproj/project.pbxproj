@@ -55,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1719367E2D86FE3100ECB17D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WidgetSettingsIntent.strings"; sourceTree = "<group>"; };
 		1731F9B92D50D02600AA1FD5 /* DeviceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
 		1731F9BA2D50D02600AA1FD5 /* DeviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceController.m; sourceTree = "<group>"; };
 		173AC2172D7C1368002EE482 /* ExtensionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionKit.framework; path = System/Library/Frameworks/ExtensionKit.framework; sourceTree = SDKROOT; };
@@ -64,7 +65,6 @@
 		1781C79A2D79CD4D0064FB7A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1781C7CA2D79FF5E0064FB7A /* WidgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetController.swift; sourceTree = "<group>"; };
 		1781C7E62D7A2E900064FB7A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = en; path = en.lproj/WidgetSettingsIntent.intentdefinition; sourceTree = "<group>"; };
-		1781C7EB2D7A2EAC0064FB7A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WidgetSettingsIntent.strings"; sourceTree = "<group>"; };
 		1781C82A2D7C02A50064FB7A /* ExtensionFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionFoundation.framework; path = System/Library/Frameworks/ExtensionFoundation.framework; sourceTree = SDKROOT; };
 		179E78902D1D52A0009C29C9 /* BatteryInfo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BatteryInfo-Bridging-Header.h"; sourceTree = "<group>"; };
 		179E78912D1D52A0009C29C9 /* BatteryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryHelper.h; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1781C7E62D7A2E900064FB7A /* en */,
-				1781C7EB2D7A2EAC0064FB7A /* zh-Hans */,
+				1719367E2D86FE3100ECB17D /* zh-Hans */,
 			);
 			name = WidgetSettingsIntent.intentdefinition;
 			sourceTree = "<group>";
