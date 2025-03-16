@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private var refreshTimer: Timer?
     private var showOSBuildVersion = false
     
-    private var allDatainSection = 4
+    private var allDataInSection = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if !BatteryDataController.checkRunTimePermission() {
             
             if !BatteryDataController.checkInstallPermission() {
-                let alert = UIAlertController(title: NSLocalizedString("Alert", comment: ""), message: NSLocalizedString("NeedRunTimePremissionMessage", comment: ""), preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString("Alert", comment: ""), message: NSLocalizedString("NeedRunTimePermissionMessage", comment: ""), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .cancel))
                 present(alert, animated: true)
                 
@@ -130,10 +130,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - 设置总分组数量
     func numberOfSections(in tableView: UITableView) -> Int {
         if settingsUtils.getShowSettingsBatteryInfo() {
-            allDatainSection = 4
+            allDataInSection = 4
             return 5
         } else {
-            allDatainSection = 3
+            allDataInSection = 3
             return 4
         }
     }
@@ -149,7 +149,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return 2
         case 1: return 9 // 电池信息
         case 2: // 充电信息
-            if settingsUtils.getForceShowChargeingData() {
+            if settingsUtils.getForceShowChargingData() {
                 return 11
             } else {
                 if isDeviceCharging() || isChargeByWatts() {
@@ -444,7 +444,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         
-        if indexPath.section == allDatainSection {
+        if indexPath.section == allDataInSection {
             cell.accessoryType = .disclosureIndicator
             if indexPath.row == 0 { // 显示全部数据
                 cell.textLabel?.text = NSLocalizedString("AllData", comment: "")
@@ -462,7 +462,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if indexPath.section == 0 && indexPath.row == 0 {
             self.showOSBuildVersion = !showOSBuildVersion
             tableView.reloadRows(at: [indexPath], with: .none)
-        } else if indexPath.section == allDatainSection {
+        } else if indexPath.section == allDataInSection {
             if indexPath.row == 0 { // 显示全部数据
                 let allBatteryDataViewController = AllBatteryDataViewController()
                 allBatteryDataViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏

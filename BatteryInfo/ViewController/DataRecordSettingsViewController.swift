@@ -151,7 +151,7 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
     @objc func onSwitchChanged(_ sender: UISwitch) {
         
         if sender.tag == 0 { // 启用的开关
-            settingsUtils.setRecordFrequency(value: .Toogle) // 切换启用的开关
+            settingsUtils.setRecordFrequency(value: .Toggle) // 切换启用的开关
         } else if sender.tag == 1 {
             settingsUtils.setShowHistoryRecordViewInHomeView(value: sender.isOn) // 切换显示在主界面的开关
             reloadMainTabBar = true // 更改刷新标记

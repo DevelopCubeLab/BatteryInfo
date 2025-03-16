@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     private let tableTitleList = [nil, NSLocalizedString("MaximumCapacityAccuracy", comment: ""), NSLocalizedString("About", comment: "")]
     
-    private let tableCellList = [[NSLocalizedString("AutoRefreshDataViewSetting", comment: ""), NSLocalizedString("ForceShowChargeingData", comment: ""), NSLocalizedString("ShowSettingsBatteryInfo", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", NSLocalizedString("ThanksForXiaoboVlog", comment: "")]]
+    private let tableCellList = [[NSLocalizedString("AutoRefreshDataViewSetting", comment: ""), NSLocalizedString("ForceShowChargingData", comment: ""), NSLocalizedString("ShowSettingsBatteryInfo", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", NSLocalizedString("ThanksForXiaoboVlog", comment: "")]]
     // NSLocalizedString("ShowCPUFrequency", comment: "")
     
     // 标记一下每个分组的编号，防止新增一组还需要修改好几处的代码
@@ -92,7 +92,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 if indexPath.row == 0 {
                     switchView.isOn = SettingsUtils.instance.getAutoRefreshDataView()
                 } else if indexPath.row == 1 {
-                    switchView.isOn = SettingsUtils.instance.getForceShowChargeingData()
+                    switchView.isOn = SettingsUtils.instance.getForceShowChargingData()
                 } else if indexPath.row == 2 {
                     switchView.isOn = SettingsUtils.instance.getShowSettingsBatteryInfo()
                 }
@@ -168,7 +168,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if sender.tag == 0 {
             SettingsUtils.instance.setAutoRefreshDataView(value: sender.isOn)
         } else if sender.tag == 1 {
-            SettingsUtils.instance.setForceShowChargeingData(value: sender.isOn)
+            SettingsUtils.instance.setForceShowChargingData(value: sender.isOn)
         } else if sender.tag == 2 {
             SettingsUtils.instance.setShowSettingsBatteryInfo(value: sender.isOn)
         }

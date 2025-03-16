@@ -938,7 +938,7 @@
         }
       }
     },
-    "ForceShowChargeingData" : {
+    "ForceShowChargingData" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1214,7 +1214,7 @@
         }
       }
     },
-    "NeedRunTimePremissionMessage" : {
+    "NeedRunTimePermissionMessage" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
