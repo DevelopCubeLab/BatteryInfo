@@ -82,7 +82,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
         case 1: return 2
         case 2: return 3
         case 3:
-            if SettingsUtils.instance.getForceShowChargeingData() {
+            if SettingsUtils.instance.getForceShowChargingData() {
                 return 8
             } else if isDeviceCharging() {
                 if chargerHaveName() {

@@ -1230,7 +1230,7 @@
         }
       }
     },
-    "NeedRunTimePremissionMessage" : {
+    "NeedRunTimePermissionMessage" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
