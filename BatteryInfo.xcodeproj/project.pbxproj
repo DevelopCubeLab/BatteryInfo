@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171936842D8730DA00ECB17D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C7982D79CD4D0064FB7A /* WidgetKit.framework */; };
+		171936852D8730DA00ECB17D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C79A2D79CD4D0064FB7A /* SwiftUI.framework */; };
+		171936902D8730DB00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		171D16682D8735E50025AE19 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 17B0EDBF2D49C07B00F77781 /* Localizable.xcstrings */; };
 		1731F9BB2D50D02600AA1FD5 /* DeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731F9BA2D50D02600AA1FD5 /* DeviceController.m */; };
 		1781C7992D79CD4D0064FB7A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C7982D79CD4D0064FB7A /* WidgetKit.framework */; };
 		1781C79B2D79CD4D0064FB7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C79A2D79CD4D0064FB7A /* SwiftUI.framework */; };
@@ -31,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1719368E2D8730DB00ECB17D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17D996C72D1D50A50056394C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 171936822D8730DA00ECB17D;
+			remoteInfo = BatteryInfoLockScreenWidgetExtension;
+		};
 		1781C7AA2D79CD4E0064FB7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17D996C72D1D50A50056394C /* Project object */;
@@ -48,6 +59,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				1781C7AC2D79CD4E0064FB7A /* BatteryInfoWidgetExtension.appex in Embed Foundation Extensions */,
+				171936902D8730DB00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		1719367E2D86FE3100ECB17D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WidgetSettingsIntent.strings"; sourceTree = "<group>"; };
+		171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BatteryInfoLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1731F9B92D50D02600AA1FD5 /* DeviceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
 		1731F9BA2D50D02600AA1FD5 /* DeviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceController.m; sourceTree = "<group>"; };
 		173AC2172D7C1368002EE482 /* ExtensionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionKit.framework; path = System/Library/Frameworks/ExtensionKit.framework; sourceTree = SDKROOT; };
@@ -85,6 +98,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		171936912D8730DB00ECB17D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 171936822D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension */;
+		};
 		1781C7B02D79CD4E0064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -111,6 +131,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		171936862D8730DA00ECB17D /* BatteryInfoLockScreenWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (171936912D8730DB00ECB17D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BatteryInfoLockScreenWidget; sourceTree = "<group>"; };
 		1781C79C2D79CD4D0064FB7A /* BatteryInfoWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1781C7B02D79CD4E0064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BatteryInfoWidget; sourceTree = "<group>"; };
 		17BC10FD2D51F6E4009924BF /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1781C7BE2D79D9D70064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
 		17F66BE92D2A24BC0097A29A /* ViewController */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewController; sourceTree = "<group>"; };
@@ -118,6 +139,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		171936802D8730DA00ECB17D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				171936852D8730DA00ECB17D /* SwiftUI.framework in Frameworks */,
+				171936842D8730DA00ECB17D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1781C7942D79CD4D0064FB7A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,6 +190,7 @@
 			children = (
 				17D996D12D1D50A60056394C /* BatteryInfo */,
 				1781C79C2D79CD4D0064FB7A /* BatteryInfoWidget */,
+				171936862D8730DA00ECB17D /* BatteryInfoLockScreenWidget */,
 				17D996D02D1D50A60056394C /* Products */,
 				179E78972D1D5E49009C29C9 /* Frameworks */,
 			);
@@ -170,6 +201,7 @@
 			children = (
 				17D996CF2D1D50A60056394C /* BatteryInfo.app */,
 				1781C7972D79CD4D0064FB7A /* BatteryInfoWidgetExtension.appex */,
+				171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +244,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		171936822D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 171936922D8730DB00ECB17D /* Build configuration list for PBXNativeTarget "BatteryInfoLockScreenWidgetExtension" */;
+			buildPhases = (
+				1719367F2D8730DA00ECB17D /* Sources */,
+				171936802D8730DA00ECB17D /* Frameworks */,
+				171936812D8730DA00ECB17D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				171936862D8730DA00ECB17D /* BatteryInfoLockScreenWidget */,
+			);
+			name = BatteryInfoLockScreenWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = BatteryInfoLockScreenWidgetExtension;
+			productReference = 171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1781C7962D79CD4D0064FB7A /* BatteryInfoWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1781C7B12D79CD4E0064FB7A /* Build configuration list for PBXNativeTarget "BatteryInfoWidgetExtension" */;
@@ -247,6 +301,7 @@
 			);
 			dependencies = (
 				1781C7AB2D79CD4E0064FB7A /* PBXTargetDependency */,
+				1719368F2D8730DB00ECB17D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				17BC10FD2D51F6E4009924BF /* Utils */,
@@ -268,6 +323,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					171936822D8730DA00ECB17D = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					1781C7962D79CD4D0064FB7A = {
 						CreatedOnToolsVersion = 15.2;
 						LastSwiftMigration = 1520;
@@ -294,11 +352,20 @@
 			targets = (
 				17D996CE2D1D50A60056394C /* BatteryInfo */,
 				1781C7962D79CD4D0064FB7A /* BatteryInfoWidgetExtension */,
+				171936822D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		171936812D8730DA00ECB17D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				171D16682D8735E50025AE19 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1781C7952D79CD4D0064FB7A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +389,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1719367F2D8730DA00ECB17D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1781C7932D79CD4D0064FB7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +421,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1719368F2D8730DB00ECB17D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 171936822D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension */;
+			targetProxy = 1719368E2D8730DB00ECB17D /* PBXContainerItemProxy */;
+		};
 		1781C7AB2D79CD4E0064FB7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1781C7962D79CD4D0064FB7A /* BatteryInfoWidgetExtension */;
@@ -375,6 +454,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		171936932D8730DB00ECB17D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2WABLB38D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BatteryInfoLockScreenWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoLockScreenWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developlab.BatteryInfo.BatteryInfoLockScreenWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		171936942D8730DB00ECB17D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2WABLB38D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BatteryInfoLockScreenWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoLockScreenWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developlab.BatteryInfo.BatteryInfoLockScreenWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1781C7AE2D79CD4E0064FB7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -713,6 +850,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		171936922D8730DB00ECB17D /* Build configuration list for PBXNativeTarget "BatteryInfoLockScreenWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				171936932D8730DB00ECB17D /* Debug */,
+				171936942D8730DB00ECB17D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1781C7B12D79CD4E0064FB7A /* Build configuration list for PBXNativeTarget "BatteryInfoWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
