@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if #available(iOS 14.0, *) { // 只在iOS 14.0或者以上系统版本才显示Widget设置
             tableCellList[0].append(NSLocalizedString("WidgetSettings", comment: ""))
         }
-        
+
         // 设置表格视图的代理和数据源
         tableView.delegate = self
         tableView.dataSource = self
@@ -96,7 +96,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 if indexPath.row == 0 {
                     switchView.isOn = SettingsUtils.instance.getAutoRefreshDataView()
                 } else if indexPath.row == 1 {
-                    switchView.isOn = SettingsUtils.instance.getForceShowChargeingData()
+                    switchView.isOn = SettingsUtils.instance.getForceShowChargingData()
                 } else if indexPath.row == 2 {
                     switchView.isOn = SettingsUtils.instance.getShowSettingsBatteryInfo()
                 }
@@ -178,7 +178,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if sender.tag == 0 {
             SettingsUtils.instance.setAutoRefreshDataView(value: sender.isOn)
         } else if sender.tag == 1 {
-            SettingsUtils.instance.setForceShowChargeingData(value: sender.isOn)
+            SettingsUtils.instance.setForceShowChargingData(value: sender.isOn)
         } else if sender.tag == 2 {
             SettingsUtils.instance.setShowSettingsBatteryInfo(value: sender.isOn)
         }
