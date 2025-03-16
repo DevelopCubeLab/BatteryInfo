@@ -15,9 +15,11 @@ before-package::
 	@if [ -f $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/Info.plist ]; then \
 		echo -e "\033[32mSigning with ldid...\033[0m"; \
 		ldid -Sentitlements.plist $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app; \
+		ldid -Sentitlements-widget.plist $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/PlugIns/BatteryInfoWidgetExtension.appex; \
 	else \
 		@echo -e "\033[31mNo Info.plist found. Skipping ldid signing.\033[0m"; \
 	fi
+	
 	@echo -e "\033[32mRemoving _CodeSignature folder..."
 	@rm -rf $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/_CodeSignature
 	@rm -rf $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/PlugIns/BatteryInfoWidgetExtension.appex/BatteryInfoWidgetExtension/_CodeSignature

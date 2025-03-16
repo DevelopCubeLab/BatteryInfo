@@ -55,6 +55,36 @@
 					<key>INEnumValueName</key>
 					<string>value2</string>
 				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Black</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>ujep0r</string>
+					<key>INEnumValueIndex</key>
+					<integer>4</integer>
+					<key>INEnumValueName</key>
+					<string>value3</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Blue white theme</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>Q8A5vh</string>
+					<key>INEnumValueIndex</key>
+					<integer>5</integer>
+					<key>INEnumValueName</key>
+					<string>value4</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Blue cyan theme</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>J1ocdA</string>
+					<key>INEnumValueIndex</key>
+					<integer>6</integer>
+					<key>INEnumValueName</key>
+					<string>value5</string>
+				</dict>
 			</array>
 		</dict>
 	</array>

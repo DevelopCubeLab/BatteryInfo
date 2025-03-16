@@ -12,15 +12,17 @@
 	<true/>
 	<key>com.apple.private.security.storage.AppDataContainers</key>
 	<true/>
+	<key>com.apple.private.security.container-required</key>
+	<string>com.developlab.BatteryInfo.BatteryInfoWidget</string>
 	<key>com.apple.security.iokit-user-client-class</key>
 	<array>
 		<string>IOPMPowerSourceClient</string>
 	</array>
 	<key>com.apple.security.exception.iokit-user-client-class</key>
 	<array>
-    	<string>IOAccelerator</string>
-    	<string>IOGPUDeviceUserClient</string>
-    	<string>IOSurfaceRootUserClient</string>
+		<string>IOAccelerator</string>
+		<string>IOGPUDeviceUserClient</string>
+		<string>IOSurfaceRootUserClient</string>
 	</array>
 </dict>
 </plist>

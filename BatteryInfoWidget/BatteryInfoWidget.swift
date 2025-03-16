@@ -17,6 +17,9 @@ enum AppearanceType: Int {
     case system = 1
     case light = 2
     case dark = 3
+    case black = 4
+    case blueWhiteTheme = 5
+    case blueCyanTheme = 6
 
     static func from(intent: BatteryInfoWidgetIntent) -> AppearanceType {
         let rawValue = intent.Appearance.rawValue
@@ -116,29 +119,54 @@ struct BatteryInfoWidgetEntryView: View {
                     .foregroundColor(getTextColor(for: entry.appearance))
                 }
             }
-            .padding(15)
+            .padding(getBackgroundPadding())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(getBackgroundColor(for: entry.appearance))
+        .applyBackground(for: entry.appearance)
+//        .background(getBackgroundColor(for: entry.appearance))
     }
     
-    private func getBackgroundColor(for appearance: AppearanceType) -> Color {
-        switch appearance {
-        case .system: return Color(UIColor.systemBackground) // 跟随系统
-        case .light: return Color.white
-        case .dark: return Color.black
-        }
-    }
+}
 
-    private func getTextColor(for appearance: AppearanceType) -> Color {
-        switch appearance {
-        case .system: return Color(UIColor.label) // 跟随系统
-        case .light: return Color.black
-        case .dark: return Color.white
+extension View { // 兼容iOS 17.0导致的背景颜色的问题
+    func applyBackground(for appearance: AppearanceType) -> some View {
+        if #available(iOS 17.0, *) {
+            return self.containerBackground(getBackgroundColor(for: appearance), for: .widget)
+        } else {
+            return self.background(getBackgroundColor(for: appearance))
         }
     }
 }
 
+private func getBackgroundColor(for appearance: AppearanceType) -> Color {
+    switch appearance {
+    case .system: return Color(UIColor.systemBackground) // 跟随系统
+    case .light: return Color.white
+    case .black: return Color.black
+    case .dark: return Color(UIColor(red: 28/255.0, green: 28/255.0, blue: 30/255.0, alpha: 1.0)) // 系统Dark mode的widget的背景颜色
+    case .blueWhiteTheme: return Color(UIColor(red: 50/255.0, green: 165/255.0, blue: 231/255.0, alpha: 1.0)) // 图标的蓝色
+    case .blueCyanTheme: return Color(UIColor(red: 125/255.0, green: 205/255.0, blue: 255/255.0, alpha: 1.0)) // 蓝色
+    }
+}
+
+private func getTextColor(for appearance: AppearanceType) -> Color {
+    switch appearance {
+    case .system: return Color(UIColor.label) // 跟随系统
+    case .light: return Color.black
+    case .dark: return Color.white
+    case .black: return Color.white
+    case .blueWhiteTheme: return Color.white
+    case .blueCyanTheme: return Color(UIColor(red: 30/255.0, green: 65/255.0, blue: 125/255.0, alpha: 1.0))
+    }
+}
+
+private func getBackgroundPadding() -> CGFloat { // 解决iOS 17.0开始的边距问题
+    if #available(iOS 17.0, macOS 14.0, *) {
+        return 0
+    } else {
+        return 15
+    }
+}
 
 // 带图标的Widget UI
 struct BatteryInfoWidgetSymbolEntryView: View {
@@ -169,26 +197,11 @@ struct BatteryInfoWidgetSymbolEntryView: View {
                         .foregroundColor(getTextColor(for: entry.appearance))
                 }
             }
-            .padding(15)
+            .padding(getBackgroundPadding())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(getBackgroundColor(for: entry.appearance))
-    }
-
-    private func getBackgroundColor(for appearance: AppearanceType) -> Color {
-        switch appearance {
-        case .system: return Color(UIColor.systemBackground)
-        case .light: return Color.white
-        case .dark: return Color.black
-        }
-    }
-
-    private func getTextColor(for appearance: AppearanceType) -> Color {
-        switch appearance {
-        case .system: return Color(UIColor.label)
-        case .light: return Color.black
-        case .dark: return Color.white
-        }
+        .applyBackground(for: entry.appearance)
+//        .background(getBackgroundColor(for: entry.appearance))
     }
 }
 
