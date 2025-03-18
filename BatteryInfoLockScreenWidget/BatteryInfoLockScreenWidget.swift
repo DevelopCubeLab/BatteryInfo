@@ -44,7 +44,7 @@ struct BatteryInfoLockScreenWidgetView: View {
             Image(systemName: "battery.100")
                 .resizable()
                 .scaledToFit()
-                .padding(5)
+                .padding(8)
         }
         .applyLockScreenBackground() // 背景
     }

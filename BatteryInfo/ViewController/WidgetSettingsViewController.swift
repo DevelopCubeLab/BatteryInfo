@@ -108,13 +108,11 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 2 {
-            if indexPath.row == 0 {
-                if widgetController.reloadWidgetSandboxPathRecord() {
-                    NSLog("重置Widget沙盒成功")
-                }
-            } else if indexPath.row == 1 {
-                widgetController.refreshWidget()
+        if indexPath.section == 1 {
+            widgetController.refreshWidget()
+        } else if indexPath.section == 3 {
+            if widgetController.reloadWidgetSandboxPathRecord() {
+                NSLog("重置Widget沙盒成功")
             }
         }
     }

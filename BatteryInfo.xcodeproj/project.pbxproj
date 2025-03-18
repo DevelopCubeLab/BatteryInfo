@@ -67,8 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1719367E2D86FE3100ECB17D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WidgetSettingsIntent.strings"; sourceTree = "<group>"; };
 		171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BatteryInfoLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		171D3B9B2D8979C900AA624E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WidgetSettingsIntent.strings"; sourceTree = "<group>"; };
 		1731F9B92D50D02600AA1FD5 /* DeviceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
 		1731F9BA2D50D02600AA1FD5 /* DeviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceController.m; sourceTree = "<group>"; };
 		173AC2172D7C1368002EE482 /* ExtensionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionKit.framework; path = System/Library/Frameworks/ExtensionKit.framework; sourceTree = SDKROOT; };
@@ -438,7 +438,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1781C7E62D7A2E900064FB7A /* en */,
-				1719367E2D86FE3100ECB17D /* zh-Hans */,
+				171D3B9B2D8979C900AA624E /* zh-Hans */,
 			);
 			name = WidgetSettingsIntent.intentdefinition;
 			sourceTree = "<group>";

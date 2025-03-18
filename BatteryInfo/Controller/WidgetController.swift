@@ -16,6 +16,7 @@ class WidgetController {
     func checkWidgetSandBoxPathExist(widgetSandBoxBasePath: [String]) -> Bool {
         for path in widgetSandBoxBasePath {
             if !FileManager.default.fileExists(atPath: path) {
+                
                 return false
             }
         }
@@ -163,24 +164,26 @@ class WidgetController {
         if !settingsUtils.getEnableWidget() { // 先判断下用户是否启用了Widget
             return false
         }
-        
+        NSLog("BatteryInfo-----> 获取Widget沙盒目录")
         let widgetSandBoxBasePaths = settingsUtils.getWidgetSandboxDirectoryPath()
         
         // 检查沙盒目录是否存在
         if !checkWidgetSandBoxPathExist(widgetSandBoxBasePath: widgetSandBoxBasePaths) {
+            NSLog("BatteryInfo-----> 开始检测沙盒目录")
             if !reloadWidgetSandboxPathRecord() { // 目录不存在则刷新
+                NSLog("BatteryInfo-----> 沙盒目录不存在，已经重建")
                 return false
             }
         }
         
         var hasSaved = false // 记录是否成功保存过至少一次数据
-
+        NSLog("BatteryInfo-----> 开始获取数据")
         for widgetSandBoxBasePath in widgetSandBoxBasePaths {
             
             // 构造 Widget 沙盒的 Preferences 目录
             let preferencesPath = widgetSandBoxBasePath + "Library/Preferences"
             let dataManager = PlistManagerUtils.instance(for: widgetBatteryDataPlistName, customPath: preferencesPath)
-
+            NSLog("BatteryInfo-----> 写入目录 \(preferencesPath)")
             // 存储电池数据
             dataManager.setString(key: "maximumCapacity", value: batteryData.maximumCapacity)
             dataManager.setInt(key: "cycleCount", value: batteryData.cycleCount)

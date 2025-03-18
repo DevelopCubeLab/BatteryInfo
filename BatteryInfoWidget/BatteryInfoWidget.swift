@@ -20,6 +20,8 @@ enum AppearanceType: Int {
     case black = 4
     case blueWhiteTheme = 5
     case blueCyanTheme = 6
+    case Amber = 7
+    case RedOrange = 8
 
     static func from(intent: BatteryInfoWidgetIntent) -> AppearanceType {
         let rawValue = intent.Appearance.rawValue
@@ -81,7 +83,7 @@ struct Provider: IntentTimelineProvider {
     private func createEntry(with configuration: BatteryInfoWidgetIntent) -> SimpleEntry {
         let batteryData = WidgetController.instance.getWidgetBatteryData()
         let appearance = AppearanceType.from(intent: configuration)
-        let showUpdateTime = configuration.ShowUpdateTime?.boolValue ?? true
+        let showUpdateTime = configuration.ShowUpdateTime?.boolValue ?? false // 默认显示更新时间
 
         return SimpleEntry(
             date: Date(),
@@ -98,24 +100,32 @@ struct Provider: IntentTimelineProvider {
 // 默认的Widget UI
 struct BatteryInfoWidgetEntryView: View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family // 判断用户选择的widget尺寸
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: family == .systemMedium ? 11 : 8) {
+                
+                // 固定一个icon
+                Image(systemName: "battery.100")
+                    .font(.system(size: 25))
+                    .foregroundColor(getTextColor(for: entry.appearance))
+                    .offset(getIconOffset(family: family)) // 位置
+                
                 Text(String.localizedStringWithFormat(
                     NSLocalizedString("WidgetMaximumCapacity", comment: ""), entry.batteryData.maximumCapacity))
-                .font(.footnote)
+                .font(family == .systemMedium ? .title3 : .footnote) // 根据尺寸设置字体大小
                 .foregroundColor(getTextColor(for: entry.appearance))
                 
                 Text(String.localizedStringWithFormat(
                     NSLocalizedString("CycleCount", comment: ""), String(entry.batteryData.cycleCount)))
-                .font(.footnote)
+                .font(family == .systemMedium ? .title3 : .footnote)
                 .foregroundColor(getTextColor(for: entry.appearance))
                 
                 if entry.showUpdateTime {
                     Text(String.localizedStringWithFormat(
                         NSLocalizedString("UpdateTime", comment: ""), entry.batteryData.updateDate))
-                    .font(.footnote)
+                    .font(family == .systemMedium ? .title3 : .footnote)
                     .foregroundColor(getTextColor(for: entry.appearance))
                 }
             }
@@ -146,6 +156,8 @@ private func getBackgroundColor(for appearance: AppearanceType) -> Color {
     case .dark: return Color(UIColor(red: 28/255.0, green: 28/255.0, blue: 30/255.0, alpha: 1.0)) // 系统Dark mode的widget的背景颜色
     case .blueWhiteTheme: return Color(UIColor(red: 50/255.0, green: 165/255.0, blue: 231/255.0, alpha: 1.0)) // 图标的蓝色
     case .blueCyanTheme: return Color(UIColor(red: 125/255.0, green: 205/255.0, blue: 255/255.0, alpha: 1.0)) // 蓝色
+    case .Amber: return Color(UIColor(red: 238/255.0, green: 163/255.0, blue: 19/255.0, alpha: 1.0)) // 橙色
+    case .RedOrange: return Color(UIColor(red: 234/255.0, green: 82/255.0, blue: 70/255.0, alpha: 1.0)) // 红色
     }
 }
 
@@ -156,6 +168,8 @@ private func getTextColor(for appearance: AppearanceType) -> Color {
     case .dark: return Color.white
     case .black: return Color.white
     case .blueWhiteTheme: return Color.white
+    case .Amber: return Color.white
+    case.RedOrange: return Color.white
     case .blueCyanTheme: return Color(UIColor(red: 30/255.0, green: 65/255.0, blue: 125/255.0, alpha: 1.0))
     }
 }
@@ -168,6 +182,32 @@ private func getBackgroundPadding() -> CGFloat { // 解决iOS 17.0开始的边�
     }
 }
 
+// 获取icon的位置，让不同尺寸和不同的系统都有合适的位置
+private func getIconOffset(family: WidgetFamily) -> CGSize {
+    
+    if #available(iOS 17.0, macOS 14.0, *) {
+        if family == .systemMedium {
+            return CGSize(width: -2, height: 5)
+        } else {
+            return CGSize(width: -3, height: 2)
+        }
+    } else {
+        if family == .systemMedium {
+            return CGSize(width: -2, height: 2)
+        } else {
+            return CGSize(width: -3, height: 0)
+        }
+    }
+}
+
+private func getSFIconOffset() -> CGSize {
+    if #available(iOS 17.0, macOS 14.0, *) {
+        return CGSize(width: -7, height: 2)
+    } else {
+        return CGSize(width: 7, height: 15)
+    }
+}
+
 // 带图标的Widget UI
 struct BatteryInfoWidgetSymbolEntryView: View {
     var entry: Provider.Entry
@@ -175,18 +215,27 @@ struct BatteryInfoWidgetSymbolEntryView: View {
     var body: some View {
         
         let data: [(symbol: String, value: String, applyFontRule: Bool)] = [
+//            ("battery.100", "", false),
             ("cross.case.fill", entry.batteryData.maximumCapacity.appending("%"), true),
             ("minus.plus.batteryblock.fill", String(entry.batteryData.cycleCount), false)
         ] + (entry.showUpdateTime ? [("clock.fill", entry.batteryData.updateDate, false)] : [])
+//        + (entry.appearance == .blueCyanTheme ? [("flag.checkered", "", false)] : [])
 
 
         let columns = [
             GridItem(.fixed(26), alignment: .center), // 图标列
             GridItem(.flexible(), alignment: .leading) // 数值列
         ]
-
+        
         ZStack(alignment: .topLeading) {
-            LazyVGrid(columns: columns, spacing: 8) {
+            
+            // 固定一个icon
+            Image(systemName: "battery.100")
+                .font(.system(size: 26))
+                .foregroundColor(getTextColor(for: entry.appearance))
+                .offset(getSFIconOffset()) // 位置
+            
+            LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(data, id: \.symbol) { item in
                     Image(systemName: item.symbol)
                         .font(.system(size: 22))
@@ -198,26 +247,13 @@ struct BatteryInfoWidgetSymbolEntryView: View {
                 }
             }
             .padding(getBackgroundPadding())
+            .padding(.top, 30) // 下移 grid，避免与 icon 重叠
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .applyBackground(for: entry.appearance)
 //        .background(getBackgroundColor(for: entry.appearance))
     }
 }
-
-
-/// @See https://stackoverflow.com/questions/76595240/widget-on-ios-17-beta-device-adopt-containerbackground-api
-//extension View {
-//    func widgetBackground(_ backgroundView: some View) -> some View {
-//        if #available(iOSApplicationExtension 17.0, *) {
-//            return containerBackground(for: .widget) {
-//                backgroundView
-//            }
-//        } else {
-//            return background(backgroundView)
-//        }
-//    }
-//}
 
 // Widget 配置
 struct BatteryInfoWidget: Widget {
@@ -229,7 +265,7 @@ struct BatteryInfoWidget: Widget {
         }
         .configurationDisplayName(NSLocalizedString("CFBundleDisplayName", comment: ""))
         .description("CFBundleDisplayName")
-        .supportedFamilies([.systemSmall]) // 只支持最小尺寸的widget
+        .supportedFamilies([.systemSmall, .systemMedium]) // 支持最小尺寸和中等尺寸的widget
     }
 }
 

@@ -85,6 +85,26 @@
 					<key>INEnumValueName</key>
 					<string>value5</string>
 				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Amber</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>91l5CK</string>
+					<key>INEnumValueIndex</key>
+					<integer>7</integer>
+					<key>INEnumValueName</key>
+					<string>value6</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Red-orange</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>TTarB2</string>
+					<key>INEnumValueIndex</key>
+					<integer>8</integer>
+					<key>INEnumValueName</key>
+					<string>value7</string>
+				</dict>
 			</array>
 		</dict>
 	</array>
@@ -186,8 +206,6 @@
 					<integer>2</integer>
 					<key>INIntentParameterMetadata</key>
 					<dict>
-						<key>INIntentParameterMetadataDefaultValue</key>
-						<true/>
 						<key>INIntentParameterMetadataFalseDisplayName</key>
 						<string>false</string>
 						<key>INIntentParameterMetadataFalseDisplayNameID</key>
