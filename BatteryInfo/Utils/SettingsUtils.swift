@@ -162,18 +162,13 @@ class SettingsUtils {
     }
     
     /// 获取Widget沙盒的根目录
-    func getWidgetSandboxDirectoryPath() -> [String] {
-        return plistManager.getArray(key: "WidgetSandboxPath", defaultValue: []) as? [String] ?? []
+    func getWidgetSandboxDirectoryPath() -> String {
+        return plistManager.getString(key: "WidgetSandboxPath", defaultValue: "")
     }
     
     /// 设置Widget沙盒的根目录
     func setWidgetSandboxDirectoryPath(path: String) {
         plistManager.setString(key: "WidgetSandboxPath", value: path)
-        plistManager.apply()
-    }
-    
-    func setWidgetSandboxDirectoryPath(paths: [String]) {
-        plistManager.setArray(key: "WidgetSandboxPath", value: paths)
         plistManager.apply()
     }
     

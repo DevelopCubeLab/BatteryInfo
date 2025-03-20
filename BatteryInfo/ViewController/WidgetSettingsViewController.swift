@@ -21,7 +21,9 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
         
         title = NSLocalizedString("WidgetSettings", comment: "")
         
-        tableCellList[2] = widgetController.getWidgetSandboxDirectory() // 加载widget的沙盒目录
+        if let widgetSandBoxPath = widgetController.getWidgetSandboxDirectory() {
+            tableCellList[2].append(widgetSandBoxPath) // 加载widget的沙盒目录
+        }
         
         // iOS 15 之后的版本使用新的UITableView样式
         if #available(iOS 15.0, *) {
