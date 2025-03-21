@@ -62,9 +62,9 @@ class WidgetController {
         let libraryURLs = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
 
         // 遍历并输出每个路径
-        for (index, url) in libraryURLs.enumerated() {
-            print("BatteryInfoWidget-----> Library Directory \(index + 1): \(url)")
-        }
+//        for (index, url) in libraryURLs.enumerated() {
+//            print("BatteryInfoWidget-----> Library Directory \(index + 1): \(url)")
+//        }
         
         let libraryURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
         NSLog("BatteryInfoWidget-----> libraryURL:" + libraryURL.path)

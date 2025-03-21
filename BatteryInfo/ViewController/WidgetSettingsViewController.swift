@@ -9,6 +9,7 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     
     private var tableCellList = [
         [NSLocalizedString("Enable", comment: "启用")],
+        [NSLocalizedString("FixedTime5Minutes", comment: ""), NSLocalizedString("DataChanged", comment: ""), NSLocalizedString("RefreshDataEveryTime", comment: ""), NSLocalizedString("Manual", comment: "")],
         [NSLocalizedString("ForceRefreshWidget", comment: "")],
         [],
         [NSLocalizedString("ResetWidgetSandBoxPath", comment: "")]
@@ -21,9 +22,7 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
         
         title = NSLocalizedString("WidgetSettings", comment: "")
         
-        if let widgetSandBoxPath = widgetController.getWidgetSandboxDirectory() {
-            tableCellList[2].append(widgetSandBoxPath) // 加载widget的沙盒目录
-        }
+        loadWidgetSandboxDirectory()
         
         // iOS 15 之后的版本使用新的UITableView样式
         if #available(iOS 15.0, *) {
@@ -56,6 +55,13 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //    }
+    
+    private func loadWidgetSandboxDirectory() {
+        tableCellList[3] = [] // 先清空
+        if let widgetSandBoxPath = widgetController.getWidgetSandboxDirectory() {
+            tableCellList[3].append(widgetSandBoxPath) // 加载widget的沙盒目录
+        }
+    }
     
     // MARK: - 设置总分组数量
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,11 +98,11 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
                 cell.accessoryView = switchView
                 cell.selectionStyle = .none
             }
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == 2 {
             cell.textLabel?.textAlignment = .center
             cell.selectionStyle = .default
             cell.textLabel?.textColor = .systemBlue
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             cell.textLabel?.textAlignment = .center
             cell.selectionStyle = .default
             cell.textLabel?.textColor = .systemRed
@@ -110,10 +116,12 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
             widgetController.refreshWidget()
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             if widgetController.reloadWidgetSandboxPathRecord() {
+                loadWidgetSandboxDirectory() // 刷新数据
+                tableView.reloadData() // 刷新UI
                 NSLog("重置Widget沙盒成功")
             }
         }

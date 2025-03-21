@@ -922,6 +922,9 @@
         }
       }
     },
+    "FixedTime5Minutes" : {
+
+    },
     "Floor" : {
       "localizations" : {
         "en" : {
@@ -1470,6 +1473,9 @@
           }
         }
       }
+    },
+    "RefreshDataEveryTime" : {
+
     },
     "RemainingCapacity" : {
       "extractionState" : "manual",

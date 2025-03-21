@@ -29,9 +29,7 @@ enum AppearanceType: Int {
     }
 }
 
-
-
-// Timeline Provider（提供 Widget 数据）
+// Timeline Provider（提供 Widget 数据）用于widget的刷新策略
 struct Provider: IntentTimelineProvider {
     // 占位符
     func placeholder(in context: Context) -> SimpleEntry {
@@ -51,8 +49,7 @@ struct Provider: IntentTimelineProvider {
         
         // 如果 updateTimeStamp 为 0，表示数据无效
         if entry.batteryData.updateTimeStamp == 0 {
-            // 立即刷新 widget 并显示占位符
-            let timeline = Timeline(entries: [entry], policy: .atEnd)
+            let timeline = Timeline(entries: [entry], policy: .never) // 如果没有数据就不用刷新了
             completion(timeline)
             return
         }
@@ -74,9 +71,6 @@ struct Provider: IntentTimelineProvider {
             completion(timeline)
         }
         
-//        let nextUpdate = hasNewData ? Date().addingTimeInterval(60 * 5) : Date().addingTimeInterval(60 * 45)
-//        let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
-//        completion(timeline)
     }
 
     // 解析 Intent 设置，返回 `SimpleEntry`
@@ -111,6 +105,7 @@ struct BatteryInfoWidgetEntryView: View {
                     .font(.system(size: 25))
                     .foregroundColor(getTextColor(for: entry.appearance))
                     .offset(getIconOffset(family: family)) // 位置
+                    .accessibilityLabel(Text("CFBundleDisplayName")) // 无障碍化VoiceOver读取的描述
                 
                 Text(String.localizedStringWithFormat(
                     NSLocalizedString("WidgetMaximumCapacity", comment: ""), entry.batteryData.maximumCapacity))
@@ -214,11 +209,14 @@ struct BatteryInfoWidgetSymbolEntryView: View {
 
     var body: some View {
         
-        let data: [(symbol: String, value: String, applyFontRule: Bool)] = [
+        let data: [(symbol: String, value: String, applyFontRule: Bool, accessibilityLabel: String)] = [
 //            ("battery.100", "", false),
-            ("cross.case.fill", entry.batteryData.maximumCapacity.appending("%"), true),
-            ("minus.plus.batteryblock.fill", String(entry.batteryData.cycleCount), false)
-        ] + (entry.showUpdateTime ? [("clock.fill", entry.batteryData.updateDate, false)] : [])
+            ("cross.case.fill", entry.batteryData.maximumCapacity.appending("%"), true, String.localizedStringWithFormat(
+                NSLocalizedString("WidgetMaximumCapacity", comment: ""), entry.batteryData.maximumCapacity)),
+            ("minus.plus.batteryblock.fill", String(entry.batteryData.cycleCount), false, String.localizedStringWithFormat(
+                NSLocalizedString("CycleCount", comment: ""), String(entry.batteryData.cycleCount)))
+        ] + (entry.showUpdateTime ? [("clock.fill", entry.batteryData.updateDate, false, String.localizedStringWithFormat(
+            NSLocalizedString("UpdateTime", comment: ""), entry.batteryData.updateDate))] : [])
 //        + (entry.appearance == .blueCyanTheme ? [("flag.checkered", "", false)] : [])
 
 
@@ -234,20 +232,26 @@ struct BatteryInfoWidgetSymbolEntryView: View {
                 .font(.system(size: 26))
                 .foregroundColor(getTextColor(for: entry.appearance))
                 .offset(getSFIconOffset()) // 位置
+                .accessibilityLabel(Text("CFBundleDisplayName")) // 无障碍化VoiceOver读取的描述
             
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(data, id: \.symbol) { item in
-                    Image(systemName: item.symbol)
-                        .font(.system(size: 22))
-                        .foregroundColor(getTextColor(for: entry.appearance))
-                    
-                    Text(item.value)
-                        .font(item.applyFontRule && (Double(item.value) ?? 0) > 100 ? .title3 : .title2)
-                        .foregroundColor(getTextColor(for: entry.appearance))
+                    Group {
+                        Image(systemName: item.symbol)
+                            .font(.system(size: 22))
+                            .foregroundColor(getTextColor(for: entry.appearance))
+                        
+                        Text(item.value)
+                            .font(item.applyFontRule && (Double(item.value) ?? 0) > 100 ? .title3 : .title2)
+                            .foregroundColor(getTextColor(for: entry.appearance))
+                    }
+                    .accessibilityElement(children: .combine) // 将 HStack 视为一个无障碍单元
+                    .accessibilityLabel(item.accessibilityLabel) // 无障碍化VoiceOver读取的文本
                 }
             }
             .padding(getBackgroundPadding())
             .padding(.top, 30) // 下移 grid，避免与 icon 重叠
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .applyBackground(for: entry.appearance)

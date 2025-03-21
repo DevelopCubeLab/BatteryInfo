@@ -45,6 +45,7 @@ struct BatteryInfoLockScreenWidgetView: View {
                 .resizable()
                 .scaledToFit()
                 .padding(8)
+                .accessibilityLabel(Text("CFBundleDisplayName")) // 无障碍化VoiceOver读取的描述
         }
         .applyLockScreenBackground() // 背景
     }

@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             tableView = UITableView(frame: .zero, style: .grouped)
         }
 
+        // MARK: - TODO 这里还要加上没有root权限下，直接不显示，并且默认关闭掉Widget，防止无端浪费资源
         if #available(iOS 14.0, *) { // 只在iOS 14.0或者以上系统版本才显示Widget设置
             tableCellList[0].append(NSLocalizedString("WidgetSettings", comment: ""))
         }
