@@ -41,11 +41,11 @@ extension BatteryRAWInfo {
         self.temperature = dict["Temperature"] as? Int
         self.bestAdapterIndex = dict["BestAdapterIndex"] as? Int
         
-        if let nominal = nominalChargeCapacity, let design = designCapacity, design > 0 {
-            self.maximumCapacity = BatteryDataController.getFormatMaximumCapacity(nominalChargeCapacity: nominal, designCapacity: design)
-        } else {
-            self.maximumCapacity = nil
-        }
+//        if let nominal = nominalChargeCapacity, let design = designCapacity, design > 0 {
+//            self.maximumCapacity = BatteryDataController.getFormatMaximumCapacity(nominalChargeCapacity: nominal, designCapacity: design)
+//        } else {
+//            self.maximumCapacity = nil
+//        }
         
         if let batteryDataDict = dict["BatteryData"] as? [String: Any] {
             self.batteryData = BatteryData(dict: batteryDataDict)

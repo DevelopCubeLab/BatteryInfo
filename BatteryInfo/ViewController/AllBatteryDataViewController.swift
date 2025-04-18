@@ -129,7 +129,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
             if indexPath.row == 0 {
                 if let serialNumber = batteryInfo?.serialNumber {
                     if isMaskSerialNumber {
-                        cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), BatteryDataController.maskSerialNumber(serialNumber))
+                        cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), BatteryFormatUtils.maskSerialNumber(serialNumber))
                     } else {
                         cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), serialNumber)
                     }
@@ -138,7 +138,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
                 }
             } else if indexPath.row == 1 {
                 if let serialNumber = batteryInfo?.serialNumber {
-                    cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), BatteryDataController.getBatteryManufacturer(from: serialNumber))
+                    cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), getBatteryManufacturer(from: serialNumber))
                 } else {
                     cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), NSLocalizedString("Unknown", comment: ""))
                 }
@@ -218,7 +218,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
             } else if indexPath.row == 5 {
                 if let chargerSerialNumber = batteryInfo?.adapterDetails?.serialString {
                     if isMaskSerialNumber {
-                        cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), BatteryDataController.maskSerialNumber(chargerSerialNumber))
+                        cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), BatteryFormatUtils.maskSerialNumber(chargerSerialNumber))
                     } else {
                         cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), chargerSerialNumber)
                     }

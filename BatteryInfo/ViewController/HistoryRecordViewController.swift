@@ -9,6 +9,8 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
     
     private var recordShowDesignCapacity = SettingsUtils.instance.getRecordShowDesignCapacity()
     
+    private var capacityAccuracy: SettingsUtils.MaximumCapacityAccuracy?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +53,9 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // 获取容量准确度参数
+        self.capacityAccuracy = SettingsUtils.instance.getMaximumCapacityAccuracy()
+        // 重新加载历史数据
         loadHistoryDataRecords()
         
         // 防止 ViewController 释放后仍然执行 UI 更新
@@ -108,21 +113,21 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
                 // 这种情况下应该是用户自己添加的
                 cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("MaximumCapacity", comment: ""), String(maximumCapacity)) + "\n" +
                 String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), String(recordData.cycleCount)) + "\n" +
-                String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryDataController.formatTimestamp(recordData.createDate))
+                String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryFormatUtils.formatTimestamp(recordData.createDate))
             } else {
                 // 自动记录的
                 if let nominal = recordData.nominalChargeCapacity, let design = recordData.designCapacity {
-                    cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("MaximumCapacity", comment: ""), BatteryDataController.getFormatMaximumCapacity(nominalChargeCapacity: nominal, designCapacity: design)) + "\n" +
+                    cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("MaximumCapacity", comment: ""), BatteryFormatUtils.getFormatMaximumCapacity(nominalChargeCapacity: nominal, designCapacity: design, accuracy: capacityAccuracy!)) + "\n" +
                     String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), String(recordData.cycleCount)) + "\n" +
                     String.localizedStringWithFormat(NSLocalizedString("RemainingCapacity", comment: ""), String(nominal)) + "\n"
                     
                     if self.recordShowDesignCapacity { // 是否显示设计容量
                         cell.textLabel?.text = cell.textLabel?.text?.appending(
                             String.localizedStringWithFormat(NSLocalizedString("DesignCapacity", comment: ""), String(design)) + "\n" +
-                            String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryDataController.formatTimestamp(recordData.createDate)))
+                            String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryFormatUtils.formatTimestamp(recordData.createDate)))
                     } else {
                         cell.textLabel?.text = cell.textLabel?.text?.appending(
-                            String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryDataController.formatTimestamp(recordData.createDate)))
+                            String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryFormatUtils.formatTimestamp(recordData.createDate)))
                     }
                 }
                 

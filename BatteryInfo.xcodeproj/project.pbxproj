@@ -45,6 +45,8 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		17BC10FD2D51F6E4009924BF /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
+		17DA4E2A2DAB91D80024FE8C /* Protocol */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Protocol; sourceTree = "<group>"; };
+		17DA4E2B2DAB91EC0024FE8C /* Provider */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Provider; sourceTree = "<group>"; };
 		17F66BE92D2A24BC0097A29A /* ViewController */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewController; sourceTree = "<group>"; };
 		17F66BEB2D2A25840097A29A /* Entity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Entity; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -94,6 +96,8 @@
 		17D996D12D1D50A60056394C /* BatteryInfo */ = {
 			isa = PBXGroup;
 			children = (
+				17DA4E2B2DAB91EC0024FE8C /* Provider */,
+				17DA4E2A2DAB91D80024FE8C /* Protocol */,
 				17BC10FD2D51F6E4009924BF /* Utils */,
 				1731F9B92D50D02600AA1FD5 /* DeviceController.h */,
 				1731F9BA2D50D02600AA1FD5 /* DeviceController.m */,
@@ -140,6 +144,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				17BC10FD2D51F6E4009924BF /* Utils */,
+				17DA4E2A2DAB91D80024FE8C /* Protocol */,
+				17DA4E2B2DAB91EC0024FE8C /* Provider */,
 				17F66BE92D2A24BC0097A29A /* ViewController */,
 				17F66BEB2D2A25840097A29A /* Entity */,
 			);

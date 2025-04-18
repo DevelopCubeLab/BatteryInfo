@@ -319,5 +319,31 @@ func getDeviceName() -> String {
         // 未知设备
         default: return getDeviceModel()
     }
+    
+}
+
+/// 解析电池序列号，返回供应商名称
+/// - Parameter serialNumber: 电池的序列号
+/// - Returns: 供应商名称, 如果未知则返回 "Unknown"
+func getBatteryManufacturer(from serialNumber: String) -> String {
+    // 定义序列号前缀与供应商的映射表
+    let manufacturerMapping: [String: String] = [
+        "F8Y": NSLocalizedString("Sunwoda", tableName: "BatteryManufacturer", comment: "欣旺达"),
+        "SWD": NSLocalizedString("Sunwoda", tableName: "BatteryManufacturer", comment: "欣旺达"),
+        "F5D":  NSLocalizedString("Desay", tableName: "BatteryManufacturer", comment: "德赛"),
+        "DTP": NSLocalizedString("Desay", tableName: "BatteryManufacturer", comment: "德赛"),
+        "DSY": NSLocalizedString("Desay", tableName: "BatteryManufacturer", comment: "德赛"),
+        "FG9": NSLocalizedString("Simplo", tableName: "BatteryManufacturer", comment: "新普"),
+        "SMP": NSLocalizedString("Simplo", tableName: "BatteryManufacturer", comment: "新普"),
+        "ATL": NSLocalizedString("ATL", tableName: "BatteryManufacturer", comment: "ATL"),
+        "LGC": NSLocalizedString("LG", tableName: "BatteryManufacturer", comment: "LG"),
+        "SON": NSLocalizedString("Sony", tableName: "BatteryManufacturer", comment: "索尼"),
+    ]
+
+    // 获取序列号前三个字符作为前缀
+    let prefix = String(serialNumber.prefix(3))
+    
+    // 返回供应商名称, 如果找不到匹配项，则返回未知
+    return manufacturerMapping[prefix] ?? "Unknown"
 }
 
