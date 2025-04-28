@@ -142,5 +142,41 @@ class SettingsUtils {
         plistManager.apply()
     }
     
+    // 获取首页显示的内容组的顺序
+    func getHomeItemGroupSequence() -> [Int] {
+        let raw = plistManager.getArray(key: "HomeItemGroupSequence", defaultValue: [])
+        let intArray = raw.compactMap { $0 as? Int }
+        
+        // 默认顺序
+        let defaultSequence = [
+            BatteryInfoGroupID.basic,
+            BatteryInfoGroupID.charge,
+            BatteryInfoGroupID.settingsBatteryInfo
+        ]
+        
+        // 如果为空，直接返回默认顺序
+        if intArray.isEmpty {
+            return defaultSequence
+        }
+        
+        // 如果有重复或非法项，则清除设置并返回默认
+        if Set(intArray).count != intArray.count {
+            plistManager.setArray(key: "HomeItemGroupSequence", value: [])
+            plistManager.apply()
+            return defaultSequence
+        }
+        
+        return intArray
+    }
     
+    // 保存首页显示的内容组的顺序
+    func setHomeItemGroupSequence(_ sequence: [Int]) {
+        let set = Set(sequence)
+        // 必须非空且无重复项
+        guard !sequence.isEmpty, set.count == sequence.count else {
+            return
+        }
+        plistManager.setArray(key: "HomeItemGroupSequence", value: sequence)
+        plistManager.apply()
+    }
 }

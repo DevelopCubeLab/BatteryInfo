@@ -8,7 +8,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private var settingsUtils = SettingsUtils.instance
     
     private var batteryInfo: BatteryRAWInfo?
-    private var settingsBatteryInfo: BatteryDataController.SettingsBatteryData?
+    private var settingsBatteryInfo: SettingsBatteryData?
     
     private var refreshTimer: Timer?
     private var showOSBuildVersion = false
@@ -143,9 +143,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         switch section {
         case 0: // 系统信息
-//            if settingsUtils.getShowCPUFrequency() {
-//                return 3
-//            }
             return 2
         case 1: return 9 // 电池信息
         case 2: // 充电信息
@@ -163,11 +160,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         case 3: // 设置中的电池健康信息
-//            if settingsUtils.getShowSettingsBatteryInfo() {
-//                return 2
-//            } else {
-//                return 0
-//            }
             return 2
         case 4: return 2
         default: return 0
