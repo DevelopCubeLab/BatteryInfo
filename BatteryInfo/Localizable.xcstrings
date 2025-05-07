@@ -1326,6 +1326,22 @@
         }
       }
     },
+    "PossibleRefreshDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Possible Refresh Date: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预估刷新日期: %@"
+          }
+        }
+      }
+    },
     "PowerOptionDetail" : {
       "localizations" : {
         "en" : {

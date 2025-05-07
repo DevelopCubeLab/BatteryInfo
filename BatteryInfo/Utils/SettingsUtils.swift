@@ -54,12 +54,24 @@ class SettingsUtils {
         plistManager.apply()
     }
     
+    /// 获取是否显示设置中的电池健康度信息
     func getShowSettingsBatteryInfo() -> Bool {
         return plistManager.getBool(key: "ShowSettingsBatteryInfo", defaultValue: false)
     }
     
     func setShowSettingsBatteryInfo(value: Bool) {
         plistManager.setBool(key: "ShowSettingsBatteryInfo", value: value)
+        plistManager.apply()
+    }
+    
+    /// 获取是否使用历史记录中的数据推算设置中的电池健康度的刷新日期
+    func getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate() -> Bool {
+        // 必须开启历史记录功能才能获取
+        return getEnableRecordBatteryData() && plistManager.getBool(key: "UseHistoryRecordToCalculate", defaultValue: true)
+    }
+    
+    func setUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate(value: Bool) {
+        plistManager.setBool(key: "UseHistoryRecordToCalculate", value: value)
         plistManager.apply()
     }
     

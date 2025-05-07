@@ -10,6 +10,8 @@ class BatteryDataController {
     
     private let settingsUtils = SettingsUtils.instance
     
+    private var isMaskSerialNumber = false // 是否隐藏序列号显示
+    
     init(provider: BatteryDataProviderProtocol) {
         self.provider = provider
     }
@@ -129,7 +131,7 @@ class BatteryDataController {
                 id: BatteryInfoItemID.currentCapacity,
                 text: String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), String(currentCapacity))
             )
-        } else if let currentCapacity = getBatteryPercentage() { // 非Root设备使用备用方法
+        } else if let currentCapacity = SystemInfoUtils.getBatteryPercentage() { // 非Root设备使用备用方法
             return InfoItem(
                 id: BatteryInfoItemID.currentCapacity,
                 text: String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), String(currentCapacity))
@@ -189,7 +191,7 @@ class BatteryDataController {
     
     // 获取设备是否正在充电/充满
     private func getBatteryIsCharging() -> InfoItem {
-        switch getBatteryState() {
+        switch SystemInfoUtils.getBatteryState() {
         case.charging:
             return InfoItem(
                 id: BatteryInfoItemID.isCharging,
@@ -430,108 +432,274 @@ class BatteryDataController {
         }
     }
     
-    // 获取电池基本信息组
-    private func getBatteryBasicInfo() -> InfoItemGroup {
-        
-        let batteryBasicInfo = InfoItemGroup(id: BatteryInfoGroupID.basic)
-        // 设置组标题
-        batteryBasicInfo.titleText = NSLocalizedString("CFBundleDisplayName", comment: "")
-        
-        // 电池健康度
-        batteryBasicInfo.addItem(getMaximumCapacity())
-        // 电池循环次数
-        batteryBasicInfo.addItem(getCycleCount())
-        // 电池设计容量
-        batteryBasicInfo.addItem(getDesignCapacity())
-        // 电池剩余容量
-        batteryBasicInfo.addItem(getNominalChargeCapacity())
-        // 电池当前温度
-        batteryBasicInfo.addItem(getBatteryTemperature())
-        // 电池当前电量百分比
-        batteryBasicInfo.addItem(getBatteryCurrentCapacity())
-        // 电池当前实时容量
-        batteryBasicInfo.addItem(getBatteryCurrentRAWCapacity())
-        // 电池当前电压
-        batteryBasicInfo.addItem(getCurrentVoltage())
-        // 电池当前电流
-        batteryBasicInfo.addItem(getInstantAmperage())
-        
-        return batteryBasicInfo
+    /// 获取电池序列号
+    private func getBatterySerialNumber() -> InfoItem {
+        if let serialNumber = batteryInfo?.serialNumber {
+            if isMaskSerialNumber {
+                return InfoItem(
+                    id: BatteryInfoItemID.batterySerialNumber,
+                    text: String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), BatteryFormatUtils.maskSerialNumber(serialNumber))
+                )
+            } else {
+                return InfoItem(
+                    id: BatteryInfoItemID.batterySerialNumber,
+                    text: String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), serialNumber)
+                )
+            }
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.batterySerialNumber,
+                text: String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
     }
     
-    private func getChargeInfo() -> InfoItemGroup {
+    // 获取根据序列号推断的电池制造商
+    private func getBatteryManufacturer() -> InfoItem {
         
-        let chargeInfo = InfoItemGroup(id: BatteryInfoGroupID.charge)
+        if let serialNumber = batteryInfo?.serialNumber {
+            return InfoItem(
+                id: BatteryInfoItemID.batteryManufacturer,
+                text: String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), SystemInfoUtils.getBatteryManufacturer(from: serialNumber))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.batteryManufacturer,
+                text: String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
+    // 获取最大的QMax
+    private func getBatteryMaximumQmax() -> InfoItem {
+        if let maximumQmax = batteryInfo?.batteryData?.lifetimeData?.maximumQmax {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumQmax,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumQmax", comment: ""), String(maximumQmax))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumQmax,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumQmax", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
+    // 获取最小QMax
+    private func getBatteryMinimumQmax() -> InfoItem {
+        if let maximumQmax = batteryInfo?.batteryData?.lifetimeData?.minimumQmax {
+            return InfoItem(
+                id: BatteryInfoItemID.minimumQmax,
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumQmax", comment: ""), String(maximumQmax))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.minimumQmax,
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumQmax", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
+    /// 获取电池基本信息组
+    private func getBatteryBasicInfoGroup() -> InfoItemGroup {
+        
+        let batteryBasicInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.basic)
+        // 设置组标题
+        batteryBasicInfoGroup.titleText = NSLocalizedString("CFBundleDisplayName", comment: "")
+        
+        // 电池健康度
+        batteryBasicInfoGroup.addItem(getMaximumCapacity())
+        // 电池循环次数
+        batteryBasicInfoGroup.addItem(getCycleCount())
+        // 电池设计容量
+        batteryBasicInfoGroup.addItem(getDesignCapacity())
+        // 电池剩余容量
+        batteryBasicInfoGroup.addItem(getNominalChargeCapacity())
+        // 电池当前温度
+        batteryBasicInfoGroup.addItem(getBatteryTemperature())
+        // 电池当前电量百分比
+        batteryBasicInfoGroup.addItem(getBatteryCurrentCapacity())
+        // 电池当前实时容量
+        batteryBasicInfoGroup.addItem(getBatteryCurrentRAWCapacity())
+        // 电池当前电压
+        batteryBasicInfoGroup.addItem(getCurrentVoltage())
+        // 电池当前电流
+        batteryBasicInfoGroup.addItem(getInstantAmperage())
+        
+        return batteryBasicInfoGroup
+    }
+    
+    /// 获取充电信息组
+    private func getChargeInfoGroup() -> InfoItemGroup {
+        
+        let chargeInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charge)
         // 分组底部文本
-        chargeInfo.footerText = NSLocalizedString("ChargeInfo", comment: "")
+        chargeInfoGroup.footerText = NSLocalizedString("ChargeInfo", comment: "")
         
         // 设备是否正在充电/充满
-        chargeInfo.addItem(getBatteryIsCharging())
+        chargeInfoGroup.addItem(getBatteryIsCharging())
         
         // 强制显示所有充电数据
         if settingsUtils.getForceShowChargingData() {
-            addStandardChargingItems(to: chargeInfo)
+            addStandardChargingItems(to: chargeInfoGroup)
             // 添加未充电原因
-            chargeInfo.addItem(getNotChargingReason())
+            chargeInfoGroup.addItem(getNotChargingReason())
             // 返回
-            return chargeInfo
+            return chargeInfoGroup
         }
         
         // 正常显示逻辑
-        if isDeviceCharging() || isChargeByWatts() {
+        if SystemInfoUtils.isDeviceCharging() || isChargeByWatts() {
             // 添加充电数据
-            addStandardChargingItems(to: chargeInfo)
+            addStandardChargingItems(to: chargeInfoGroup)
             if isNotCharging() { // 判断是否停止充电
                 // 添加未充电原因
-                chargeInfo.addItem(getNotChargingReason())
+                chargeInfoGroup.addItem(getNotChargingReason())
             }
         }
         
-        return chargeInfo
+        return chargeInfoGroup
+    }
+    
+    // 辅助方法，减少代码的重复
+    private func addStandardChargingItems(to chargeInfoGroup: InfoItemGroup) {
+        // 充电方式
+        chargeInfoGroup.addItem(getBatteryChargeDescription())
+        // 是否是无线充电
+        chargeInfoGroup.addItem(getIsWirelessCharger())
+        // 充电最大握手功率
+        chargeInfoGroup.addItem(getMaximumChargingHandshakeWatts())
+        // 当前使用的充电握手档位
+        chargeInfoGroup.addItem(getPowerOptionDetail())
+        // 充电可用功率档位
+        chargeInfoGroup.addItem(getPowerOptions())
+        // 充电限制电压
+        chargeInfoGroup.addItem(getChargingLimitVoltage())
+        // 充电实时电压
+        chargeInfoGroup.addItem(getChargingVoltage())
+        // 充电实时电流
+        chargeInfoGroup.addItem(getChargingCurrent())
+        // 计算的充电功率
+        chargeInfoGroup.addItem(calculatedChargingPower())
+    }
+    
+    /// 获取设置中的电池健康度信息组
+    func getSettingsBatteryInfoGroup() -> InfoItemGroup? {
+        
+        // 从提供者中获取是否包含设置中的电池数据的方法
+        if !provider.isIncludeSettingsBatteryInfo {
+            return nil
+        }
+        
+        let settingsBatteryInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.settingsBatteryInfo)
+        
+        // 组标题
+        settingsBatteryInfoGroup.titleText = NSLocalizedString("SettingsBatteryInfo", comment: "")
+        
+        // 获取数据
+        let settingsBatteryInfoJsonData = SettingsBatteryDataController.getSettingsBatteryInfoData()
+        
+        // 添加设置中的电池健康度
+        if let maximumCapacity = settingsBatteryInfoJsonData?.maximumCapacityPercent {
+            settingsBatteryInfoGroup.addItem(
+                InfoItem(
+                    id: BatteryInfoItemID.maximumCapacity,
+                    text: String.localizedStringWithFormat(NSLocalizedString("MaximumCapacity", comment: ""), String(maximumCapacity))
+                )
+            )
+        } else {
+            settingsBatteryInfoGroup.addItem(
+                InfoItem(
+                    id: BatteryInfoItemID.maximumCapacity,
+                    text: String.localizedStringWithFormat(NSLocalizedString("MaximumCapacity", comment: ""), NSLocalizedString("Unknown", comment: ""))
+                 )
+            )
+        }
+        
+        // 获取设置中的电池循环次数
+        if let cycleCount = settingsBatteryInfoJsonData?.cycleCount {
+            settingsBatteryInfoGroup.addItem(
+                InfoItem(
+                    id: BatteryInfoItemID.cycleCount,
+                    text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), String(cycleCount))
+                )
+            )
+            
+            // 通过电池循环次数去历史记录里面查询大致系统刷新电池数据的日期
+            if settingsUtils.getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate() {
+                if let batteryDataRecord = BatteryRecordDatabaseManager.shared.getRecord(byCycleCount: cycleCount) {
+                    settingsBatteryInfoGroup.addItem(
+                        InfoItem(
+                            id: BatteryInfoItemID.possibleRefreshDate,
+                            text: String.localizedStringWithFormat(NSLocalizedString("PossibleRefreshDate", comment: ""), BatteryFormatUtils.formatDateOnly(batteryDataRecord.createDate))
+                        )
+                    )
+                }
+            }
+            
+        } else {
+            settingsBatteryInfoGroup.addItem(
+                InfoItem(
+                    id: BatteryInfoItemID.cycleCount,
+                    text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), NSLocalizedString("Unknown", comment: ""))
+                 )
+            )
+        }
+        
+        return settingsBatteryInfoGroup
+    }
+    
+    /// 获取电池序列号信息组
+    private func getBatterySerialNumberGroup() -> InfoItemGroup {
+        
+        let batterySerialNumberGroup = InfoItemGroup(id: BatteryInfoGroupID.batterySerialNumber)
+        
+        // 设置分组底部文本
+        batterySerialNumberGroup.footerText = NSLocalizedString("ManufacturerDataSourceMessage", comment: "")
+        
+        // 电池序列号
+        batterySerialNumberGroup.addItem(getBatterySerialNumber())
+        // 根据序列号推断的电池制造商
+        
+        return batterySerialNumberGroup
+    }
+    
+    /// 获取电池QMax信息组
+    private func getBatteryQMaxGroup() -> InfoItemGroup {
+        
+        let batteryQMaxGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryQmax)
+        
+        // 电池最大QMax
+        batteryQMaxGroup.addItem(getBatteryMaximumQmax())
+        // 电池最小QMax
+        batteryQMaxGroup.addItem(getBatteryMinimumQmax())
+        
+        return batteryQMaxGroup
     }
     
     // UI获取数据的方法
-    func getGroupedBatteryInfo() -> [InfoItemGroup] {
+    func getInfoGroupes() -> [InfoItemGroup] {
         let sequence = settingsUtils.getHomeItemGroupSequence()
         var result: [InfoItemGroup] = []
     
         for id in sequence {
             switch id {
             case BatteryInfoGroupID.basic:
-                result.append(getBatteryBasicInfo())
+                result.append(getBatteryBasicInfoGroup())
             case BatteryInfoGroupID.charge:
-                result.append(getChargeInfo())
+                result.append(getChargeInfoGroup())
             case BatteryInfoGroupID.settingsBatteryInfo:
-                // 预留占位：未实现，填一个空 group
-                result.append(InfoItemGroup(id: BatteryInfoGroupID.settingsBatteryInfo))
+                if let settingsBatteryInfo = getSettingsBatteryInfoGroup() {
+                    result.append(settingsBatteryInfo)
+                }
+            case BatteryInfoGroupID.batterySerialNumber:
+                result.append(getBatterySerialNumberGroup())
             default:
                 break
             }
         }
     
         return result
-    }
-    
-    // 辅助方法，减少代码的重复
-    private func addStandardChargingItems(to chargeInfo: InfoItemGroup) {
-        // 充电方式
-        chargeInfo.addItem(getBatteryChargeDescription())
-        // 是否是无线充电
-        chargeInfo.addItem(getIsWirelessCharger())
-        // 充电最大握手功率
-        chargeInfo.addItem(getMaximumChargingHandshakeWatts())
-        // 当前使用的充电握手档位
-        chargeInfo.addItem(getPowerOptionDetail())
-        // 充电可用功率档位
-        chargeInfo.addItem(getPowerOptions())
-        // 充电限制电压
-        chargeInfo.addItem(getChargingLimitVoltage())
-        // 充电实时电压
-        chargeInfo.addItem(getChargingVoltage())
-        // 充电实时电流
-        chargeInfo.addItem(getChargingCurrent())
-        // 计算的充电功率
-        chargeInfo.addItem(calculatedChargingPower())
     }
     
     /// 判断是否在充电，用这个方法可以判断MagSafe外接电池
@@ -561,6 +729,10 @@ class BatteryDataController {
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    public func toggleMaskSerialNumber() {
+        isMaskSerialNumber = !isMaskSerialNumber
+    }
+    
     // 检查Root权限的方法
     static func checkRunTimePermission() -> Bool {
         guard let batteryInfoDict = getBatteryInfo() as? [String: Any] else {
@@ -580,32 +752,6 @@ class BatteryDataController {
         return writeable
     }
 
-    static func getSettingsBatteryInfoData() -> SettingsBatteryData? {
-
-        // 获取当前包内 `SettingsBatteryHelper` 可执行文件的路径
-        let executablePath = Bundle.main.url(forAuxiliaryExecutable: "SettingsBatteryHelper")?.path ?? "/"
-        
-        var stdOut: NSString?
-        // 调用 `spawnRoot`
-        spawnRoot(executablePath, nil, &stdOut, nil)
-        
-        if let stdOutString = stdOut as String?, let plistData = stdOutString.data(using: .utf8) {
-            do {
-                // 使用 Codable 解析 JSON
-                let batteryData = try JSONDecoder().decode(SettingsBatteryData.self, from: plistData)
-                
-                return batteryData
-                
-            } catch {
-                    print("BatteryInfo------> Error converting string to plist: \(error.localizedDescription)")
-            }
-        
-        } else {
-            NSLog("BatteryInfo------> RootHelper工作失败")
-        }
-        return nil
-        
-    }
 
     static func recordBatteryData(manualRecord: Bool, cycleCount: Int, nominalChargeCapacity: Int, designCapacity: Int) -> Bool {
         

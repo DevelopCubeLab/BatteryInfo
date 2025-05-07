@@ -84,7 +84,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
         case 3:
             if SettingsUtils.instance.getForceShowChargingData() {
                 return 8
-            } else if isDeviceCharging() {
+            } else if SystemInfoUtils.isDeviceCharging() {
                 if chargerHaveName() {
                     return 8
                 }
@@ -138,7 +138,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
                 }
             } else if indexPath.row == 1 {
                 if let serialNumber = batteryInfo?.serialNumber {
-                    cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), getBatteryManufacturer(from: serialNumber))
+                    cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), SystemInfoUtils.getBatteryManufacturer(from: serialNumber))
                 } else {
                     cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("BatteryManufacturer", comment: ""), NSLocalizedString("Unknown", comment: ""))
                 }
@@ -185,7 +185,7 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
             }
         } else if indexPath.section == 3 {
             if indexPath.row == 0 {
-                switch getBatteryState() {
+                switch SystemInfoUtils.getBatteryState() {
                 case.charging: cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("IsCharging", comment: ""), NSLocalizedString("Charging", comment: ""))
                 case.unplugged: cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("IsCharging", comment: ""), NSLocalizedString("NotCharging", comment: ""))
                 case.full: cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("IsCharging", comment: ""), NSLocalizedString("CharingFull", comment: ""))

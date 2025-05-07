@@ -37,6 +37,17 @@ class BatteryFormatUtils {
         return formatter.string(from: date)
     }
     
+    /// 格式化为仅包含年月日的字符串
+    static func formatDateOnly(_ timestamp: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp)) // 时间戳转换为 Date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium  // 显示年月日，自动适配用户地区
+        formatter.timeStyle = .none    // 不显示时间
+        formatter.locale = Locale.autoupdatingCurrent // 自动适配用户的地区和语言
+
+        return formatter.string(from: date)
+    }
+    
     /// 给序列号打上*号*
     static func maskSerialNumber(_ serial: String) -> String {
         guard serial.count >= 5 else {

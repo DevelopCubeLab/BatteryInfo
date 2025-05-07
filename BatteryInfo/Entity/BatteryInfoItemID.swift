@@ -1,13 +1,19 @@
 import Foundation
 
+// 电池信息组的ID集合
 enum BatteryInfoGroupID {
     static let basic = 1
     static let charge = 2
     static let settingsBatteryInfo = 3
-    static let charger = 4
-    static let Qmax = 5
+    static let batterySerialNumber = 4
+    static let batteryQmax = 5
+    static let charger = 6
+    static let batteryVoltage = 7
+    static let batteryLifeCycle = 8
+    static let notChargeReason = 9
 }
 
+// 电池信息每一项的ID集合
 enum BatteryInfoItemID {
     static let maximumCapacity = 101
     static let cycleCount = 102
@@ -30,4 +36,12 @@ enum BatteryInfoItemID {
     static let chargingCurrent = 209
     static let calculatedChargingPower = 210
     static let notChargingReason = 211
+    
+    static let possibleRefreshDate = 303
+    
+    static let batterySerialNumber = 401
+    static let batteryManufacturer = 402
+    
+    static let maximumQmax = 501
+    static let minimumQmax = 502
 }

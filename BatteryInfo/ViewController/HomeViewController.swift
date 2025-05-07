@@ -91,7 +91,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         batteryInfo = BatteryRAWInfo(dict: batteryInfoDict)
         
         if settingsUtils.getShowSettingsBatteryInfo() { // 只有启动这个功能的时候才会去获取数据
-            settingsBatteryInfo = BatteryDataController.getSettingsBatteryInfoData()
+            settingsBatteryInfo = SettingsBatteryDataController.getSettingsBatteryInfoData()
         }
         
         // 记录历史数据
@@ -149,7 +149,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if settingsUtils.getForceShowChargingData() {
                 return 11
             } else {
-                if isDeviceCharging() || isChargeByWatts() {
+                if SystemInfoUtils.isDeviceCharging() || isChargeByWatts() {
                     if isNotCharging() { // 判断是否停止充电
                         return 11
                     } else {
@@ -184,7 +184,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
         if section == 2 {
-            if isDeviceCharging() {
+            if SystemInfoUtils.isDeviceCharging() {
                 return NSLocalizedString("ChargeInfoFooterMessage", comment: "")
             }
         } else if section == 3 {
@@ -206,23 +206,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if indexPath.section == 0 {
             if indexPath.row == 0 { // 系统版本号
-                if !isRunningOniPadOS() {
-                    cell.textLabel?.text = getDeviceName() + " " + getDiskTotalSpace() + " (" + String.localizedStringWithFormat(NSLocalizedString("iOSVersion", comment: ""), UIDevice.current.systemVersion) + ")"
+                if !SystemInfoUtils.isRunningOniPadOS() {
+                    cell.textLabel?.text = SystemInfoUtils.getDeviceName() + " " + SystemInfoUtils.getDiskTotalSpace() + " (" + String.localizedStringWithFormat(NSLocalizedString("iOSVersion", comment: ""), UIDevice.current.systemVersion) + ")"
                 } else {
-                    cell.textLabel?.text = getDeviceName() + " " + getDiskTotalSpace() + " (" + String.localizedStringWithFormat(NSLocalizedString("iPadOSVersion", comment: ""), UIDevice.current.systemVersion) + ")"
+                    cell.textLabel?.text = SystemInfoUtils.getDeviceName() + " " + SystemInfoUtils.getDiskTotalSpace() + " (" + String.localizedStringWithFormat(NSLocalizedString("iPadOSVersion", comment: ""), UIDevice.current.systemVersion) + ")"
                 }
                 
                 if self.showOSBuildVersion {
-                    let buildVersion: String = " [" + (getSystemBuildVersion() ?? "") + "]"
+                    let buildVersion: String = " [" + (SystemInfoUtils.getSystemBuildVersion() ?? "") + "]"
                     cell.textLabel?.text = (cell.textLabel?.text)! + buildVersion
                 }
                 
-                if let regionCode = getDeviceRegionCode() {
+                if let regionCode = SystemInfoUtils.getDeviceRegionCode() {
                     cell.textLabel?.text = (cell.textLabel?.text)! + " " + regionCode
                 }
                 
             } else if indexPath.row == 1 { // 设备启动时间
-                cell.textLabel?.text = getDeviceUptimeUsingSysctl()
+                cell.textLabel?.text = SystemInfoUtils.getDeviceUptimeUsingSysctl()
             }
         } else if indexPath.section == 1 { // 电池信息
             if indexPath.row == 0 { // 电池健康度
@@ -258,7 +258,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else if indexPath.row == 5 { // 电池当前电量百分比
                 if let currentCapacity = batteryInfo?.currentCapacity {
                     cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), String(currentCapacity))
-                } else if let currentCapacity = getBatteryPercentage() { // 非Root设备使用备用方法
+                } else if let currentCapacity = SystemInfoUtils.getBatteryPercentage() { // 非Root设备使用备用方法
                     cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), String(currentCapacity))
                 } else { // 还是无法获取到电池百分比就只能返回未知了
                     cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), NSLocalizedString("Unknown", comment: ""))
@@ -286,7 +286,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if indexPath.section == 2 {
             if indexPath.row == 0 { // 获取设备是否正在充电/充满
                 
-                switch getBatteryState() {
+                switch SystemInfoUtils.getBatteryState() {
                 case.charging: cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("IsCharging", comment: ""), NSLocalizedString("Charging", comment: ""))
                 case.unplugged: cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("IsCharging", comment: ""), NSLocalizedString("NotCharging", comment: ""))
                 case.full: cell.textLabel?.text = String.localizedStringWithFormat(NSLocalizedString("IsCharging", comment: ""), NSLocalizedString("CharingFull", comment: ""))
