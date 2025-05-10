@@ -44,4 +44,16 @@ enum BatteryInfoItemID {
     
     static let maximumQmax = 501
     static let minimumQmax = 502
+    
+    static let chargerName = 601
+    static let chargerModel = 602
+    static let chargerManufacturer = 603
+    static let chargerSerialNumber = 604
+    static let chargerHardwareVersion = 605
+    static let chargerFirmwareVersion = 606
+    
+    static let batteryInstalled = 701
+    static let bootVoltage = 702
+    static let limitVoltage = 703
+    
 }

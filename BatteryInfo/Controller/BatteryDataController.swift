@@ -289,7 +289,8 @@ class BatteryDataController {
             }
             return InfoItem(
                 id: BatteryInfoItemID.powerOptionDetail,
-                text: String.localizedStringWithFormat(NSLocalizedString("CurrentUseOption", comment: ""), currentOption)
+                text: String.localizedStringWithFormat(NSLocalizedString("CurrentUseOption", comment: ""), currentOption),
+                haveData: false
             )
         } else {
             return InfoItem(
@@ -324,7 +325,8 @@ class BatteryDataController {
         } else {
             return InfoItem(
                 id: BatteryInfoItemID.powerOptions,
-                text: String.localizedStringWithFormat(NSLocalizedString("PowerOptions", comment: ""), NSLocalizedString("Unknown", comment: ""))
+                text: String.localizedStringWithFormat(NSLocalizedString("PowerOptions", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
             )
         }
     }
@@ -500,6 +502,155 @@ class BatteryDataController {
         }
     }
     
+    /// 获取电池是否安装
+    private func getBatteryInstalled() -> InfoItem {
+        if let batteryInstalled = batteryInfo?.batteryInstalled {
+            return InfoItem(
+                id: BatteryInfoItemID.batteryInstalled,
+                text: String.localizedStringWithFormat(NSLocalizedString("BatteryInstalled", comment: ""), batteryInstalled == 1 ? NSLocalizedString("Yes", comment: "") : NSLocalizedString("No", comment: ""))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.batteryInstalled,
+                text: String.localizedStringWithFormat(NSLocalizedString("BatteryInstalled", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
+    /// 获取开机电压
+    private func getBootVoltage() -> InfoItem {
+        if let bootVoltage = batteryInfo?.bootVoltage {
+            return InfoItem(
+                id: BatteryInfoItemID.bootVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("BootVoltage", comment: ""), String(format: "%.2f", Double(bootVoltage) / 1000))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.bootVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("BootVoltage", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
+    // 获取限制电压
+    private func getLimitVoltage() -> InfoItem {
+        if let limitVoltage = batteryInfo?.chargerData?.vacVoltageLimit {
+            return InfoItem(
+                id: BatteryInfoItemID.limitVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("LimitVoltage", comment: ""), String(format: "%.2f", Double(limitVoltage) / 1000))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.limitVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("LimitVoltage", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
+    /// 获取充电器名称
+    private func getChargerName() -> InfoItem {
+        if let chargerName = batteryInfo?.adapterDetails?.name {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerName,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerName", comment: ""), chargerName),
+                haveData: true
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerName,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerName", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    /// 获取充电器制造商
+    private func getChargerManufacturer() -> InfoItem {
+        if let chargerManufacturer = batteryInfo?.adapterDetails?.manufacturer {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerManufacturer,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerManufacturer", comment: ""), chargerManufacturer)
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerManufacturer,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerManufacturer", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取充电器型号
+    private func getChargerModel() -> InfoItem {
+        if let chargerModel = batteryInfo?.adapterDetails?.model {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerModel,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerModel", comment: ""), chargerModel)
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerModel,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerModel", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    /// 获取充电器序列号
+    private func getChargerSerialNumber() -> InfoItem {
+        if let serialNumber = batteryInfo?.adapterDetails?.serialString {
+            if isMaskSerialNumber {
+                return InfoItem(
+                    id: BatteryInfoItemID.chargerSerialNumber,
+                    text: String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), BatteryFormatUtils.maskSerialNumber(serialNumber))
+                )
+            } else {
+                return InfoItem(
+                    id: BatteryInfoItemID.chargerSerialNumber,
+                    text: String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), serialNumber)
+                )
+            }
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerSerialNumber,
+                text: String.localizedStringWithFormat(NSLocalizedString("SerialNumber", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    /// 获取充电器硬件版本号
+    private func getChargerHardwareVersion() -> InfoItem {
+        if let chargerHardwareVersion = batteryInfo?.adapterDetails?.hwVersion {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerHardwareVersion,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerHardwareVersion", comment: ""), chargerHardwareVersion)
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerHardwareVersion,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerHardwareVersion", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    /// 获取充电器软件版本号
+    private func getChargerFirmwareVersion() -> InfoItem {
+        if let chargerHardwareVersion = batteryInfo?.adapterDetails?.fwVersion {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerFirmwareVersion,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerFirmwareVersion", comment: ""), chargerHardwareVersion)
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.chargerFirmwareVersion,
+                text: String.localizedStringWithFormat(NSLocalizedString("ChargerFirmwareVersion", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
     /// 获取电池基本信息组
     private func getBatteryBasicInfoGroup() -> InfoItemGroup {
         
@@ -641,7 +792,8 @@ class BatteryDataController {
             settingsBatteryInfoGroup.addItem(
                 InfoItem(
                     id: BatteryInfoItemID.cycleCount,
-                    text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), NSLocalizedString("Unknown", comment: ""))
+                    text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                    haveData: false
                  )
             )
         }
@@ -660,6 +812,7 @@ class BatteryDataController {
         // 电池序列号
         batterySerialNumberGroup.addItem(getBatterySerialNumber())
         // 根据序列号推断的电池制造商
+        batterySerialNumberGroup.addItem(getBatteryManufacturer())
         
         return batterySerialNumberGroup
     }
@@ -677,8 +830,50 @@ class BatteryDataController {
         return batteryQMaxGroup
     }
     
+    private func getBatteryVoltageGroup() -> InfoItemGroup {
+        let batteryVoltageGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryVoltage)
+        
+        // 电池是否安装
+        batteryVoltageGroup.addItem(getBatteryInstalled())
+        // 开机电压
+        batteryVoltageGroup.addItem(getBootVoltage())
+        // 限制电压
+        batteryVoltageGroup.addItem(getLimitVoltage())
+        
+        return batteryVoltageGroup
+    }
+    
+    /// 获取充电信息组
+    private func getChargerInfoGroup() -> InfoItemGroup {
+        
+        let chargerInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charger)
+        
+        if isChargerHaveName() { // 只有显示充电器的厂商的时候才会显示底部提示文本
+            chargerInfoGroup.footerText = NSLocalizedString("ChargerNameInfoFooterMessage", comment: "")
+        }
+        
+        // 是否在充电
+        chargerInfoGroup.addItem(getBatteryIsCharging())
+        // 充电方式
+        chargerInfoGroup.addItem(getBatteryChargeDescription())
+        // 充电器名称
+        chargerInfoGroup.addItem(getChargerName())
+        // 充电器制造商
+        chargerInfoGroup.addItem(getChargerManufacturer())
+        // 充电器型号
+        chargerInfoGroup.addItem(getChargerModel())
+        // 充电器序列号
+        chargerInfoGroup.addItem(getChargerSerialNumber())
+        // 充电器硬件版本
+        chargerInfoGroup.addItem(getChargerHardwareVersion())
+        // 充电器软件版本
+        chargerInfoGroup.addItem(getChargerFirmwareVersion())
+        
+        return chargerInfoGroup
+    }
+    
     // UI获取数据的方法
-    func getInfoGroupes() -> [InfoItemGroup] {
+    func getHomeInfoGroups() -> [InfoItemGroup] {
         let sequence = settingsUtils.getHomeItemGroupSequence()
         var result: [InfoItemGroup] = []
     
@@ -700,6 +895,22 @@ class BatteryDataController {
         }
     
         return result
+    }
+    
+    public func getAllBatteryInfoGroups() -> [InfoItemGroup]  {
+        
+        var allBatteryInfoGroups: [InfoItemGroup] = []
+        
+        // 电池序列号组
+        allBatteryInfoGroups.append(getBatterySerialNumberGroup())
+        // 电池QMax组
+        allBatteryInfoGroups.append(getBatteryQMaxGroup())
+        // 电池电压组
+        allBatteryInfoGroups.append(getBatteryVoltageGroup())
+        // 充电器组
+        allBatteryInfoGroups.append(getChargerInfoGroup())
+        
+        return allBatteryInfoGroups
     }
     
     /// 判断是否在充电，用这个方法可以判断MagSafe外接电池
@@ -727,10 +938,21 @@ class BatteryDataController {
         return false
     }
     
+    // 判断充电器是否有厂商信息
+    private func isChargerHaveName() -> Bool {
+        return (batteryInfo?.adapterDetails?.name) != nil
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    /// 切换序列号隐藏
     public func toggleMaskSerialNumber() {
         isMaskSerialNumber = !isMaskSerialNumber
+    }
+    
+    /// 给外界的获取数据来源的方法
+    public func getDataProviderName() -> String {
+        return provider.providerName
     }
     
     // 检查Root权限的方法
