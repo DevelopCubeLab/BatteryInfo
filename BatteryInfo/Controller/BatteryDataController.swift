@@ -16,12 +16,28 @@ class BatteryDataController {
         self.provider = provider
     }
     
-    func refreshBatteryInfo() {
-        batteryInfo = provider.fetchBatteryInfo()
+    func getProviderName() -> String {
+        return provider.providerName
     }
     
-    func getBatteryRAWInfo() -> BatteryRAWInfo? {
-        return batteryInfo
+    // 刷新数据
+    func refreshBatteryInfo() {
+        batteryInfo = provider.fetchBatteryInfo()
+        
+        // 顺便就记录电池的历史记录了
+        if let cycleCount = batteryInfo?.cycleCount, let nominalChargeCapacity = batteryInfo?.nominalChargeCapacity, let designCapacity = batteryInfo?.designCapacity {
+
+            if Self.recordBatteryData(manualRecord: false,
+                                      cycleCount: cycleCount,
+                                      nominalChargeCapacity: nominalChargeCapacity,
+                                      designCapacity: designCapacity) {
+                print("历史记录增加新的记录成功")
+            }
+        }
+    }
+    
+    func getBatteryRAWInfo() -> [String: Any]? {
+        return provider.fetchBatteryRAWInfo()
     }
     
     static var getInstance: BatteryDataController {
@@ -37,6 +53,24 @@ class BatteryDataController {
 
     static func resetInstance() {
         instance = nil
+    }
+    
+    /// 获取数据刷新时间
+    func getUpdateTime() -> Int {
+        if let updateTime = batteryInfo?.updateTime {
+            return updateTime
+        } else {
+            return 0
+        }
+    }
+    
+    /// 获取格式化的数据刷新时间
+    func getFormatUpdateTime() -> String {
+        if let updateTime = batteryInfo?.updateTime {
+            return BatteryFormatUtils.formatTimestamp(updateTime)
+        } else {
+            return NSLocalizedString("Unknown", comment: "")
+        }
     }
     
     // 计算电池的健康度
@@ -685,7 +719,11 @@ class BatteryDataController {
         
         let chargeInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charge)
         // 分组底部文本
-        chargeInfoGroup.footerText = NSLocalizedString("ChargeInfo", comment: "")
+        chargeInfoGroup.titleText = NSLocalizedString("ChargeInfo", comment: "")
+        
+        if SystemInfoUtils.isDeviceCharging() { // 如果在充电就显示footer文本
+            chargeInfoGroup.footerText =  NSLocalizedString("ChargeInfoFooterMessage", comment: "")
+        }
         
         // 设备是否正在充电/充满
         chargeInfoGroup.addItem(getBatteryIsCharging())
@@ -737,15 +775,19 @@ class BatteryDataController {
     /// 获取设置中的电池健康度信息组
     func getSettingsBatteryInfoGroup() -> InfoItemGroup? {
         
+        let settingsBatteryInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.settingsBatteryInfo)
+        
         // 从提供者中获取是否包含设置中的电池数据的方法
         if !provider.isIncludeSettingsBatteryInfo {
-            return nil
+            settingsBatteryInfoGroup.footerText = NSLocalizedString("NotIncluded", comment: "")
+            return settingsBatteryInfoGroup
         }
-        
-        let settingsBatteryInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.settingsBatteryInfo)
         
         // 组标题
         settingsBatteryInfoGroup.titleText = NSLocalizedString("SettingsBatteryInfo", comment: "")
+        
+        // 组底部文字
+        settingsBatteryInfoGroup.footerText = NSLocalizedString("SettingsBatteryInfoFooterMessage", comment: "")
         
         // 获取数据
         let settingsBatteryInfoJsonData = SettingsBatteryDataController.getSettingsBatteryInfoData()
@@ -769,25 +811,32 @@ class BatteryDataController {
         
         // 获取设置中的电池循环次数
         if let cycleCount = settingsBatteryInfoJsonData?.cycleCount {
-            settingsBatteryInfoGroup.addItem(
-                InfoItem(
-                    id: BatteryInfoItemID.cycleCount,
-                    text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), String(cycleCount))
-                )
-            )
-            
-            // 通过电池循环次数去历史记录里面查询大致系统刷新电池数据的日期
-            if settingsUtils.getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate() {
-                if let batteryDataRecord = BatteryRecordDatabaseManager.shared.getRecord(byCycleCount: cycleCount) {
-                    settingsBatteryInfoGroup.addItem(
-                        InfoItem(
-                            id: BatteryInfoItemID.possibleRefreshDate,
-                            text: String.localizedStringWithFormat(NSLocalizedString("PossibleRefreshDate", comment: ""), BatteryFormatUtils.formatDateOnly(batteryDataRecord.createDate))
-                        )
+            if cycleCount >= 0 {
+                settingsBatteryInfoGroup.addItem(
+                    InfoItem(
+                        id: BatteryInfoItemID.cycleCount,
+                        text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), String(cycleCount))
                     )
+                )
+                // 通过电池循环次数去历史记录里面查询大致系统刷新电池数据的日期
+                if settingsUtils.getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate() {
+                    if let batteryDataRecord = BatteryRecordDatabaseManager.shared.getRecord(byCycleCount: cycleCount) {
+                        settingsBatteryInfoGroup.addItem(
+                            InfoItem(
+                                id: BatteryInfoItemID.possibleRefreshDate,
+                                text: String.localizedStringWithFormat(NSLocalizedString("PossibleRefreshDate", comment: ""), BatteryFormatUtils.formatDateOnly(batteryDataRecord.createDate))
+                            )
+                        )
+                    }
                 }
+            } else {
+                settingsBatteryInfoGroup.addItem(
+                    InfoItem(
+                        id: BatteryInfoItemID.cycleCount,
+                        text: String.localizedStringWithFormat(NSLocalizedString("CycleCount", comment: ""), NSLocalizedString("NotIncluded", comment: ""))
+                    )
+                )
             }
-            
         } else {
             settingsBatteryInfoGroup.addItem(
                 InfoItem(
@@ -848,56 +897,70 @@ class BatteryDataController {
         
         let chargerInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charger)
         
+        chargerInfoGroup.titleText = NSLocalizedString("ChargerInfo", comment: "")
+        
         if isChargerHaveName() { // 只有显示充电器的厂商的时候才会显示底部提示文本
             chargerInfoGroup.footerText = NSLocalizedString("ChargerNameInfoFooterMessage", comment: "")
         }
         
         // 是否在充电
         chargerInfoGroup.addItem(getBatteryIsCharging())
-        // 充电方式
-        chargerInfoGroup.addItem(getBatteryChargeDescription())
-        // 充电器名称
-        chargerInfoGroup.addItem(getChargerName())
-        // 充电器制造商
-        chargerInfoGroup.addItem(getChargerManufacturer())
-        // 充电器型号
-        chargerInfoGroup.addItem(getChargerModel())
-        // 充电器序列号
-        chargerInfoGroup.addItem(getChargerSerialNumber())
-        // 充电器硬件版本
-        chargerInfoGroup.addItem(getChargerHardwareVersion())
-        // 充电器软件版本
-        chargerInfoGroup.addItem(getChargerFirmwareVersion())
+        
+        if SystemInfoUtils.isDeviceCharging() || settingsUtils.getForceShowChargingData() {
+            // 充电方式
+            chargerInfoGroup.addItem(getBatteryChargeDescription())
+            // 充电器名称
+            chargerInfoGroup.addItem(getChargerName())
+            // 充电器制造商
+            chargerInfoGroup.addItem(getChargerManufacturer())
+            // 充电器型号
+            chargerInfoGroup.addItem(getChargerModel())
+            // 充电器序列号
+            chargerInfoGroup.addItem(getChargerSerialNumber())
+            // 充电器硬件版本
+            chargerInfoGroup.addItem(getChargerHardwareVersion())
+            // 充电器软件版本
+            chargerInfoGroup.addItem(getChargerFirmwareVersion())
+        }
         
         return chargerInfoGroup
     }
     
     // UI获取数据的方法
     func getHomeInfoGroups() -> [InfoItemGroup] {
+        
+        // 先刷新数据
+        refreshBatteryInfo()
+        
         let sequence = settingsUtils.getHomeItemGroupSequence()
-        var result: [InfoItemGroup] = []
+        var homeInfoGroups: [InfoItemGroup] = []
     
         for id in sequence {
             switch id {
             case BatteryInfoGroupID.basic:
-                result.append(getBatteryBasicInfoGroup())
+                homeInfoGroups.append(getBatteryBasicInfoGroup())
             case BatteryInfoGroupID.charge:
-                result.append(getChargeInfoGroup())
+                homeInfoGroups.append(getChargeInfoGroup())
             case BatteryInfoGroupID.settingsBatteryInfo:
-                if let settingsBatteryInfo = getSettingsBatteryInfoGroup() {
-                    result.append(settingsBatteryInfo)
+                if settingsUtils.getShowSettingsBatteryInfo() { // 判断用户是否打开显示
+                    if let settingsBatteryInfo = getSettingsBatteryInfoGroup() {
+                        homeInfoGroups.append(settingsBatteryInfo)
+                    }
                 }
             case BatteryInfoGroupID.batterySerialNumber:
-                result.append(getBatterySerialNumberGroup())
+                homeInfoGroups.append(getBatterySerialNumberGroup())
             default:
                 break
             }
         }
     
-        return result
+        return homeInfoGroups
     }
     
     public func getAllBatteryInfoGroups() -> [InfoItemGroup]  {
+        
+        // 先刷新数据
+        refreshBatteryInfo()
         
         var allBatteryInfoGroups: [InfoItemGroup] = []
         
@@ -943,11 +1006,10 @@ class BatteryDataController {
         return (batteryInfo?.adapterDetails?.name) != nil
     }
     
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
     /// 切换序列号隐藏
     public func toggleMaskSerialNumber() {
         isMaskSerialNumber = !isMaskSerialNumber
+        refreshBatteryInfo()
     }
     
     /// 给外界的获取数据来源的方法

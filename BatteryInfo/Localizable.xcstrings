@@ -135,13 +135,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Battery data source is from device IOKit"
+            "value" : "Battery data source is from %@\nUpdate time: %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "电池数据来源于设备IOKit"
+            "value" : "电池数据来源于%@\n数据刷新时间: %@"
           }
         }
       }
@@ -211,6 +211,7 @@
       }
     },
     "BestAdapterInfo" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1370,6 +1371,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器可用充电档位: %@"
+          }
+        }
+      }
+    },
+    "ProviderIOKit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "device IOKit"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备IOKit"
           }
         }
       }

@@ -2,6 +2,7 @@ import Foundation
 
 // 定义一个结构体来存储IO接口提供的电池原始信息
 struct BatteryRAWInfo {
+    var updateTime: Int?              // 数据刷新时间
     var batteryInstalled: Int?        // 电池已安装
     var bootPathUpdated: Int?         //
     var bootVoltage: Int?             // 开机电压
@@ -26,6 +27,7 @@ struct BatteryRAWInfo {
 
 extension BatteryRAWInfo {
     init(dict: [String: Any]) {
+        self.updateTime = dict["UpdateTime"] as? Int
         self.batteryInstalled = dict["BatteryInstalled"] as? Int
         self.bootVoltage = dict["BootVoltage"] as? Int
         self.bootPathUpdated = dict["BootPathUpdated"] as? Int

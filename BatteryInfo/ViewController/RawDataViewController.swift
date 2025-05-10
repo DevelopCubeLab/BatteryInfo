@@ -84,8 +84,7 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // 获取电池信息
     func fetchBatteryInfo() -> [String: Any]? {
-        
-        return getBatteryInfo() as? [String: Any]
+        return BatteryDataController.getInstance.getBatteryRAWInfo()
     }
 
     // MARK: - UITableViewDataSource
@@ -95,7 +94,7 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: - 设置每个分组的底部标题 可以为分组设置尾部文本，如果没有尾部可以返回 nil
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return NSLocalizedString("BatteryDataSourceMessage", comment: "")
+        return String.localizedStringWithFormat(NSLocalizedString("BatteryDataSourceMessage", comment: ""), BatteryDataController.getInstance.getProviderName(), BatteryDataController.getInstance.getFormatUpdateTime())
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
