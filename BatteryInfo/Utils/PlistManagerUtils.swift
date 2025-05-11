@@ -11,7 +11,7 @@ class PlistManagerUtils {
     private var cachedChanges: [String: Any] = [:]
     private var isDirty = false
 
-	// 获取实例方法（支持多实例）
+    // 获取实例方法（支持多实例）
     static func instance(for plistName: String) -> PlistManagerUtils {
         // 如果实例已存在，则返回现有实例
         if let instance = instances[plistName] {
@@ -64,8 +64,8 @@ class PlistManagerUtils {
 
     // 获取 plist 文件是否存在
     func isPlistExist() -> Bool {
-		return plistExist
-	}
+        return plistExist
+    }
 
     // 获取指定 key 对应的 Int 值
     func getInt(key: String, defaultValue: Int) -> Int {
@@ -168,7 +168,7 @@ class PlistManagerUtils {
 
     // 删除指定 key 的数据
     func remove(key: String) {
-        cachedChanges[key] = nil
+        cachedChanges[key] = NSNull()
         isDirty = true
     }
 
@@ -192,7 +192,11 @@ class PlistManagerUtils {
         if isDirty {
             // 将所有更改合并到 preferences 中，覆盖掉已存在的相同键
             for (key, value) in cachedChanges {
-                preferences[key] = value
+                if value is NSNull {
+                    preferences.removeValue(forKey: key)
+                } else {
+                    preferences[key] = value
+                }
             }
 
             // 执行保存操作

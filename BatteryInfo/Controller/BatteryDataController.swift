@@ -168,7 +168,7 @@ class BatteryDataController {
         } else if let currentCapacity = SystemInfoUtils.getBatteryPercentage() { // 非Root设备使用备用方法
             return InfoItem(
                 id: BatteryInfoItemID.currentCapacity,
-                text: String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), String(currentCapacity))
+                text: String.localizedStringWithFormat(NSLocalizedString("CurrentCapacity", comment: ""), String(currentCapacity)).appending("*")
             )
         } else { // 还是无法获取到电池百分比就只能返回未知了
             return InfoItem(
@@ -736,7 +736,7 @@ class BatteryDataController {
     /// 获取电池基本信息组
     private func getBatteryBasicInfoGroup() -> InfoItemGroup {
         
-        let batteryBasicInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.basic)
+        let batteryBasicInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.basic.rawValue)
         // 设置组标题
         batteryBasicInfoGroup.titleText = NSLocalizedString("CFBundleDisplayName", comment: "")
         
@@ -765,7 +765,7 @@ class BatteryDataController {
     /// 获取充电信息组
     private func getChargeInfoGroup() -> InfoItemGroup {
         
-        let chargeInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charge)
+        let chargeInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charge.rawValue)
         // 分组底部文本
         chargeInfoGroup.titleText = NSLocalizedString("ChargeInfo", comment: "")
         
@@ -823,7 +823,7 @@ class BatteryDataController {
     /// 获取设置中的电池健康度信息组
     func getSettingsBatteryInfoGroup() -> InfoItemGroup? {
         
-        let settingsBatteryInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.settingsBatteryInfo)
+        let settingsBatteryInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.settingsBatteryInfo.rawValue)
         
         // 从提供者中获取是否包含设置中的电池数据的方法
         if !provider.isIncludeSettingsBatteryInfo {
@@ -901,7 +901,7 @@ class BatteryDataController {
     /// 获取电池序列号信息组
     private func getBatterySerialNumberGroup() -> InfoItemGroup {
         
-        let batterySerialNumberGroup = InfoItemGroup(id: BatteryInfoGroupID.batterySerialNumber)
+        let batterySerialNumberGroup = InfoItemGroup(id: BatteryInfoGroupID.batterySerialNumber.rawValue)
         
         // 设置分组底部文本
         batterySerialNumberGroup.footerText = NSLocalizedString("ManufacturerDataSourceMessage", comment: "")
@@ -917,7 +917,7 @@ class BatteryDataController {
     /// 获取电池QMax信息组
     private func getBatteryQMaxGroup() -> InfoItemGroup {
         
-        let batteryQMaxGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryQmax)
+        let batteryQMaxGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryQmax.rawValue)
         
         // 电池最大QMax
         batteryQMaxGroup.addItem(getBatteryMaximumQmax())
@@ -928,7 +928,7 @@ class BatteryDataController {
     }
     
     private func getBatteryVoltageGroup() -> InfoItemGroup {
-        let batteryVoltageGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryVoltage)
+        let batteryVoltageGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryVoltage.rawValue)
         
         // 电池是否安装
         batteryVoltageGroup.addItem(getBatteryInstalled())
@@ -943,7 +943,7 @@ class BatteryDataController {
     /// 获取充电信息组
     private func getChargerInfoGroup() -> InfoItemGroup {
         
-        let chargerInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charger)
+        let chargerInfoGroup = InfoItemGroup(id: BatteryInfoGroupID.charger.rawValue)
         
         chargerInfoGroup.titleText = NSLocalizedString("ChargerInfo", comment: "")
         
@@ -977,7 +977,7 @@ class BatteryDataController {
     /// 获取电池生命周期内信息组
     func getBatteryLifeTimeGroup() -> InfoItemGroup {
         
-        let batteryLifeTimeGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryLifeTime)
+        let batteryLifeTimeGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryLifeTime.rawValue)
         
         batteryLifeTimeGroup.titleText = NSLocalizedString("BatteryLifeTime", comment: "")
         
@@ -991,6 +991,35 @@ class BatteryDataController {
         return batteryLifeTimeGroup
     }
     
+    // 获取未充电原因信息组
+    private func getNotChargeReasonGroup() -> InfoItemGroup? {
+        
+        if SystemInfoUtils.isDeviceCharging() || isChargeByWatts() {
+            if isNotCharging() { // 判断是否停止充电
+                // 添加未充电原因
+                let notChargeReasonGroup = InfoItemGroup(id: BatteryInfoGroupID.notChargeReason.rawValue)
+                notChargeReasonGroup.addItem(getNotChargingReason())
+                return notChargeReasonGroup
+            }
+        }
+        return nil
+    }
+    
+    // 获取未充电原因信息组
+    private func getChargingPowerAndNotChargeReasonGroup() -> InfoItemGroup? {
+        
+        if SystemInfoUtils.isDeviceCharging() || isChargeByWatts() {
+            let chargingPowerAndNotChargeReasonGroup = InfoItemGroup(id: BatteryInfoGroupID.ChargingPowerAndNotChargeReason.rawValue)
+            chargingPowerAndNotChargeReasonGroup.addItem(calculatedChargingPower())
+            if isNotCharging() { // 判断是否停止充电
+                // 添加未充电原因
+                chargingPowerAndNotChargeReasonGroup.addItem(getNotChargingReason())
+            }
+            return chargingPowerAndNotChargeReasonGroup
+        }
+        return nil
+    }
+    
     // UI获取数据的方法
     func getHomeInfoGroups() -> [InfoItemGroup] {
         
@@ -1002,18 +1031,34 @@ class BatteryDataController {
     
         for id in sequence {
             switch id {
-            case BatteryInfoGroupID.basic:
+            case BatteryInfoGroupID.basic.rawValue:
                 homeInfoGroups.append(getBatteryBasicInfoGroup())
-            case BatteryInfoGroupID.charge:
+            case BatteryInfoGroupID.charge.rawValue:
                 homeInfoGroups.append(getChargeInfoGroup())
-            case BatteryInfoGroupID.settingsBatteryInfo:
+            case BatteryInfoGroupID.settingsBatteryInfo.rawValue:
                 if settingsUtils.getShowSettingsBatteryInfo() { // 判断用户是否打开显示
                     if let settingsBatteryInfo = getSettingsBatteryInfoGroup() {
                         homeInfoGroups.append(settingsBatteryInfo)
                     }
                 }
-            case BatteryInfoGroupID.batterySerialNumber:
+            case BatteryInfoGroupID.batterySerialNumber.rawValue:
                 homeInfoGroups.append(getBatterySerialNumberGroup())
+            case BatteryInfoGroupID.batteryQmax.rawValue:
+                homeInfoGroups.append(getBatteryQMaxGroup())
+            case BatteryInfoGroupID.charger.rawValue:
+                homeInfoGroups.append(getChargerInfoGroup())
+            case BatteryInfoGroupID.batteryVoltage.rawValue:
+                homeInfoGroups.append(getBatteryVoltageGroup())
+            case BatteryInfoGroupID.batteryLifeTime.rawValue:
+                homeInfoGroups.append(getBatteryLifeTimeGroup())
+            case BatteryInfoGroupID.notChargeReason.rawValue:
+                if let notChargeReasonGroup = getNotChargeReasonGroup() {
+                    homeInfoGroups.append(notChargeReasonGroup)
+                }
+            case BatteryInfoGroupID.ChargingPowerAndNotChargeReason.rawValue:
+                if let chargingPowerAndNotChargeReasonGroup = getChargingPowerAndNotChargeReasonGroup() {
+                    homeInfoGroups.append(chargingPowerAndNotChargeReasonGroup)
+                }
             default:
                 break
             }

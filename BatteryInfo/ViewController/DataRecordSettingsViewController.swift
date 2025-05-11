@@ -126,25 +126,25 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
         } else if indexPath.section == 3 {
             // 删除全部数据的按钮
             let alert = UIAlertController(
-                    title: NSLocalizedString("DeleteAllRecordsTitle", comment: "确定要删除所有数据吗？"),
-                    message: NSLocalizedString("DeleteAllRecordsMessage", comment: "此操作会删除所有历史记录"),
-                    preferredStyle: .alert
-                )
+                title: NSLocalizedString("DeleteAllRecordsTitle", comment: "确定要删除所有数据吗？"),
+                message: NSLocalizedString("DeleteAllRecordsMessage", comment: "此操作会删除所有历史记录"),
+                preferredStyle: .alert
+            )
 
-                // "确定" 按钮（红色，左边）
-                let deleteAction = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .destructive) { _ in
-                    BatteryRecordDatabaseManager.shared.deleteAllRecords()
-                }
+            // "确定" 按钮（红色，左边）
+            let deleteAction = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .destructive) { _ in
+                BatteryRecordDatabaseManager.shared.deleteAllRecords()
+            }
 
-                // "取消" 按钮（蓝色，右边）
-                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+            // "取消" 按钮（蓝色，右边）
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
 
-                // 添加按钮，iOS 会自动按照规范排列
-                alert.addAction(deleteAction) // 红色
-                alert.addAction(cancelAction) // 蓝色
+            // 添加按钮，iOS 会自动按照规范排列
+            alert.addAction(deleteAction) // 红色
+            alert.addAction(cancelAction) // 蓝色
 
-                // 显示弹窗
-                present(alert, animated: true, completion: nil)
+            // 显示弹窗
+            present(alert, animated: true, completion: nil)
         }
     }
     

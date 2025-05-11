@@ -50,6 +50,10 @@ class BatteryFormatUtils {
     
     /// 给序列号打上*号*
     static func maskSerialNumber(_ serial: String) -> String {
+        if serial.contains("UNKNOWN") { // 序列号是UNKNOWN就直接返回
+            return serial
+        }
+        
         guard serial.count >= 5 else {
             return serial // 如果长度小于 5，则直接返回
         }

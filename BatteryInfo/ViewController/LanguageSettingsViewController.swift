@@ -83,6 +83,9 @@ class LanguageSettingsViewController: UIViewController, UITableViewDelegate, UIT
         // 刷新界面显示
         ApplicationLanguageController.loadLanguageFromSettings()
         reloadAppRootView()
+        
+        // 重新初始化数据提供者，解决语言切换的小bug
+        BatteryDataController.configureInstance(provider: IOKitBatteryDataProvider())
     }
     
     func reloadAppRootView() {

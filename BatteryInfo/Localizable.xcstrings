@@ -18,6 +18,7 @@
       }
     },
     "Alert" : {
+      "comment" : "确定重置首页显示的信息组吗？",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -93,6 +94,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "定时刷新电池数据"
+          }
+        }
+      }
+    },
+    "AvailableGroups" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Available Groups"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可显示在首页的信息组"
           }
         }
       }
@@ -906,6 +923,38 @@
         }
       }
     },
+    "DisplayedHomeGroups" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Displayed Home Groups"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首页显示的信息组"
+          }
+        }
+      }
+    },
+    "DisplayedHomeGroupsFooterMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information groups containing * need to be displayed when necessary."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包含*的信息组需要在需要时显示"
+          }
+        }
+      }
+    },
     "DisplaySettings" : {
       "localizations" : {
         "en" : {
@@ -999,6 +1048,204 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在未充电的状态下仍然显示充电数据"
+          }
+        }
+      }
+    },
+    "GroupBasic" : {
+      "comment" : "电池基础信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Basic Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池基础信息组"
+          }
+        }
+      }
+    },
+    "GroupBatteryLifeTime" : {
+      "comment" : "电池生命周期信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery LifeTime Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池生命周期信息组"
+          }
+        }
+      }
+    },
+    "GroupBatteryQmax" : {
+      "comment" : "电池Qmax信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Qmax Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池Qmax信息组"
+          }
+        }
+      }
+    },
+    "GroupBatterySerial" : {
+      "comment" : "电池序列号信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Serial Number Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池序列号信息组"
+          }
+        }
+      }
+    },
+    "GroupBatteryVoltage" : {
+      "comment" : "电池电压信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Voltage Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池电压信息组"
+          }
+        }
+      }
+    },
+    "GroupCharge" : {
+      "comment" : "充电信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charge Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电信息组"
+          }
+        }
+      }
+    },
+    "GroupCharger" : {
+      "comment" : "充电器信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charger Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器信息组"
+          }
+        }
+      }
+    },
+    "GroupChargingPowerNotChargeReason" : {
+      "comment" : "充电功率和不充电原因组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charging Power and Not Charging Reason Group*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电功率和不充电原因组*"
+          }
+        }
+      }
+    },
+    "GroupNotChargeReason" : {
+      "comment" : "不充电原因组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Charge Reason Info*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不充电原因*"
+          }
+        }
+      }
+    },
+    "GroupSettingsBatteryInfo" : {
+      "comment" : "设置中的电池信息组",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings Battery Info group*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置中的电池信息组*"
+          }
+        }
+      }
+    },
+    "GroupUnknown" : {
+      "comment" : "未知",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown Group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
           }
         }
       }
@@ -1581,6 +1828,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "剩余容量: %@ mAh"
+          }
+        }
+      }
+    },
+    "ResetDisplayedHomeGroups" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Displayed Home Groups"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重设首页显示的信息组"
+          }
+        }
+      }
+    },
+    "ResetDisplayedHomeGroupsMessage" : {
+      "comment" : "此操作会重置为默认的首页显示排序",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to reset the information group displayed on the homepage? This operation will reset the information group displayed on the homepage to the default sorting."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定重置首页显示的信息组吗？此操作会重置首页显示的信息组为默认的排序"
           }
         }
       }
