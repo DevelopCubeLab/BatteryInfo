@@ -97,6 +97,22 @@
         }
       }
     },
+    "AverageTemperature" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Average Temperature: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均温度: %@℃"
+          }
+        }
+      }
+    },
     "BatteryChargeNormal" : {
       "localizations" : {
         "en" : {
@@ -174,6 +190,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池已安装: %@"
+          }
+        }
+      }
+    },
+    "BatteryLifeTime" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery LifeTime Data"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池生命周期数据"
           }
         }
       }
@@ -874,6 +906,22 @@
         }
       }
     },
+    "DisplaySettings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示"
+          }
+        }
+      }
+    },
     "Enable" : {
       "comment" : "启用",
       "localizations" : {
@@ -1070,6 +1118,22 @@
         }
       }
     },
+    "LanguageSettings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "界面语言"
+          }
+        }
+      }
+    },
     "LimitVoltage" : {
       "localizations" : {
         "en" : {
@@ -1199,6 +1263,22 @@
         }
       }
     },
+    "MaximumTemperature" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Temperature: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最高温度: %@℃"
+          }
+        }
+      }
+    },
     "MinimumQmax" : {
       "localizations" : {
         "en" : {
@@ -1211,6 +1291,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最小Qmax: %@ mAh"
+          }
+        }
+      }
+    },
+    "MinimumTemperature" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimum Temperature: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最低温度: %@℃"
           }
         }
       }
@@ -1648,6 +1744,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "<未获取到>"
+          }
+        }
+      }
+    },
+    "UseSystemLanguage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use System Language"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用系统语言"
           }
         }
       }

@@ -8,6 +8,13 @@ class SettingsUtils {
     // 私有的 PlistManagerUtils 实例，用于管理特定的 plist 文件
     private let plistManager: PlistManagerUtils
     
+    // 语言设置
+    enum ApplicationLanguage: Int {
+        case System = 0
+        case English = 1
+        case SimplifiedChinese = 2
+    }
+    
     enum MaximumCapacityAccuracy: Int {
         case Keep = 0       // 保留原始数据
         case Ceiling = 1    // 向上取整
@@ -34,6 +41,23 @@ class SettingsUtils {
             return
         }
         
+    }
+    
+    /// 获取App语言设置
+    func getApplicationLanguage() -> ApplicationLanguage {
+        let value = plistManager.getInt(key: "ApplicationLanguage", defaultValue: ApplicationLanguage.System.rawValue)
+        return ApplicationLanguage(rawValue: value) ?? ApplicationLanguage.System
+    }
+    
+    /// 设置App语言设置
+    func setApplicationLanguage(value: ApplicationLanguage) {
+        setApplicationLanguage(value: value.rawValue)
+    }
+    
+    /// 设置App语言设置
+    func setApplicationLanguage(value: Int) {
+        plistManager.setInt(key: "ApplicationLanguage", value: value)
+        plistManager.apply()
     }
     
     func getAutoRefreshDataView() -> Bool {

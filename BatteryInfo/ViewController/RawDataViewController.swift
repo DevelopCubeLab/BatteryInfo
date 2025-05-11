@@ -113,6 +113,13 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    // MARK: - Cell的点击事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
     @objc func copyBatteryInfo() {
         // 将电池信息格式化为字符串
         let formattedInfo = batteryInfo.map { "\($0.key): \($0.value)" }.joined(separator: "\n")

@@ -22,9 +22,9 @@ class MainUITabBarController: UITabBarController {
             setOverrideTraitCollection(UITraitCollection(horizontalSizeClass: .compact), forChild: self)
         }
         
-        homeViewController.tabBarItem = createTabBarItem(title: "Home", image: "house", selectedImage: "house.fill", fallbackImage: "")
-        historyRecordViewController.tabBarItem = createTabBarItem(title: "History", image: "list.dash", selectedImage: "list.bullet", fallbackImage: "")
-        settingsViewController.tabBarItem = createTabBarItem(title: "Settings", image: "gear", selectedImage: "gear.fill", fallbackImage: "")
+        homeViewController.tabBarItem = MainUITabBarController.createTabBarItem(title: "Home", image: "house", selectedImage: "house.fill", fallbackImage: "")
+        historyRecordViewController.tabBarItem = MainUITabBarController.createTabBarItem(title: "History", image: "list.dash", selectedImage: "list.bullet", fallbackImage: "")
+        settingsViewController.tabBarItem = MainUITabBarController.createTabBarItem(title: "Settings", image: "gear", selectedImage: "gear.fill", fallbackImage: "")
         
         updateTabBarControllers(selfLoad: true)
         
@@ -33,7 +33,7 @@ class MainUITabBarController: UITabBarController {
         
     }
     
-    private func createTabBarItem(title: String, image: String, selectedImage: String,fallbackImage: String) -> UITabBarItem {
+    static func createTabBarItem(title: String, image: String, selectedImage: String,fallbackImage: String) -> UITabBarItem {
         let localizedTitle = NSLocalizedString(title, comment: "")
         if #available(iOS 13.0, *) {
             return UITabBarItem(title: localizedTitle, image: UIImage(systemName: image), selectedImage: UIImage(systemName: selectedImage))

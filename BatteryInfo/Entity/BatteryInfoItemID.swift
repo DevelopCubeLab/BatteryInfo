@@ -9,7 +9,7 @@ enum BatteryInfoGroupID {
     static let batteryQmax = 5
     static let charger = 6
     static let batteryVoltage = 7
-    static let batteryLifeCycle = 8
+    static let batteryLifeTime = 8
     static let notChargeReason = 9
 }
 
@@ -55,5 +55,9 @@ enum BatteryInfoItemID {
     static let batteryInstalled = 701
     static let bootVoltage = 702
     static let limitVoltage = 703
+    
+    static let averageTemperature = 801
+    static let maximumTemperature = 802
+    static let minimumTemperature = 803
     
 }

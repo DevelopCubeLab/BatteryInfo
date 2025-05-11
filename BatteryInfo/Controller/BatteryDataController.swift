@@ -685,6 +685,54 @@ class BatteryDataController {
         }
     }
     
+    // 获取电池生命周期内平均温度
+    private func getBatteryAverageTemperature() -> InfoItem {
+        if let averageTemperature = batteryInfo?.batteryData?.lifetimeData?.averageTemperature {
+            return InfoItem(
+                id: BatteryInfoItemID.averageTemperature,
+                text: String.localizedStringWithFormat(NSLocalizedString("AverageTemperature", comment: ""), String(averageTemperature))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.averageTemperature,
+                text: String.localizedStringWithFormat(NSLocalizedString("AverageTemperature", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取电池生命周期内最高温度
+    private func getBatteryMaximumTemperature() -> InfoItem {
+        if let maximumTemperature = batteryInfo?.batteryData?.lifetimeData?.maximumTemperature {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumTemperature,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumTemperature", comment: ""), String(format: "%.1f", Double(maximumTemperature) / 10.0))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumTemperature,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumTemperature", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取电池生命周期内最低温度
+    private func getBatteryMinimumTemperature() -> InfoItem {
+        if let minimumTemperature = batteryInfo?.batteryData?.lifetimeData?.minimumTemperature {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumTemperature,
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumTemperature", comment: ""), String(format: "%.1f", Double(minimumTemperature) / 10.0))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumTemperature,
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumTemperature", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
     /// 获取电池基本信息组
     private func getBatteryBasicInfoGroup() -> InfoItemGroup {
         
@@ -926,6 +974,23 @@ class BatteryDataController {
         return chargerInfoGroup
     }
     
+    /// 获取电池生命周期内信息组
+    func getBatteryLifeTimeGroup() -> InfoItemGroup {
+        
+        let batteryLifeTimeGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryLifeTime)
+        
+        batteryLifeTimeGroup.titleText = NSLocalizedString("BatteryLifeTime", comment: "")
+        
+        // 平均温度
+        batteryLifeTimeGroup.addItem(getBatteryAverageTemperature())
+        // 最高温度
+        batteryLifeTimeGroup.addItem(getBatteryMaximumTemperature())
+        // 最低温度
+        batteryLifeTimeGroup.addItem(getBatteryMinimumTemperature())
+        
+        return batteryLifeTimeGroup
+    }
+    
     // UI获取数据的方法
     func getHomeInfoGroups() -> [InfoItemGroup] {
         
@@ -972,6 +1037,8 @@ class BatteryDataController {
         allBatteryInfoGroups.append(getBatteryVoltageGroup())
         // 充电器组
         allBatteryInfoGroups.append(getChargerInfoGroup())
+        // 生命周期组
+        allBatteryInfoGroups.append(getBatteryLifeTimeGroup())
         
         return allBatteryInfoGroups
     }

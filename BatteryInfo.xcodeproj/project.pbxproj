@@ -19,6 +19,7 @@
 		17D996D32D1D50A60056394C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D996D22D1D50A60056394C /* AppDelegate.swift */; };
 		17D996DC2D1D50A60056394C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D996DB2D1D50A60056394C /* Assets.xcassets */; };
 		17D996DF2D1D50A60056394C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D996DD2D1D50A60056394C /* LaunchScreen.storyboard */; };
+		17E83C792DD093B00093DAE7 /* ApplicationLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E83C782DD093B00093DAE7 /* ApplicationLanguageController.swift */; };
 		17F66BE62D2A1C7A0097A29A /* BatteryHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F66BE52D2A1C7A0097A29A /* BatteryHelper.a */; };
 		17F66BEE2D2A52580097A29A /* BatteryDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F66BED2D2A52580097A29A /* BatteryDataController.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		17D996DB2D1D50A60056394C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17D996DE2D1D50A60056394C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17D996E02D1D50A60056394C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17E83C782DD093B00093DAE7 /* ApplicationLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLanguageController.swift; sourceTree = "<group>"; };
 		17F66BE52D2A1C7A0097A29A /* BatteryHelper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = BatteryHelper.a; sourceTree = "<group>"; };
 		17F66BED2D2A52580097A29A /* BatteryDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				17F66BED2D2A52580097A29A /* BatteryDataController.swift */,
 				17BC11CD2D5506F9009924BF /* BatteryRecordDatabaseManager.swift */,
 				17A0DB242DCBD3B6006DEDA6 /* SettingsBatteryDataController.swift */,
+				17E83C782DD093B00093DAE7 /* ApplicationLanguageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				17D996D32D1D50A60056394C /* AppDelegate.swift in Sources */,
 				17A0DB252DCBD3B6006DEDA6 /* SettingsBatteryDataController.swift in Sources */,
 				17F66BEE2D2A52580097A29A /* BatteryDataController.swift in Sources */,
+				17E83C792DD093B00093DAE7 /* ApplicationLanguageController.swift in Sources */,
 				1731F9BB2D50D02600AA1FD5 /* DeviceController.m in Sources */,
 				17BC11CE2D5506F9009924BF /* BatteryRecordDatabaseManager.swift in Sources */,
 			);
