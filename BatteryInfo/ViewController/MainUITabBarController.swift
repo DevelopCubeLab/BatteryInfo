@@ -77,6 +77,11 @@ class MainUITabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        if !SettingsUtils.instance.getDoubleClickTabBarButtonToScrollToTop() { // 判断是否启用此功能
+            return
+        }
+        
         let now = Date().timeIntervalSince1970
 
         if selectedIndex == lastSelectedIndex {

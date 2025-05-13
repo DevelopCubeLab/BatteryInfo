@@ -259,6 +259,23 @@
         }
       }
     },
+    "BatteryHistorySummaryContent" : {
+      "comment" : "Battery statistics summary with total records, health delta, capacity delta, cycle delta, and avg cycles per day.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Records: %@ items\nRecorded over %@ days\nBattery Health Change: %@%%\nCapacity Change: %@ mAh\nCycle Count Increase: %@ time(s)\nAvg. Cycles per Day: %@ time(s)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
+          }
+        }
+      }
+    },
     "BatteryInstalled" : {
       "localizations" : {
         "en" : {
@@ -287,6 +304,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池生命周期数据"
+          }
+        }
+      }
+    },
+    "BatteryLifeTimeTotalOperatingTime" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Total Operating Time: %@ hours"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池总工作时间: %@小时"
           }
         }
       }
@@ -854,6 +887,22 @@
         }
       }
     },
+    "Days" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ days"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@天"
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "en" : {
@@ -1018,6 +1067,22 @@
         }
       }
     },
+    "DisplayGeneralSettingsFooterMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Use history records to calculate the battery health refresh date in the settings’Enable Record history records' function to be enabled."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'使用历史记录来推算设置中的电池健康数据刷新日期'功能需要开启'记录历史记录'功能"
+          }
+        }
+      }
+    },
     "DisplaySettings" : {
       "localizations" : {
         "en" : {
@@ -1030,6 +1095,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示"
+          }
+        }
+      }
+    },
+    "DoubleClickTabBarButtonToScrollToTop" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double clicking the bottom button on the homepage to return the list to the top"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双击首页底部按钮让列表返回顶部"
           }
         }
       }
@@ -1056,13 +1137,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enable History Records Statistics"
+            "value" : "History Records Statistics"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "启用历史记录统计"
+            "value" : "历史记录统计"
           }
         }
       }
@@ -1596,6 +1677,22 @@
         }
       }
     },
+    "MaximumChargeCurrent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Charge Current: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大充电电流: %@mA"
+          }
+        }
+      }
+    },
     "MaximumChargingHandshakeWatts" : {
       "localizations" : {
         "en" : {
@@ -1608,6 +1705,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最大充电握手功率: %@W"
+          }
+        }
+      }
+    },
+    "MaximumDischargeCurrent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Discharge Current: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大放电电流: %@mA"
+          }
+        }
+      }
+    },
+    "MaximumPackVoltage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Battery Pack Voltage: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池组最大电压: %@V"
           }
         }
       }
@@ -1640,6 +1769,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最高温度: %@℃"
+          }
+        }
+      }
+    },
+    "MinimumPackVoltage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimum Battery Pack Voltage: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池组最小电压: %@V"
           }
         }
       }
@@ -1784,6 +1929,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未连接"
+          }
+        }
+      }
+    },
+    "NotEnoughData" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not enough data to generate statistics."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据不足，无法生成统计数据。"
           }
         }
       }
@@ -2174,6 +2335,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "<未获取到>"
+          }
+        }
+      }
+    },
+    "UseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use history records to calculate the battery health refresh date in the settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用历史记录来推算设置中的电池健康数据刷新日期"
           }
         }
       }

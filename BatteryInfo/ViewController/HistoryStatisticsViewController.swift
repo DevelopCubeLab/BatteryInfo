@@ -51,6 +51,58 @@ class HistoryStatisticsViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - 创建cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.numberOfLines = 0
+
+        let records = BatteryRecordDatabaseManager.shared.fetchAllRecords()
+        guard records.count >= 2 else {
+            cell.textLabel?.text = NSLocalizedString("NotEnoughData", comment: "")
+            return cell
+        }
+
+        let first = records.last!
+        let last = records.first!
+
+        let totalRecords = records.count
+        let timeInterval = max(1, last.createDate - first.createDate)
+        let days = Double(timeInterval) / 86400.0
+        let totalDays = String(Int(days))
+
+        let firstHealth = (Double(first.nominalChargeCapacity ?? 0) / Double(first.designCapacity ?? 1)) * 100
+        let lastHealth = (Double(last.nominalChargeCapacity ?? 0) / Double(last.designCapacity ?? 1)) * 100
+        let deltaHealth = lastHealth - firstHealth
+
+        let deltaCapacity = (last.nominalChargeCapacity ?? 0) - (first.nominalChargeCapacity ?? 0)
+        let deltaCycles = last.cycleCount - first.cycleCount
+
+        let avgCyclePerDay = Double(deltaCycles) / days
+
+        cell.textLabel?.text = String(format: NSLocalizedString("BatteryHistorySummaryContent", comment: ""),
+            String(totalRecords),
+            String(totalDays),
+            String(format: "%.1f", deltaHealth),
+            String(deltaCapacity),
+            String(deltaCycles),
+            String(format: "%.2f", avgCyclePerDay)
+        )
+
         return cell
+    }
+    
+    // MARK: - Cell的点击事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @available(iOS 13.0, *)
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let cell = tableView.cellForRow(at: indexPath)
+        let text = cell?.textLabel?.text
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let copyAction = UIAction(title: NSLocalizedString("Copy", comment: ""), image: UIImage(systemName: "doc.on.doc")) { _ in
+                UIPasteboard.general.string = text
+            }
+            return UIMenu(title: "", children: [copyAction])
+        }
     }
 }

@@ -9,7 +9,7 @@ class DisplaySettingsViewController: UIViewController, UITableViewDelegate, UITa
     
     private let tableTitleList = [nil, NSLocalizedString("DisplayedHomeGroups", comment: ""), NSLocalizedString("AvailableGroups", comment: ""), nil]
     
-    private let tableCellList = [[NSLocalizedString("AutoRefreshDataViewSetting", comment: ""), NSLocalizedString("ForceShowChargingData", comment: ""), NSLocalizedString("ShowSettingsBatteryInfo", comment: "")], [], [], [NSLocalizedString("ResetDisplayedHomeGroups", comment: "")]]
+    private let tableCellList = [[NSLocalizedString("AutoRefreshDataViewSetting", comment: ""), NSLocalizedString("ForceShowChargingData", comment: ""), NSLocalizedString("ShowSettingsBatteryInfo", comment: ""), NSLocalizedString("UseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate", comment: ""), NSLocalizedString("DoubleClickTabBarButtonToScrollToTop", comment: "")], [], [], [NSLocalizedString("ResetDisplayedHomeGroups", comment: "")]]
     
     private var homeGroupIDs: [Int] = []
     
@@ -87,7 +87,9 @@ class DisplaySettingsViewController: UIViewController, UITableViewDelegate, UITa
     // MARK: - 设置每个分组的底部标题 可以为分组设置尾部文本，如果没有尾部可以返回 nil
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
-        if section == 1 {
+        if section == 0 {
+            return NSLocalizedString("DisplayGeneralSettingsFooterMessage", comment: "")
+        } else if section == 1 {
             return NSLocalizedString("DisplayedHomeGroupsFooterMessage", comment: "")
         }
         
@@ -106,7 +108,6 @@ class DisplaySettingsViewController: UIViewController, UITableViewDelegate, UITa
         if indexPath.section == 0 {
             cell.textLabel?.text = tableCellList[indexPath.section][indexPath.row]
             
-            
             let switchView = UISwitch(frame: .zero)
             switchView.tag = indexPath.row // 设置识别id
             if indexPath.row == 0 {
@@ -115,8 +116,13 @@ class DisplaySettingsViewController: UIViewController, UITableViewDelegate, UITa
                 switchView.isOn = SettingsUtils.instance.getForceShowChargingData()
             } else if indexPath.row == 2 {
                 switchView.isOn = SettingsUtils.instance.getShowSettingsBatteryInfo()
+            } else if indexPath.row == 3 {
+                switchView.isOn = SettingsUtils.instance.getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate()
+                switchView.isEnabled = SettingsUtils.instance.getEnableRecordBatteryData()
+                cell.isUserInteractionEnabled = SettingsUtils.instance.getEnableRecordBatteryData()
+            }else if indexPath.row == 4 {
+                switchView.isOn = SettingsUtils.instance.getDoubleClickTabBarButtonToScrollToTop()
             }
-            
             switchView.addTarget(self, action: #selector(self.onSwitchChanged(_:)), for: .valueChanged)
             cell.accessoryView = switchView
             cell.selectionStyle = .none
@@ -198,6 +204,10 @@ class DisplaySettingsViewController: UIViewController, UITableViewDelegate, UITa
             SettingsUtils.instance.setForceShowChargingData(value: sender.isOn)
         } else if sender.tag == 2 {
             SettingsUtils.instance.setShowSettingsBatteryInfo(value: sender.isOn)
+        } else if sender.tag == 3 {
+            SettingsUtils.instance.setUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate(value: sender.isOn)
+        } else if sender.tag == 4 {
+            SettingsUtils.instance.setDoubleClickTabBarButtonToScrollToTop(value: sender.isOn)
         }
     }
     

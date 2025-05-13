@@ -109,6 +109,10 @@ enum BatteryInfoItemID {
     static let averageTemperature = 801
     static let maximumTemperature = 802
     static let minimumTemperature = 803
+    static let maximumChargeCurrent = 804
+    static let maximumDischargeCurrent = 805
+    static let maximumPackVoltage = 806
+    static let minimumPackVoltage = 807
     
     static let accessoryCurrentCapacity = 1101
     static let accessoryIsCharging = 1102

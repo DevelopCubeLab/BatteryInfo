@@ -99,6 +99,16 @@ class SettingsUtils {
         plistManager.apply()
     }
     
+    /// 获取是否允许双击首页TabBar按钮来让列表滚动到顶部
+    func getDoubleClickTabBarButtonToScrollToTop() -> Bool {
+        return plistManager.getBool(key: "DoubleClickTabBarButtonToScrollToTop", defaultValue: true)
+    }
+    
+    func setDoubleClickTabBarButtonToScrollToTop(value: Bool) {
+        plistManager.setBool(key: "DoubleClickTabBarButtonToScrollToTop", value: value)
+        plistManager.apply()
+    }
+    
     /// 获取健康度准确度设置
     /// - return 返回选项 默认值向上取整，减少用户对电池健康的焦虑 [Doge]
     func getMaximumCapacityAccuracy() -> MaximumCapacityAccuracy {

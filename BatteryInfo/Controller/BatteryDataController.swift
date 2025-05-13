@@ -739,7 +739,90 @@ class BatteryDataController {
         }
     }
     
-    // 获取设备是否正在充电/充满
+    // 获取电池生命周期内电池最大充电电流
+    private func getBatteryMaximumChargeCurrent() -> InfoItem {
+        if let maximumDischargeCurrent = batteryInfo?.batteryData?.lifetimeData?.maximumChargeCurrent {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumChargeCurrent,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumChargeCurrent", comment: ""), String(maximumDischargeCurrent))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumChargeCurrent,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumChargeCurrent", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取电池生命周期内电池最大放电电流
+    private func getBatteryMaximumDischargeCurrent() -> InfoItem {
+        if let maximumDischargeCurrent = batteryInfo?.batteryData?.lifetimeData?.maximumDischargeCurrent {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumDischargeCurrent,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumDischargeCurrent", comment: ""), String(maximumDischargeCurrent))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumDischargeCurrent,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumDischargeCurrent", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取电池生命周期内电池组最大电压
+    private func getBatteryMaximumPackVoltage() -> InfoItem {
+        if let maximumDischargeCurrent = batteryInfo?.batteryData?.lifetimeData?.maximumPackVoltage {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumPackVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumPackVoltage", comment: ""), String(format: "%.2f", Double(maximumDischargeCurrent) / 1000.0))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.maximumPackVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("MaximumPackVoltage", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取电池生命周期内电池组最小电压
+    private func getBatteryMinimumPackVoltage() -> InfoItem {
+        if let maximumDischargeCurrent = batteryInfo?.batteryData?.lifetimeData?.minimumPackVoltage {
+            return InfoItem(
+                id: BatteryInfoItemID.minimumPackVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumPackVoltage", comment: ""), String(format: "%.2f", Double(maximumDischargeCurrent) / 1000.0))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.minimumPackVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumPackVoltage", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取电池生命周期内总工作时间，推测单位：小时
+    private func getBatteryLifeTimeTotalOperatingTime() -> InfoItem {
+        if let maximumDischargeCurrent = batteryInfo?.batteryData?.lifetimeData?.totalOperatingTime {
+            return InfoItem(
+                id: BatteryInfoItemID.minimumPackVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("BatteryLifeTimeTotalOperatingTime", comment: ""), String(maximumDischargeCurrent))
+                    .appending(" (")
+                    .appending(String.localizedStringWithFormat(NSLocalizedString("Days", comment: ""), String(format: "%.1f", Double(maximumDischargeCurrent) / 24.0)))
+                    .appending(")")
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.minimumPackVoltage,
+                text: String.localizedStringWithFormat(NSLocalizedString("BatteryLifeTimeTotalOperatingTime", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取外接设备电量百分比
     private func getAccessoryCurrentCapacity() -> InfoItem {
         if let currentCapacity = batteryInfo?.accessoryDetails?.currentCapacity {
             return InfoItem(
@@ -1006,6 +1089,7 @@ class BatteryDataController {
         return batteryQMaxGroup
     }
     
+    /// 获取电池电压信息组
     private func getBatteryVoltageGroup() -> InfoItemGroup {
         let batteryVoltageGroup = InfoItemGroup(id: BatteryInfoGroupID.batteryVoltage.rawValue)
         
@@ -1066,6 +1150,16 @@ class BatteryDataController {
         batteryLifeTimeGroup.addItem(getBatteryMaximumTemperature())
         // 最低温度
         batteryLifeTimeGroup.addItem(getBatteryMinimumTemperature())
+        // 电池最大充电电流
+        batteryLifeTimeGroup.addItem(getBatteryMaximumChargeCurrent())
+        // 电池最大放电电流
+        batteryLifeTimeGroup.addItem(getBatteryMaximumDischargeCurrent())
+        // 电池组最大电压
+        batteryLifeTimeGroup.addItem(getBatteryMaximumPackVoltage())
+        // 电池组最小电压
+        batteryLifeTimeGroup.addItem(getBatteryMinimumPackVoltage())
+        // 电池生命周期内总工作时间
+        batteryLifeTimeGroup.addItem(getBatteryLifeTimeTotalOperatingTime())
         
         return batteryLifeTimeGroup
     }

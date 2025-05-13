@@ -109,15 +109,27 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.textLabel?.text = "\"\(key)\": \"\(value)\","
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.selectionStyle = .none
 
         return cell
     }
     
     // MARK: - Cell的点击事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @available(iOS 13.0, *)
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let item = batteryInfo[indexPath.row]
+        let text = "\"\(item.key)\": \"\(item.value)\","
         
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let copyAction = UIAction(title: NSLocalizedString("Copy", comment: ""), image: UIImage(systemName: "doc.on.doc")) { _ in
+                UIPasteboard.general.string = text
+            }
+            return UIMenu(title: "", children: [copyAction])
+        }
     }
     
     @objc func copyBatteryInfo() {
