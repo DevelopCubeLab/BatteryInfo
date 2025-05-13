@@ -20,6 +20,7 @@ struct BatteryRAWInfo {
     var kioskMode: KioskMode?         // 嵌套 KioskMode
     var bestAdapterIndex: Int?        // 最合适的充电器序号
     var adapterDetails: AdapterDetails? // 充电器信息
+    var accessoryDetails: AccessoryDetails? // 扩展配件的电量，例如MagSafe外接电池
     var appleRawAdapterDetails: [AdapterDetails] // 充电器原始信息
     var chargerData: ChargerData?     // 嵌套 ChargerData
     var maximumCapacity: String?      // 最大可充电的百分比，默认是100
@@ -57,6 +58,11 @@ extension BatteryRAWInfo {
         
         if let adapterDataDict = dict["AdapterDetails"] as? [String: Any] {
             self.adapterDetails = AdapterDetails(dict: adapterDataDict)
+        }
+        
+        if let accessoryArray = dict["AccessoryDetails"] as? [[String: Any]],
+           let accessoryDict = accessoryArray.first {
+            self.accessoryDetails = AccessoryDetails(dict: accessoryDict)
         }
         
         self.appleRawAdapterDetails = []

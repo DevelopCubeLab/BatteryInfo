@@ -9,7 +9,7 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
     
     private let tableTitleList = [nil, NSLocalizedString("RecordFrequencySettings", comment: "记录频率设置"), nil, nil]
     
-    private let tableCellList = [[NSLocalizedString("Enable", comment: "启用"), NSLocalizedString("HistoryRecordViewInHomeView", comment: "在主界面显示历史记录界面"), NSLocalizedString("RecordShowDesignCapacity", comment: "")], [NSLocalizedString("Automatic", comment: ""), NSLocalizedString("DataChanged", comment: ""), NSLocalizedString("EveryDay", comment: ""), NSLocalizedString("Manual", comment: "")], [NSLocalizedString("ExportAllRecordsToCSV", comment: "")], [NSLocalizedString("DeleteAllRecords", comment: "")]]
+    private let tableCellList = [[NSLocalizedString("Enable", comment: "启用"), NSLocalizedString("HistoryRecordViewInHomeView", comment: "在主界面显示历史记录界面"), NSLocalizedString("RecordShowDesignCapacity", comment: ""), NSLocalizedString("EnableHistoryStatistics", comment: "")], [NSLocalizedString("Automatic", comment: ""), NSLocalizedString("DataChanged", comment: ""), NSLocalizedString("EveryDay", comment: ""), NSLocalizedString("Manual", comment: "")], [NSLocalizedString("ExportAllRecordsToCSV", comment: "")], [NSLocalizedString("DeleteAllRecords", comment: "")]]
     
     private var reloadMainTabBar = false
     
@@ -87,6 +87,8 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
                 switchView.isOn = SettingsUtils.instance.getShowHistoryRecordViewInHomeView()
             } else if indexPath.row == 2 {
                 switchView.isOn = SettingsUtils.instance.getRecordShowDesignCapacity()
+            } else if indexPath.row == 3 {
+                switchView.isOn = SettingsUtils.instance.getEnableHistoryStatistics()
             }
         } else if indexPath.section == 1 {
             cell.selectionStyle = .default
@@ -157,6 +159,8 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
             reloadMainTabBar = true // 更改刷新标记
         } else if sender.tag == 2 {
             settingsUtils.setRecordShowDesignCapacity(value: sender.isOn) // 切换显示设计容量开关
+        } else if sender.tag == 3 {
+            settingsUtils.setEnableHistoryStatistics(value: sender.isOn) // 切换启用历史数据统计
         }
     }
     

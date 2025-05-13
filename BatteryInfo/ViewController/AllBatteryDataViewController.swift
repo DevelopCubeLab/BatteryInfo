@@ -7,6 +7,8 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
     
     private var batteryInfoGroups: [InfoItemGroup] = []
     
+    private var refreshTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,10 +51,31 @@ class AllBatteryDataViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        startAutoRefresh() // 页面回来时重新启动定时器
         loadBatteryData()
     }
     
-    private func loadBatteryData() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopAutoRefresh() // 页面离开时停止定时器
+    }
+    
+    private func startAutoRefresh() {
+        // 确保旧的定时器被清除，避免重复创建
+        stopAutoRefresh()
+
+        if SettingsUtils.instance.getAutoRefreshDataView() {
+            // 创建新的定时器，每 3 秒刷新一次
+            refreshTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(loadBatteryData), userInfo: nil, repeats: true)
+        }
+    }
+
+    private func stopAutoRefresh() {
+        refreshTimer?.invalidate()
+        refreshTimer = nil
+    }
+    
+    @objc private func loadBatteryData() {
 
         batteryInfoGroups = BatteryDataController.getInstance.getAllBatteryInfoGroups()
         

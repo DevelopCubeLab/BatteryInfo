@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ScrollableToTop {
     
     private var tableView = UITableView()
     
@@ -53,6 +53,27 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // 右上角增加统计按钮
+        if SettingsUtils.instance.getEnableHistoryStatistics() {
+            if #available(iOS 13.0, *) {
+                navigationItem.rightBarButtonItem = UIBarButtonItem(
+                    image: UIImage(systemName: "chart.pie"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(onClickStatisticsButton)
+                )
+            } else {
+                navigationItem.rightBarButtonItem = UIBarButtonItem(
+                    title: NSLocalizedString("HistoryStatistics", comment: "统计"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(onClickStatisticsButton)
+                )
+            }
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+        
         // 获取容量准确度参数
         self.capacityAccuracy = SettingsUtils.instance.getMaximumCapacityAccuracy()
         // 重新加载历史数据
@@ -69,10 +90,9 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    // MARK: - 加载历史数据
     private func loadHistoryDataRecords() {
-        
         historyDataRecords = BatteryRecordDatabaseManager.shared.fetchAllRecords()
-        
     }
     
     // MARK: - 设置总分组数量
@@ -230,4 +250,16 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
         present(alert, animated: true)
     }
     
+    // 滚动UITableView到顶部
+    func scrollToTop() {
+        let offset = CGPoint(x: 0, y: -tableView.adjustedContentInset.top)
+        tableView.setContentOffset(offset, animated: true)
+    }
+    
+    // 点击历史数据统计按钮
+    @objc private func onClickStatisticsButton() {
+        let historyStatisticsViewController = HistoryStatisticsViewController()
+        historyStatisticsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
+        self.navigationController?.pushViewController(historyStatisticsViewController, animated: true)
+    }
 }

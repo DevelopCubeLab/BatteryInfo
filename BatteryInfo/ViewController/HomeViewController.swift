@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ScrollableToTop {
     
     private var tableView = UITableView()
     
@@ -214,6 +214,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
         }
+    }
+    
+    // 滚动UITableView到顶部
+    func scrollToTop() {
+        let offset = CGPoint(x: 0, y: -tableView.adjustedContentInset.top)
+        tableView.setContentOffset(offset, animated: true)
     }
 
 }

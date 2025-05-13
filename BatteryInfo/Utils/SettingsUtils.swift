@@ -145,6 +145,16 @@ class SettingsUtils {
         plistManager.apply()
     }
     
+    // 获取启用历史数据统计功能
+    func getEnableHistoryStatistics() -> Bool {
+        return plistManager.getBool(key: "EnableHistoryStatistics", defaultValue: true)
+    }
+    
+    func setEnableHistoryStatistics(value: Bool) {
+        plistManager.setBool(key: "EnableHistoryStatistics", value: value)
+        plistManager.apply()
+    }
+    
     /// 获取记录电池记录频率设置
     func getRecordFrequency() -> RecordFrequency {
         var value = getRecordFrequencyRawValue()

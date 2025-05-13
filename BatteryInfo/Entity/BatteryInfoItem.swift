@@ -11,7 +11,8 @@ enum BatteryInfoGroupID: Int {
     case batteryVoltage = 7
     case batteryLifeTime = 8
     case notChargeReason = 9
-    case ChargingPowerAndNotChargeReason = 10
+    case chargingPowerAndNotChargeReason = 10
+    case accessoryDetails = 11
 
     static var allCases: [BatteryInfoGroupID] {
         return [
@@ -24,7 +25,8 @@ enum BatteryInfoGroupID: Int {
             .batteryVoltage,
             .batteryLifeTime,
             .notChargeReason,
-            .ChargingPowerAndNotChargeReason
+            .chargingPowerAndNotChargeReason,
+            .accessoryDetails
         ]
     }
 }
@@ -34,27 +36,29 @@ enum BatteryInfoGroupName {
     static func getName(for id: Int) -> String {
         switch id {
         case BatteryInfoGroupID.basic.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupBasic", comment: "电池基础信息组")
+            return NSLocalizedString("GroupBasic", comment: "电池基础信息组")
         case BatteryInfoGroupID.charge.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupCharge", comment: "充电信息组")
+            return NSLocalizedString("GroupCharge", comment: "充电信息组")
         case BatteryInfoGroupID.settingsBatteryInfo.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupSettingsBatteryInfo", comment: "设置中的电池信息组")
+            return NSLocalizedString("GroupSettingsBatteryInfo", comment: "设置中的电池信息组")
         case BatteryInfoGroupID.batterySerialNumber.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupBatterySerial", comment: "电池序列号信息组")
+            return NSLocalizedString("GroupBatterySerial", comment: "电池序列号信息组")
         case BatteryInfoGroupID.batteryQmax.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupBatteryQmax", comment: "电池Qmax信息组")
+            return NSLocalizedString("GroupBatteryQmax", comment: "电池Qmax信息组")
         case BatteryInfoGroupID.charger.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupCharger", comment: "充电器信息组")
+            return NSLocalizedString("GroupCharger", comment: "充电器信息组")
         case BatteryInfoGroupID.batteryVoltage.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupBatteryVoltage", comment: "电池电压信息组")
+            return NSLocalizedString("GroupBatteryVoltage", comment: "电池电压信息组")
         case BatteryInfoGroupID.batteryLifeTime.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupBatteryLifeTime", comment: "电池生命周期信息组")
+            return NSLocalizedString("GroupBatteryLifeTime", comment: "电池生命周期信息组")
         case BatteryInfoGroupID.notChargeReason.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupNotChargeReason", comment: "不充电原因组")
-        case BatteryInfoGroupID.ChargingPowerAndNotChargeReason.rawValue:
-            return ApplicationLanguageController.localizedString(forKey: "GroupChargingPowerNotChargeReason", comment: "充电功率和不充电原因组")
+            return NSLocalizedString("GroupNotChargeReason", comment: "不充电原因组")
+        case BatteryInfoGroupID.chargingPowerAndNotChargeReason.rawValue:
+            return NSLocalizedString("GroupChargingPowerNotChargeReason", comment: "充电功率和不充电原因组")
+        case BatteryInfoGroupID.accessoryDetails.rawValue:
+            return NSLocalizedString("GroupAccessoryDetails", comment: "外接配件信息组")
         default:
-            return ApplicationLanguageController.localizedString(forKey: "GroupUnknown", comment: "未知")
+            return NSLocalizedString("GroupUnknown", comment: "未知")
         }
     }
 }
@@ -105,5 +109,9 @@ enum BatteryInfoItemID {
     static let averageTemperature = 801
     static let maximumTemperature = 802
     static let minimumTemperature = 803
+    
+    static let accessoryCurrentCapacity = 1101
+    static let accessoryIsCharging = 1102
+    static let accessoryExternalConnected = 1103
     
 }

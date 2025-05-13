@@ -1,11 +1,18 @@
+// Protocol for view controllers that can scroll to top
+protocol ScrollableToTop {
+    func scrollToTop()
+}
 import Foundation
 import UIKit
 
-class MainUITabBarController: UITabBarController {
+class MainUITabBarController: UITabBarController, UITabBarControllerDelegate {
     
     private let homeViewController = HomeViewController()
     private let historyRecordViewController = HistoryRecordViewController()
     private let settingsViewController = SettingsViewController()
+    
+    private var lastSelectedIndex: Int = 0
+    private var lastTapTimestamp: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +38,7 @@ class MainUITabBarController: UITabBarController {
         // 监听设置变化，动态更新 tab
         NotificationCenter.default.addObserver(self, selector: #selector(updateTabBarControllers), name: Notification.Name("ShowHistoryViewChanged"), object: nil)
         
+        delegate = self
     }
     
     static func createTabBarItem(title: String, image: String, selectedImage: String,fallbackImage: String) -> UITabBarItem {
@@ -66,5 +74,21 @@ class MainUITabBarController: UITabBarController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let now = Date().timeIntervalSince1970
+
+        if selectedIndex == lastSelectedIndex {
+            if now - lastTapTimestamp < 0.5 {
+                if let nav = viewController as? UINavigationController,
+                   let topViewController = nav.topViewController as? ScrollableToTop {
+                    topViewController.scrollToTop()
+                }
+            }
+        }
+
+        lastTapTimestamp = now
+        lastSelectedIndex = selectedIndex
     }
 }

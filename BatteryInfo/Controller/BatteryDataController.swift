@@ -324,12 +324,13 @@ class BatteryDataController {
             return InfoItem(
                 id: BatteryInfoItemID.powerOptionDetail,
                 text: String.localizedStringWithFormat(NSLocalizedString("CurrentUseOption", comment: ""), currentOption),
-                haveData: false
+                haveData: true
             )
         } else {
             return InfoItem(
                 id: BatteryInfoItemID.powerOptionDetail,
-                text: String.localizedStringWithFormat(NSLocalizedString("CurrentUseOption", comment: ""), NSLocalizedString("Unknown", comment: ""))
+                text: String.localizedStringWithFormat(NSLocalizedString("CurrentUseOption", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
             )
         }
     }
@@ -348,7 +349,8 @@ class BatteryDataController {
             if usbHvcMenu.count == 0 {
                 return InfoItem(
                     id: BatteryInfoItemID.powerOptions,
-                    text: String.localizedStringWithFormat(NSLocalizedString("PowerOptions", comment: ""), NSLocalizedString("Unknown", comment: ""))
+                    text: String.localizedStringWithFormat(NSLocalizedString("PowerOptions", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                    haveData: false
                 )
             } else {
                 return InfoItem(
@@ -359,8 +361,7 @@ class BatteryDataController {
         } else {
             return InfoItem(
                 id: BatteryInfoItemID.powerOptions,
-                text: String.localizedStringWithFormat(NSLocalizedString("PowerOptions", comment: ""), NSLocalizedString("Unknown", comment: "")),
-                haveData: false
+                text: String.localizedStringWithFormat(NSLocalizedString("PowerOptions", comment: ""), NSLocalizedString("Unknown", comment: ""))
             )
         }
     }
@@ -453,6 +454,11 @@ class BatteryDataController {
                 return InfoItem(
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("NegotiatingWithCharger", comment: ""))
+                )
+            } else if reason == 32768 { // 优化电池充电
+                return InfoItem(
+                    id: BatteryInfoItemID.notChargingReason,
+                    text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("OptimizedBatteryCharging", comment: ""))
                 )
             } else { // 其他状态还不知道含义，等遇到的时候再加上
                 return InfoItem(
@@ -733,6 +739,68 @@ class BatteryDataController {
         }
     }
     
+    // 获取设备是否正在充电/充满
+    private func getAccessoryCurrentCapacity() -> InfoItem {
+        if let currentCapacity = batteryInfo?.accessoryDetails?.currentCapacity {
+            return InfoItem(
+                id: BatteryInfoItemID.accessoryCurrentCapacity,
+                text: String.localizedStringWithFormat(NSLocalizedString("AccessoryCurrentCapacity", comment: ""), String(currentCapacity))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.accessoryCurrentCapacity,
+                text: String.localizedStringWithFormat(NSLocalizedString("AccessoryCurrentCapacity", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取外接设备是否正在充电
+    private func getAccessoryIsCharging() -> InfoItem {
+        if let isCharging = batteryInfo?.accessoryDetails?.isCharging {
+            if isCharging {
+                return InfoItem(
+                    id: BatteryInfoItemID.accessoryIsCharging,
+                    text: String.localizedStringWithFormat(NSLocalizedString("AccessoryIsCharging", comment: ""), NSLocalizedString("Charging", comment: ""))
+                )
+            } else {
+                return InfoItem(
+                    id: BatteryInfoItemID.accessoryIsCharging,
+                    text: String.localizedStringWithFormat(NSLocalizedString("AccessoryIsCharging", comment: ""), NSLocalizedString("NotCharging", comment: ""))
+                )
+            }
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.accessoryIsCharging,
+                text: String.localizedStringWithFormat(NSLocalizedString("AccessoryIsCharging", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
+    // 获取外接设备是否已经接入电源
+    private func getAccessoryExternalConnected() -> InfoItem {
+        if let externalConnected = batteryInfo?.accessoryDetails?.externalConnected {
+            if externalConnected {
+                return InfoItem(
+                    id: BatteryInfoItemID.accessoryExternalConnected,
+                    text: String.localizedStringWithFormat(NSLocalizedString("AccessoryExternalConnected", comment: ""), NSLocalizedString("Connected", comment: ""))
+                )
+            } else {
+                return InfoItem(
+                    id: BatteryInfoItemID.accessoryExternalConnected,
+                    text: String.localizedStringWithFormat(NSLocalizedString("AccessoryExternalConnected", comment: ""), NSLocalizedString("NotConnected", comment: ""))
+                )
+            }
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.accessoryExternalConnected,
+                text: String.localizedStringWithFormat(NSLocalizedString("AccessoryExternalConnected", comment: ""), NSLocalizedString("Unknown", comment: "")),
+                haveData: false
+            )
+        }
+    }
+    
     /// 获取电池基本信息组
     private func getBatteryBasicInfoGroup() -> InfoItemGroup {
         
@@ -806,10 +874,21 @@ class BatteryDataController {
         chargeInfoGroup.addItem(getIsWirelessCharger())
         // 充电最大握手功率
         chargeInfoGroup.addItem(getMaximumChargingHandshakeWatts())
-        // 当前使用的充电握手档位
-        chargeInfoGroup.addItem(getPowerOptionDetail())
-        // 充电可用功率档位
-        chargeInfoGroup.addItem(getPowerOptions())
+        // 强制显示所有充电数据
+        if settingsUtils.getForceShowChargingData() {
+            // 当前使用的充电握手档位
+            chargeInfoGroup.addItem(getPowerOptionDetail())
+            // 充电可用功率档位
+            chargeInfoGroup.addItem(getPowerOptions())
+        } else {
+            let powerOptionDetail = getPowerOptionDetail()
+            if powerOptionDetail.haveData {
+                // 当前使用的充电握手档位
+                chargeInfoGroup.addItem(powerOptionDetail)
+                // 充电可用功率档位
+                chargeInfoGroup.addItem(getPowerOptions())
+            }
+        }
         // 充电限制电压
         chargeInfoGroup.addItem(getChargingLimitVoltage())
         // 充电实时电压
@@ -1009,7 +1088,7 @@ class BatteryDataController {
     private func getChargingPowerAndNotChargeReasonGroup() -> InfoItemGroup? {
         
         if SystemInfoUtils.isDeviceCharging() || isChargeByWatts() {
-            let chargingPowerAndNotChargeReasonGroup = InfoItemGroup(id: BatteryInfoGroupID.ChargingPowerAndNotChargeReason.rawValue)
+            let chargingPowerAndNotChargeReasonGroup = InfoItemGroup(id: BatteryInfoGroupID.chargingPowerAndNotChargeReason.rawValue)
             chargingPowerAndNotChargeReasonGroup.addItem(calculatedChargingPower())
             if isNotCharging() { // 判断是否停止充电
                 // 添加未充电原因
@@ -1018,6 +1097,35 @@ class BatteryDataController {
             return chargingPowerAndNotChargeReasonGroup
         }
         return nil
+    }
+    
+    // 获取外接设备
+    private func getAccessoryDetailsGroup() -> InfoItemGroup? {
+        
+        if (batteryInfo?.accessoryDetails?.currentCapacity) != nil {
+            let accessoryDetailsGroup = InfoItemGroup(id: BatteryInfoGroupID.accessoryDetails.rawValue)
+            accessoryDetailsGroup.titleText = NSLocalizedString("AccessoryDetails", comment: "")
+            
+            // 判断下是不是尊贵的MagSafe外接电池
+            if let description = batteryInfo?.adapterDetails?.description {
+                if description.contains("magsafe acc") || description.contains("ironman") {
+                    accessoryDetailsGroup.addItem(
+                        InfoItem(
+                            id: BatteryInfoItemID.chargeDescription,
+                            text: NSLocalizedString("MagSafeBatteryPack", comment: "")
+                        )
+                    )
+                }
+            }
+            // 外接配件的信息
+            accessoryDetailsGroup.addItem(getAccessoryCurrentCapacity())
+            accessoryDetailsGroup.addItem(getAccessoryExternalConnected())
+            accessoryDetailsGroup.addItem(getAccessoryIsCharging())
+            
+            return accessoryDetailsGroup
+        } else {
+            return nil
+        }
     }
     
     // UI获取数据的方法
@@ -1055,9 +1163,13 @@ class BatteryDataController {
                 if let notChargeReasonGroup = getNotChargeReasonGroup() {
                     homeInfoGroups.append(notChargeReasonGroup)
                 }
-            case BatteryInfoGroupID.ChargingPowerAndNotChargeReason.rawValue:
+            case BatteryInfoGroupID.chargingPowerAndNotChargeReason.rawValue:
                 if let chargingPowerAndNotChargeReasonGroup = getChargingPowerAndNotChargeReasonGroup() {
                     homeInfoGroups.append(chargingPowerAndNotChargeReasonGroup)
+                }
+            case BatteryInfoGroupID.accessoryDetails.rawValue:
+                if let accessoryDetailsGroup = getAccessoryDetailsGroup() {
+                    homeInfoGroups.append(accessoryDetailsGroup)
                 }
             default:
                 break
@@ -1076,6 +1188,10 @@ class BatteryDataController {
         
         // 电池序列号组
         allBatteryInfoGroups.append(getBatterySerialNumberGroup())
+        // 电池基本信息组
+        allBatteryInfoGroups.append(getBatteryBasicInfoGroup())
+        // 充电信息组
+        allBatteryInfoGroups.append(getChargeInfoGroup())
         // 电池QMax组
         allBatteryInfoGroups.append(getBatteryQMaxGroup())
         // 电池电压组
@@ -1084,7 +1200,10 @@ class BatteryDataController {
         allBatteryInfoGroups.append(getChargerInfoGroup())
         // 生命周期组
         allBatteryInfoGroups.append(getBatteryLifeTimeGroup())
-        
+        // 外接设备组
+        if let accessoryDetailsGroup = getAccessoryDetailsGroup() {
+            allBatteryInfoGroups.append(accessoryDetailsGroup)
+        }
         return allBatteryInfoGroups
     }
     
