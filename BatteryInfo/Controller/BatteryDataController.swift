@@ -33,6 +33,15 @@ class BatteryDataController {
                                       designCapacity: designCapacity) {
                 print("历史记录增加新的记录成功")
             }
+            
+            if #available(iOS 14.0, *) {
+                if WidgetController.instance.setWidgetBatteryData(batteryData: WidgetBatteryData(maximumCapacity: self.calculateMaximumCapacity() ?? "--%", cycleCount: cycleCount)) {
+                    WidgetController.instance.refreshWidget()
+                    NSLog("给Widget数据保存成功,已经刷新Widget")
+                } else {
+                    NSLog("给Widget数据保存失败")
+                }
+            }
         }
     }
     

@@ -59,7 +59,7 @@ class WidgetController {
     func getWidgetBatteryData() -> WidgetBatteryData {
         
         // 获取 Library 目录的所有路径
-        let libraryURLs = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
+//        let libraryURLs = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
 
         // 遍历并输出每个路径
 //        for (index, url) in libraryURLs.enumerated() {

@@ -291,6 +291,38 @@
         }
       }
     },
+    "BatteryLifeTime" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery LifeTime Data"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池生命周期数据"
+          }
+        }
+      }
+    },
+    "BatteryLifeTimeTotalOperatingTime" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Total Operating Time: %@ hours"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池总工作时间: %@小时"
+          }
+        }
+      }
+    },
     "BatteryManufacturer" : {
       "localizations" : {
         "en" : {
@@ -319,38 +351,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池总工作时间: %@小时"
-          }
-        }
-      }
-    },
-    "BatteryManufacturer" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Battery Manufacturer: %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "制造商: %@"
-          }
-        }
-      }
-    },
-    "BestAdapterInfo" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Best Charge Adapter: %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最佳充电适配器: %@"
           }
         }
       }
@@ -1180,7 +1180,20 @@
       }
     },
     "FixedTime5Minutes" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fixed time 5 minutes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5分钟"
+          }
+        }
+      }
     },
     "Floor" : {
       "localizations" : {
@@ -2160,6 +2173,22 @@
         }
       }
     },
+    "RefreshDataEveryTime" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh Data Every Time"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每次数据刷新时"
+          }
+        }
+      }
+    },
     "RemainingCapacity" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2173,22 +2202,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "剩余容量: %@ mAh"
-          }
-        }
-      }
-    },
-    "ResetWidgetSandBoxPath" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset Widget SandBox Path"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "重置小组件沙盒目录"
           }
         }
       }
@@ -2222,6 +2235,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "确定重置首页显示的信息组吗？此操作会重置首页显示的信息组为默认的排序"
+          }
+        }
+      }
+    },
+    "ResetWidgetSandBoxPath" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Widget SandBox Path"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置小组件沙盒目录"
           }
         }
       }

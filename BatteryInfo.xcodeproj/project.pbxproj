@@ -56,7 +56,7 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		1781C7AD2D79CD4E0064FB7A /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
@@ -128,6 +128,7 @@
 		1781C7C02D79D9F10064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				BatteryInfoItem.swift,
 				WidgetBatteryData.swift,
 			);
 			target = 1781C7962D79CD4D0064FB7A /* BatteryInfoWidgetExtension */;
@@ -135,12 +136,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		17BC10FD2D51F6E4009924BF /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
-		17DA4E2A2DAB91D80024FE8C /* Protocol */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Protocol; sourceTree = "<group>"; };
-		17DA4E2B2DAB91EC0024FE8C /* Provider */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Provider; sourceTree = "<group>"; };
 		171936862D8730DA00ECB17D /* BatteryInfoLockScreenWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (171936912D8730DB00ECB17D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BatteryInfoLockScreenWidget; sourceTree = "<group>"; };
 		1781C79C2D79CD4D0064FB7A /* BatteryInfoWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1781C7B02D79CD4E0064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BatteryInfoWidget; sourceTree = "<group>"; };
 		17BC10FD2D51F6E4009924BF /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1781C7BE2D79D9D70064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
+		17DA4E2A2DAB91D80024FE8C /* Protocol */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Protocol; sourceTree = "<group>"; };
+		17DA4E2B2DAB91EC0024FE8C /* Provider */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Provider; sourceTree = "<group>"; };
 		17F66BE92D2A24BC0097A29A /* ViewController */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewController; sourceTree = "<group>"; };
 		17F66BEB2D2A25840097A29A /* Entity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1781C7C02D79D9F10064FB7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Entity; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -477,7 +477,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X2WABLB38D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BatteryInfoLockScreenWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoLockScreenWidget;
@@ -506,7 +506,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X2WABLB38D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BatteryInfoLockScreenWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoLockScreenWidget;
@@ -536,7 +536,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X2WABLB38D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BatteryInfoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoWidget;
@@ -575,7 +575,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X2WABLB38D;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BatteryInfoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BatteryInfoWidget;
@@ -784,7 +784,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BatteryInfo",
 				);
-				MARKETING_VERSION = "1.2.0";
+				MARKETING_VERSION = 1.2.0;
 				OTHER_CFLAGS = "-Wno-error=unguarded-availability-new";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developlab.BatteryInfo;
@@ -813,8 +813,8 @@
 				CODE_SIGN_ENTITLEMENTS = BatteryInfo/BatteryInfo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = X2WABLB38D;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					/System/Library/Frameworks,
 					/System/Library/PrivateFrameworks,
@@ -842,7 +842,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BatteryInfo",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_CFLAGS = "-Wno-error=unguarded-availability-new";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developlab.BatteryInfo;

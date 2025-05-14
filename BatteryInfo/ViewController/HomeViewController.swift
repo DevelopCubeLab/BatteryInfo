@@ -83,16 +83,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @objc private  func loadBatteryData() {
         
         batteryInfoGroups = BatteryDataController.getInstance.getHomeInfoGroups()
-
-        if #available(iOS 14.0, *) {
-                        if WidgetController.instance.setWidgetBatteryData(batteryData: WidgetBatteryData(maximumCapacity: maximumCapacity, cycleCount: cycleCount)) {
-                            WidgetController.instance.refreshWidget()
-                            NSLog("给Widget数据保存成功,已经刷新Widget")
-                        } else {
-                            NSLog("给Widget数据保存失败")
-                        }
-                    }
-
+        
         // 防止 ViewController 释放后仍然执行 UI 更新
         DispatchQueue.main.async {
             if self.isViewLoaded && self.view.window != nil {

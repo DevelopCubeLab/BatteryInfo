@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if #available(iOS 14.0, *) { // 只在iOS 14.0或者以上系统版本才显示Widget设置
             tableCellList[0].append(NSLocalizedString("WidgetSettings", comment: ""))
         }
-
+        
         // 设置表格视图的代理和数据源
         tableView.delegate = self
         tableView.dataSource = self
@@ -125,7 +125,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
-            if indexPath.row == 3 { // 打开数据记录设置界面
             if indexPath.row == 0 {
                 let languageSettingsViewController = LanguageSettingsViewController()
                 languageSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
@@ -138,7 +137,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 let dataRecordSettingsViewController = DataRecordSettingsViewController()
                 dataRecordSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
                 self.navigationController?.pushViewController(dataRecordSettingsViewController, animated: true)
-            } else if indexPath.row == 4 { // 打开Widget 设置记录界面
+            } else if indexPath.row == 3 { // 打开Widget 设置记录界面
                 if #available(iOS 14.0, *) {
                     let widgetSettingsViewController = WidgetSettingsViewController()
                     widgetSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
@@ -168,5 +167,5 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
-
+    
 }
