@@ -5,7 +5,7 @@ include $(THEOS)/makefiles/common.mk
 
 # 使用 Xcode 项目构建
 XCODEPROJ_NAME = BatteryInfo
-BUILD_VERSION = "1.1.8"
+BUILD_VERSION = "1.1.9"
 
 # 指定 Theos 使用 xcodeproj 规则
 include $(THEOS_MAKE_PATH)/xcodeproj.mk

@@ -191,6 +191,42 @@ class BatteryRecordDatabaseManager {
         return latestRecord
     }
     
+    /// 查询指定循环次数的最新记录
+    func getRecord(byCycleCount cycleCount: Int) -> BatteryDataRecord? {
+        let query = """
+        SELECT id, createDate, recordType, cycleCount, nominalChargeCapacity, designCapacity, maximumCapacity
+        FROM \(recordTableName)
+        WHERE cycleCount = ?
+        ORDER BY createDate DESC
+        LIMIT 1;
+        """
+
+        var statement: OpaquePointer?
+        var record: BatteryDataRecord? = nil
+
+        if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_int(statement, 1, Int32(cycleCount))
+
+            if sqlite3_step(statement) == SQLITE_ROW {
+                let id = Int(sqlite3_column_int(statement, 0))
+                let createDate = Int(sqlite3_column_int(statement, 1))
+                let recordType = BatteryDataRecord.BatteryDataRecordType(rawValue: Int(sqlite3_column_int(statement, 2))) ?? .Automatic
+                let cycleCount = Int(sqlite3_column_int(statement, 3))
+
+                let nominalChargeCapacity = sqlite3_column_type(statement, 4) != SQLITE_NULL ? Int(sqlite3_column_int(statement, 4)) : nil
+                let designCapacity = sqlite3_column_type(statement, 5) != SQLITE_NULL ? Int(sqlite3_column_int(statement, 5)) : nil
+                let maximumCapacity = sqlite3_column_type(statement, 6) != SQLITE_NULL ? String(cString: sqlite3_column_text(statement, 6)) : nil
+
+                record = BatteryDataRecord(id: id, createDate: createDate, recordType: recordType, cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity, maximumCapacity: maximumCapacity)
+            }
+        } else {
+            print("查询指定循环次数的记录失败: \(String(cString: sqlite3_errmsg(db)))")
+        }
+
+        sqlite3_finalize(statement)
+        return record
+    }
+    
     // 导出全部记录为CSV
     func exportToCSV() -> URL? {
         let records = fetchAllRecords()

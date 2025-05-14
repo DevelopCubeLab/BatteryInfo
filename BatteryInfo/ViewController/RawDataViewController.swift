@@ -84,8 +84,7 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // 获取电池信息
     func fetchBatteryInfo() -> [String: Any]? {
-        
-        return getBatteryInfo() as? [String: Any]
+        return BatteryDataController.getInstance.getBatteryRAWInfo()
     }
 
     // MARK: - UITableViewDataSource
@@ -95,7 +94,7 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: - 设置每个分组的底部标题 可以为分组设置尾部文本，如果没有尾部可以返回 nil
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return NSLocalizedString("BatteryDataSourceMessage", comment: "")
+        return String.localizedStringWithFormat(NSLocalizedString("BatteryDataSourceMessage", comment: ""), BatteryDataController.getInstance.getProviderName(), BatteryDataController.getInstance.getFormatUpdateTime())
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,8 +109,27 @@ class RawDataViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.textLabel?.text = "\"\(key)\": \"\(value)\","
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.selectionStyle = .none
 
         return cell
+    }
+    
+    // MARK: - Cell的点击事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @available(iOS 13.0, *)
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let item = batteryInfo[indexPath.row]
+        let text = "\"\(item.key)\": \"\(item.value)\","
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let copyAction = UIAction(title: NSLocalizedString("Copy", comment: ""), image: UIImage(systemName: "doc.on.doc")) { _ in
+                UIPasteboard.general.string = text
+            }
+            return UIMenu(title: "", children: [copyAction])
+        }
     }
     
     @objc func copyBatteryInfo() {

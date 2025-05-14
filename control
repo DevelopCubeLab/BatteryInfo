@@ -1,6 +1,6 @@
 Package: com.developlab.batteryinfo
 Name: Battery Info
-Version: 1.1.8
+Version: 1.1.9
 Architecture: iphoneos-arm
 Description: Battery information
 Maintainer: developlab

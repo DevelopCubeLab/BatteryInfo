@@ -2,6 +2,7 @@ import Foundation
 
 // 定义一个结构体来存储IO接口提供的电池原始信息
 struct BatteryRAWInfo {
+    var updateTime: Int?              // 数据刷新时间
     var batteryInstalled: Int?        // 电池已安装
     var bootPathUpdated: Int?         //
     var bootVoltage: Int?             // 开机电压
@@ -19,6 +20,7 @@ struct BatteryRAWInfo {
     var kioskMode: KioskMode?         // 嵌套 KioskMode
     var bestAdapterIndex: Int?        // 最合适的充电器序号
     var adapterDetails: AdapterDetails? // 充电器信息
+    var accessoryDetails: AccessoryDetails? // 扩展配件的电量，例如MagSafe外接电池
     var appleRawAdapterDetails: [AdapterDetails] // 充电器原始信息
     var chargerData: ChargerData?     // 嵌套 ChargerData
     var maximumCapacity: String?      // 最大可充电的百分比，默认是100
@@ -26,6 +28,7 @@ struct BatteryRAWInfo {
 
 extension BatteryRAWInfo {
     init(dict: [String: Any]) {
+        self.updateTime = dict["UpdateTime"] as? Int
         self.batteryInstalled = dict["BatteryInstalled"] as? Int
         self.bootVoltage = dict["BootVoltage"] as? Int
         self.bootPathUpdated = dict["BootPathUpdated"] as? Int
@@ -41,12 +44,6 @@ extension BatteryRAWInfo {
         self.temperature = dict["Temperature"] as? Int
         self.bestAdapterIndex = dict["BestAdapterIndex"] as? Int
         
-        if let nominal = nominalChargeCapacity, let design = designCapacity, design > 0 {
-            self.maximumCapacity = BatteryDataController.getFormatMaximumCapacity(nominalChargeCapacity: nominal, designCapacity: design)
-        } else {
-            self.maximumCapacity = nil
-        }
-        
         if let batteryDataDict = dict["BatteryData"] as? [String: Any] {
             self.batteryData = BatteryData(dict: batteryDataDict)
         }
@@ -61,6 +58,11 @@ extension BatteryRAWInfo {
         
         if let adapterDataDict = dict["AdapterDetails"] as? [String: Any] {
             self.adapterDetails = AdapterDetails(dict: adapterDataDict)
+        }
+        
+        if let accessoryArray = dict["AccessoryDetails"] as? [[String: Any]],
+           let accessoryDict = accessoryArray.first {
+            self.accessoryDetails = AccessoryDetails(dict: accessoryDict)
         }
         
         self.appleRawAdapterDetails = []

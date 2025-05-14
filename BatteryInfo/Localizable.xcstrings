@@ -17,7 +17,72 @@
         }
       }
     },
+    "AccessoryCurrentCapacity" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessory Current Capacity: %@%%"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件电池电量: %@%%"
+          }
+        }
+      }
+    },
+    "AccessoryDetails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessory Details"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件信息"
+          }
+        }
+      }
+    },
+    "AccessoryExternalConnected" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessories connected to charger: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件已连接电源: %@"
+          }
+        }
+      }
+    },
+    "AccessoryIsCharging" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessory charging status: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件充电状态: %@"
+          }
+        }
+      }
+    },
     "Alert" : {
+      "comment" : "确定重置首页显示的信息组吗？",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -97,6 +162,38 @@
         }
       }
     },
+    "AvailableGroups" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Available Groups"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可显示在首页的信息组"
+          }
+        }
+      }
+    },
+    "AverageTemperature" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Average Temperature: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均温度: %@℃"
+          }
+        }
+      }
+    },
     "BatteryChargeNormal" : {
       "localizations" : {
         "en" : {
@@ -135,13 +232,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Battery data source is from device IOKit"
+            "value" : "Battery data source is from %@\nUpdate time: %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "电池数据来源于设备IOKit"
+            "value" : "电池数据来源于%@\n数据刷新时间: %@"
           }
         }
       }
@@ -158,6 +255,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池已充满"
+          }
+        }
+      }
+    },
+    "BatteryHistorySummaryContent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Records: %@ items\nRecorded over %@ days\nBattery Health Change: %@%%\nCapacity Change: %@ mAh\nRecorded maximum capacity: %@ mAh\nRecorded minimum capacity: %@ mAh\nCycle Count Increase: %@ time(s)\nAvg. Cycles per Day: %@ time(s)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n记录中最高容量: %@ mAh\n记录中最低容量: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
           }
         }
       }
@@ -205,7 +318,23 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "电池温度过高"
+            "value" : "电池总工作时间: %@小时"
+          }
+        }
+      }
+    },
+    "BatteryManufacturer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Manufacturer: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "制造商: %@"
           }
         }
       }
@@ -562,6 +691,22 @@
         }
       }
     },
+    "Connected" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connected"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已连接"
+          }
+        }
+      }
+    },
     "Copy" : {
       "localizations" : {
         "en" : {
@@ -741,6 +886,22 @@
         }
       }
     },
+    "Days" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ days"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@天"
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "en" : {
@@ -873,6 +1034,86 @@
         }
       }
     },
+    "DisplayedHomeGroups" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Displayed Home Groups"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首页显示的信息组"
+          }
+        }
+      }
+    },
+    "DisplayedHomeGroupsFooterMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information groups containing * need to be displayed under specific conditions."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包含*的信息组需要在特定条件下显示"
+          }
+        }
+      }
+    },
+    "DisplayGeneralSettingsFooterMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Use history records to calculate the battery health refresh date in the settings’Enable Record history records' function to be enabled."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'使用历史记录来推算设置中的电池健康数据刷新日期'功能需要开启'记录历史记录'功能"
+          }
+        }
+      }
+    },
+    "DisplaySettings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示"
+          }
+        }
+      }
+    },
+    "DoubleClickTabBarButtonToScrollToTop" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double clicking the bottom button on the homepage to return the list to the top"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双击首页底部按钮让列表返回顶部"
+          }
+        }
+      }
+    },
     "Enable" : {
       "comment" : "启用",
       "localizations" : {
@@ -886,6 +1127,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "启用"
+          }
+        }
+      }
+    },
+    "EnableHistoryStatistics" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History Records Statistics"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录统计"
           }
         }
       }
@@ -973,6 +1230,210 @@
         }
       }
     },
+    "GroupAccessoryDetails" : {
+      "comment" : "外接配件信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessory Details Group*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外接配件信息*"
+          }
+        }
+      }
+    },
+    "GroupBasic" : {
+      "comment" : "电池基础信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Basic Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池基础信息"
+          }
+        }
+      }
+    },
+    "GroupBatteryLifeTime" : {
+      "comment" : "电池生命周期信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery LifeTime Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池生命周期信息"
+          }
+        }
+      }
+    },
+    "GroupBatteryQmax" : {
+      "comment" : "电池Qmax信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Qmax Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池Qmax信息"
+          }
+        }
+      }
+    },
+    "GroupBatterySerial" : {
+      "comment" : "电池序列号信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Serial Number Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池序列号信息"
+          }
+        }
+      }
+    },
+    "GroupBatteryVoltage" : {
+      "comment" : "电池电压信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Battery Voltage Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池电压信息"
+          }
+        }
+      }
+    },
+    "GroupCharge" : {
+      "comment" : "充电信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charge Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电信息"
+          }
+        }
+      }
+    },
+    "GroupCharger" : {
+      "comment" : "充电器信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charger Info group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器信息"
+          }
+        }
+      }
+    },
+    "GroupChargingPowerNotChargeReason" : {
+      "comment" : "充电功率和不充电原因组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charging Power and Not Charging Reason Group*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电功率和不充电原因*"
+          }
+        }
+      }
+    },
+    "GroupNotChargeReason" : {
+      "comment" : "不充电原因组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Charge Reason Info*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池未充电原因*"
+          }
+        }
+      }
+    },
+    "GroupSettingsBatteryInfo" : {
+      "comment" : "设置中的电池信息组",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings Battery Info group*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置中的电池信息*"
+          }
+        }
+      }
+    },
+    "GroupUnknown" : {
+      "comment" : "未知",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown Group"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
+          }
+        }
+      }
+    },
     "History" : {
       "localizations" : {
         "en" : {
@@ -1002,6 +1463,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在主界面显示历史记录界面"
+          }
+        }
+      }
+    },
+    "HistoryStatistics" : {
+      "comment" : "统计",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History Records Statistics"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录统计"
           }
         }
       }
@@ -1088,6 +1566,22 @@
         }
       }
     },
+    "LanguageSettings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "界面语言"
+          }
+        }
+      }
+    },
     "LimitVoltage" : {
       "localizations" : {
         "en" : {
@@ -1100,6 +1594,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "限制电压: %@V"
+          }
+        }
+      }
+    },
+    "MagSafeBatteryPack" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MagSafe Battery Pack"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MagSafe 外接电池"
           }
         }
       }
@@ -1185,6 +1695,22 @@
         }
       }
     },
+    "MaximumChargeCurrent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Charge Current: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大充电电流: %@mA"
+          }
+        }
+      }
+    },
     "MaximumChargingHandshakeWatts" : {
       "localizations" : {
         "en" : {
@@ -1197,6 +1723,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最大充电握手功率: %@W"
+          }
+        }
+      }
+    },
+    "MaximumDischargeCurrent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Discharge Current: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大放电电流: %@mA"
+          }
+        }
+      }
+    },
+    "MaximumPackVoltage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Battery Pack Voltage: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池组最大电压: %@V"
           }
         }
       }
@@ -1217,6 +1775,38 @@
         }
       }
     },
+    "MaximumTemperature" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum Temperature: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最高温度: %@℃"
+          }
+        }
+      }
+    },
+    "MinimumPackVoltage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimum Battery Pack Voltage: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池组最小电压: %@V"
+          }
+        }
+      }
+    },
     "MinimumQmax" : {
       "localizations" : {
         "en" : {
@@ -1229,6 +1819,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最小Qmax: %@ mAh"
+          }
+        }
+      }
+    },
+    "MinimumTemperature" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimum Temperature: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最低温度: %@℃"
           }
         }
       }
@@ -1345,6 +1951,38 @@
         }
       }
     },
+    "NotConnected" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Connected"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未连接"
+          }
+        }
+      }
+    },
+    "NotEnoughData" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not enough data to generate statistics."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据不足，无法生成统计数据。"
+          }
+        }
+      }
+    },
     "NotIncluded" : {
       "localizations" : {
         "en" : {
@@ -1357,6 +1995,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "<未包含>"
+          }
+        }
+      }
+    },
+    "OptimizedBatteryCharging" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optimized Battery Charging"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "优化电池充电"
+          }
+        }
+      }
+    },
+    "PossibleRefreshDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Possible Refresh Date: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预估刷新日期: %@"
           }
         }
       }
@@ -1389,6 +2059,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器可用充电档位: %@"
+          }
+        }
+      }
+    },
+    "ProviderIOKit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "device IOKit"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备IOKit"
           }
         }
       }
@@ -1474,9 +2160,6 @@
         }
       }
     },
-    "RefreshDataEveryTime" : {
-
-    },
     "RemainingCapacity" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1506,6 +2189,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置小组件沙盒目录"
+          }
+        }
+      }
+    },
+    "ResetDisplayedHomeGroups" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Displayed Home Groups"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重设首页显示的信息组"
+          }
+        }
+      }
+    },
+    "ResetDisplayedHomeGroupsMessage" : {
+      "comment" : "此操作会重置为默认的首页显示排序",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to reset the information group displayed on the homepage? This operation will reset the information group displayed on the homepage to the default sorting."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定重置首页显示的信息组吗？此操作会重置首页显示的信息组为默认的排序"
           }
         }
       }
@@ -1685,6 +2401,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新时间: %@"
+          }
+        }
+      }
+    },
+    "UseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use history records to calculate the battery health refresh date in the settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用历史记录来推算设置中的电池健康数据刷新日期"
+          }
+        }
+      }
+    },
+    "UseSystemLanguage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use System Language"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用系统语言"
           }
         }
       }
