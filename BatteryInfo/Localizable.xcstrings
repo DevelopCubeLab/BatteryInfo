@@ -260,18 +260,17 @@
       }
     },
     "BatteryHistorySummaryContent" : {
-      "comment" : "Battery statistics summary with total records, health delta, capacity delta, cycle delta, and avg cycles per day.",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Total Records: %@ items\nRecorded over %@ days\nBattery Health Change: %@%%\nCapacity Change: %@ mAh\nCycle Count Increase: %@ time(s)\nAvg. Cycles per Day: %@ time(s)"
+            "value" : "Total Records: %@ items\nRecorded over %@ days\nBattery Health Change: %@%%\nCapacity Change: %@ mAh\nRecorded maximum capacity: %@ mAh\nRecorded minimum capacity: %@ mAh\nCycle Count Increase: %@ time(s)\nAvg. Cycles per Day: %@ time(s)"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
+            "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n记录中最高容量: %@ mAh\n记录中最低容量: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
           }
         }
       }

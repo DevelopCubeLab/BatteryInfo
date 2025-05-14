@@ -119,6 +119,9 @@ class DisplaySettingsViewController: UIViewController, UITableViewDelegate, UITa
             } else if indexPath.row == 3 {
                 switchView.isOn = SettingsUtils.instance.getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate()
                 switchView.isEnabled = SettingsUtils.instance.getEnableRecordBatteryData()
+                if !SettingsUtils.instance.getEnableRecordBatteryData() {
+                    cell.textLabel?.textColor = .lightGray // 文本设置成灰色
+                }
                 cell.isUserInteractionEnabled = SettingsUtils.instance.getEnableRecordBatteryData()
             }else if indexPath.row == 4 {
                 switchView.isOn = SettingsUtils.instance.getDoubleClickTabBarButtonToScrollToTop()

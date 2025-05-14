@@ -53,37 +53,48 @@ class HistoryStatisticsViewController: UIViewController, UITableViewDelegate, UI
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         cell.textLabel?.numberOfLines = 0
 
-        let records = BatteryRecordDatabaseManager.shared.fetchAllRecords()
-        guard records.count >= 2 else {
+        do {
+            let records = BatteryRecordDatabaseManager.shared.fetchAllRecords()
+            guard records.count >= 2 else {
+                throw NSError(domain: "BatteryStats", code: 1, userInfo: nil)
+            }
+
+            guard let first = records.last, let last = records.first else {
+                throw NSError(domain: "BatteryStats", code: 3, userInfo: nil)
+            }
+
+            let totalRecords = records.count
+            let timeInterval = max(1, last.createDate - first.createDate)
+            let days = Double(timeInterval) / 86400.0
+            let totalDays = String(Int(days))
+
+            let healthValues = records.map { $0.nominalChargeCapacity ?? 0 }
+            guard let minHealth = healthValues.min(), let maxHealth = healthValues.max(), let designCapacity = last.designCapacity else {
+                throw NSError(domain: "BatteryStats", code: 2, userInfo: nil)
+            }
+            
+            guard designCapacity != 0 else {
+                throw NSError(domain: "BatteryStats", code: 4, userInfo: nil)
+            }
+
+            let deltaHealth = Double(minHealth - maxHealth) / Double(designCapacity) * 100
+            let deltaCapacity = minHealth - maxHealth
+            let deltaCycles = last.cycleCount - first.cycleCount
+            let avgCyclePerDay = Double(deltaCycles) / days
+
+            cell.textLabel?.text = String(format: NSLocalizedString("BatteryHistorySummaryContent", comment: ""),
+                                          String(totalRecords),
+                                          String(totalDays),
+                                          String(format: "%.2f", deltaHealth),
+                                          String(deltaCapacity),
+                                          String(maxHealth),
+                                          String(minHealth),
+                                          String(deltaCycles),
+                                          String(format: "%.2f", avgCyclePerDay)
+            )
+        } catch {
             cell.textLabel?.text = NSLocalizedString("NotEnoughData", comment: "")
-            return cell
         }
-
-        let first = records.last!
-        let last = records.first!
-
-        let totalRecords = records.count
-        let timeInterval = max(1, last.createDate - first.createDate)
-        let days = Double(timeInterval) / 86400.0
-        let totalDays = String(Int(days))
-
-        let firstHealth = (Double(first.nominalChargeCapacity ?? 0) / Double(first.designCapacity ?? 1)) * 100
-        let lastHealth = (Double(last.nominalChargeCapacity ?? 0) / Double(last.designCapacity ?? 1)) * 100
-        let deltaHealth = lastHealth - firstHealth
-
-        let deltaCapacity = (last.nominalChargeCapacity ?? 0) - (first.nominalChargeCapacity ?? 0)
-        let deltaCycles = last.cycleCount - first.cycleCount
-
-        let avgCyclePerDay = Double(deltaCycles) / days
-
-        cell.textLabel?.text = String(format: NSLocalizedString("BatteryHistorySummaryContent", comment: ""),
-            String(totalRecords),
-            String(totalDays),
-            String(format: "%.1f", deltaHealth),
-            String(deltaCapacity),
-            String(deltaCycles),
-            String(format: "%.2f", avgCyclePerDay)
-        )
 
         return cell
     }
