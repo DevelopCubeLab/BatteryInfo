@@ -61,6 +61,7 @@
 		17028D2D2DD7AA0700808E8B /* Exceptions for "BatteryInfo" folder in "BatteryInfo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"/Localized: WidgetSettingsIntent.intentdefinition",
 				Info.plist,
 			);
 			target = 17028D1A2DD7AA0600808E8B /* BatteryInfo */;
@@ -68,7 +69,6 @@
 		17028E0C2DD7AC9A00808E8B /* Exceptions for "BatteryInfoWidget" folder in "BatteryInfoWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"/Localized: WidgetSettingsIntent.intentdefinition",
 				Info.plist,
 			);
 			target = 17028DF72DD7AC9900808E8B /* BatteryInfoWidgetExtension */;
@@ -76,6 +76,7 @@
 		17028E152DD7ACE800808E8B /* Exceptions for "BatteryInfo" folder in "BatteryInfoWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Base.lproj/WidgetSettingsIntent.intentdefinition,
 				Controller/WidgetController.swift,
 				Entity/BatteryInfoItem.swift,
 				Entity/WidgetBatteryData.swift,
@@ -96,7 +97,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		17C272D32DD7BB4D0078DF13 /* Exceptions for "BatteryInfoWidget" folder in "Compile Sources" phase from "BatteryInfoWidgetExtension" target */ = {
+		175E10A82DD7CF2D00BAD148 /* Exceptions for "BatteryInfo" folder in "Compile Sources" phase from "BatteryInfoWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 17028DF42DD7AC9900808E8B /* Sources */;
 			membershipExceptions = (
@@ -111,6 +112,7 @@
 			exceptions = (
 				17028D2D2DD7AA0700808E8B /* Exceptions for "BatteryInfo" folder in "BatteryInfo" target */,
 				17028E152DD7ACE800808E8B /* Exceptions for "BatteryInfo" folder in "BatteryInfoWidgetExtension" target */,
+				175E10A82DD7CF2D00BAD148 /* Exceptions for "BatteryInfo" folder in "Compile Sources" phase from "BatteryInfoWidgetExtension" target */,
 			);
 			path = BatteryInfo;
 			sourceTree = "<group>";
@@ -119,7 +121,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				17028E0C2DD7AC9A00808E8B /* Exceptions for "BatteryInfoWidget" folder in "BatteryInfoWidgetExtension" target */,
-				17C272D32DD7BB4D0078DF13 /* Exceptions for "BatteryInfoWidget" folder in "Compile Sources" phase from "BatteryInfoWidgetExtension" target */,
 			);
 			path = BatteryInfoWidget;
 			sourceTree = "<group>";
