@@ -5,12 +5,17 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     
     private var tableView = UITableView()
     
-    private let tableTitleList = [nil, nil, NSLocalizedString("WidgetSandBoxPath", comment: ""), nil, nil]
+    private let settingsUtils = SettingsUtils.instance
+    
+    private let tableTitleList = [nil, NSLocalizedString("WidgetRefreshFrequency", comment: ""), nil, NSLocalizedString("WidgetSandBoxPath", comment: ""), nil]
     
     private var tableCellList = [
         [NSLocalizedString("Enable", comment: "启用")],
-        [NSLocalizedString("FixedTime5Minutes", comment: ""), NSLocalizedString("DataChanged", comment: ""), NSLocalizedString("RefreshDataEveryTime", comment: ""), NSLocalizedString("Manual", comment: "")],
-        [NSLocalizedString("ForceRefreshWidget", comment: "")],
+        [NSLocalizedString("DataChanged", comment: ""),
+         NSLocalizedString("RefreshDataEveryTime", comment: ""),
+         NSLocalizedString("Manual", comment: ""),
+         NSLocalizedString("FixedTime5Minutes", comment: "")],
+        [NSLocalizedString("RequestRefreshWidget", comment: "")],
         [],
         [NSLocalizedString("ResetWidgetSandBoxPath", comment: "")]
     ]
@@ -65,7 +70,11 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - 设置总分组数量
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableTitleList.count
+        if settingsUtils.getEnableWidget() {
+            return tableTitleList.count
+        } else {
+            return 1
+        }
     }
     
     // MARK: - 设置每个分组的Cell数量
@@ -76,6 +85,21 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - 设置每个分组的顶部标题
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return tableTitleList[section]
+    }
+    
+    // MARK: - 设置每个分组的底部标题 可以为分组设置尾部文本，如果没有尾部可以返回 nil
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        if section == 0 {
+            if settingsUtils.getEnableWidget() {
+                return NSLocalizedString("WidgetAppearanceFooterMessage", comment: "")
+            }
+        }
+        
+        if section == 1 {
+            return NSLocalizedString("WidgetRefreshFrequencyFooterMessage", comment: "")
+        }
+        return nil
     }
     
     // MARK: - 构造每个Cell
@@ -92,11 +116,18 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
                 let switchView = UISwitch(frame: .zero)
                 switchView.tag = indexPath.row // 设置识别id
                 if indexPath.row == 0 {
-                    switchView.isOn = SettingsUtils.instance.getEnableWidget()
+                    switchView.isOn = settingsUtils.getEnableWidget()
                 }
                 switchView.addTarget(self, action: #selector(self.onSwitchChanged(_:)), for: .valueChanged)
                 cell.accessoryView = switchView
                 cell.selectionStyle = .none
+            }
+        } else if indexPath.section == 1 { // 获取Widget刷新率的设置
+            cell.selectionStyle = .default
+            if indexPath.row == settingsUtils.getWidgetRefreshFrequency().rawValue {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
             }
         } else if indexPath.section == 2 {
             cell.textLabel?.textAlignment = .center
@@ -115,21 +146,65 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
+            // 取消之前的选择
+            tableView.cellForRow(at: IndexPath(row: settingsUtils.getWidgetRefreshFrequency().rawValue, section: indexPath.section))?.accessoryType = .none
+            // 保存选项
+            settingsUtils.setWidgetRefreshFrequency(value: indexPath.row)
+            // 设置当前的cell选中状态
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        } else if indexPath.section == 2 {
+            // 请求系统刷新Widget
             widgetController.refreshWidget()
+            
+            let alert = UIAlertController(
+                title: NSLocalizedString("Alert", comment: ""),
+                message: NSLocalizedString("RequestRefreshWidgetMessage", comment: ""),
+                preferredStyle: .alert
+            )
+            
+            // "关闭" 按钮（蓝色）
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .cancel, handler: nil)
+
+            alert.addAction(cancelAction) // 添加按钮
+
+            // 显示弹窗
+            present(alert, animated: true, completion: nil)
+            
         } else if indexPath.section == 4 {
-            if widgetController.reloadWidgetSandboxPathRecord() {
-                loadWidgetSandboxDirectory() // 刷新数据
-                tableView.reloadData() // 刷新UI
-                NSLog("重置Widget沙盒成功")
+            
+            let alert = UIAlertController(
+                title: NSLocalizedString("Alert", comment: ""),
+                message: NSLocalizedString("ResetWidgetSandboxPathMessage", comment: ""),
+                preferredStyle: .alert
+            )
+
+            // "确定" 按钮（红色，左边）
+            let deleteAction = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .destructive) { _ in
+                if self.widgetController.reloadWidgetSandboxPathRecord() {
+                    self.loadWidgetSandboxDirectory() // 刷新数据
+                    tableView.reloadData() // 刷新UI
+                    NSLog("重置Widget沙盒成功")
+                }
             }
+
+            // "取消" 按钮（蓝色，右边）
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+
+            // 添加按钮，iOS 会自动按照规范排列
+            alert.addAction(deleteAction) // 红色
+            alert.addAction(cancelAction) // 蓝色
+
+            // 显示弹窗
+            present(alert, animated: true, completion: nil)
+            
         }
     }
     
     @objc func onSwitchChanged(_ sender: UISwitch) {
         if sender.tag == 0 {
             SettingsUtils.instance.setEnableWidget(enable: sender.isOn)
+            tableView.reloadData()
         }
     }
 }

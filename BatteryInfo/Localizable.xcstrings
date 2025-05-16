@@ -1211,22 +1211,6 @@
         }
       }
     },
-    "ForceRefreshWidget" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Force refresh Widget state"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "强制刷新小组件状态"
-          }
-        }
-      }
-    },
     "ForceShowChargingData" : {
       "localizations" : {
         "en" : {
@@ -2206,6 +2190,38 @@
         }
       }
     },
+    "RequestRefreshWidget" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Refresh Widget"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请求系统刷新小组件状态"
+          }
+        }
+      }
+    },
+    "RequestRefreshWidgetMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app has requested system to refresh the widget, and the system may not respond to the request immediately. Do not frequently request refresh of widget status, the system may ignore these requests"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已向系统请求刷新小组件，系统可能不会立刻响应该请求，请勿频繁请求刷新小组件状态，系统可能会忽略这些请求"
+          }
+        }
+      }
+    },
     "ResetDisplayedHomeGroups" : {
       "localizations" : {
         "en" : {
@@ -2251,6 +2267,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置小组件沙盒目录"
+          }
+        }
+      }
+    },
+    "ResetWidgetSandboxPathMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the widget fails to retrieve data, and cannot refresh beyond 1 day, and the issue is still unresolved after attempting to restart the device, you can try resetting the widget sandbox directory to try to resolve this problem."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果发现小组件出现故障，超过1天无法刷新数据，且尝试过重启设备后仍然无法解决，可以尝试重置小组件沙盒目录以尝试解决此问题"
           }
         }
       }
@@ -2482,6 +2514,22 @@
         }
       }
     },
+    "WidgetAppearanceFooterMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget appearance can be set by long pressing the widget in the home screen, each widget can set the appearance and whether the refresh time is displayed separately."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小组件外观可在主屏幕中长按小组件设置，每个小组件可单独设置外观和是否显示刷新时间"
+          }
+        }
+      }
+    },
     "WidgetMaximumCapacity" : {
       "localizations" : {
         "en" : {
@@ -2494,6 +2542,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池健康: %@%%"
+          }
+        }
+      }
+    },
+    "WidgetRefreshFrequency" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget Refresh Frequency"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小组件刷新频率"
+          }
+        }
+      }
+    },
+    "WidgetRefreshFrequencyFooterMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The refresh frequency of the widget depends on system scheduling, and the number of refreshes per day is limited. It is recommended to refresh when data changes to save refreshes.\n\nIf the widget is not refreshed by the system, and you want to refresh the data immediately, you need to reboot device or reboot userspace."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小组件刷新频率取决于系统调度，且每天刷新次数有限。建议选择数据变化时刷新，节省刷新次数\n系统没有刷新小组件情况下，如果希望立刻刷新数据需要重启设备或重启用户空间"
           }
         }
       }

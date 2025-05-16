@@ -58,20 +58,11 @@ class WidgetController {
     // 给widget用的获取电池数据
     func getWidgetBatteryData() -> WidgetBatteryData {
         
-        // 获取 Library 目录的所有路径
-//        let libraryURLs = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
-
-        // 遍历并输出每个路径
-//        for (index, url) in libraryURLs.enumerated() {
-//            print("BatteryInfoWidget-----> Library Directory \(index + 1): \(url)")
-//        }
-        
         let libraryURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
         NSLog("BatteryInfoWidget-----> libraryURL:" + libraryURL.path)
         let preferencesPath = libraryURL.appendingPathComponent("Preferences").path
         NSLog("BatteryInfoWidget-----> preferencesPath:" + preferencesPath)
         let dataManager = PlistManagerUtils.instance(for: widgetBatteryDataPlistName, customPath: preferencesPath)
-//        let dataManager = PlistManagerUtils.instance(for: widgetBatteryDataPlistName)
         
         let maximumCapacity = dataManager.getString(key: "maximumCapacity", defaultValue: "--")
         let cycleCount = dataManager.getInt(key: "cycleCount", defaultValue: 0)
@@ -88,20 +79,24 @@ class WidgetController {
     }
     
     // 给主程序保存电池数据
-    func setWidgetBatteryData(batteryData: WidgetBatteryData) -> Bool {
+    func setWidgetBatteryData(batteryData: WidgetBatteryData) {
         
         // 主程序设置的实例
         let settingsUtils = SettingsUtils.instance
         
+        if #unavailable(iOS 14.0) { // Widget最低iOS 14.0开始支持
+            return
+        }
+        
         if !settingsUtils.getEnableWidget() { // 先判断下用户是否启用了Widget
-            return false
+            return
         }
         
         let widgetSandBoxBasePath = settingsUtils.getWidgetSandboxDirectoryPath()
         
         if !checkWidgetSandBoxPathExist(widgetSandBoxBasePath: widgetSandBoxBasePath) { // 先检查这个沙盒目录是否存在
             if !reloadWidgetSandboxPathRecord() { // 目录不存在重新刷新，然后再决定是否重新写入
-                return false
+                return
             }
         }
         
@@ -109,12 +104,53 @@ class WidgetController {
         let preferencesPath = widgetSandBoxBasePath + "Library/Preferences"
         let dataManager = PlistManagerUtils.instance(for: widgetBatteryDataPlistName, customPath: preferencesPath)
         
-        dataManager.setString(key: "maximumCapacity", value: batteryData.maximumCapacity)
-        dataManager.setInt(key: "cycleCount", value: batteryData.cycleCount)
-        dataManager.setString(key: "updateDate", value: batteryData.updateDate)
-        dataManager.apply() // 保存到Widget的沙盒目录下
+        let previousDataManager = PlistManagerUtils.instance(for: widgetBatteryDataPlistName, customPath: preferencesPath)
+        let previousMaximumCapacity = previousDataManager.getString(key: "maximumCapacity", defaultValue: "--")
+        let previousCycleCount = previousDataManager.getInt(key: "cycleCount", defaultValue: 0)
+        let previousTimestamp = previousDataManager.getInt(key: "updateTimeStamp", defaultValue: 0)
+        let currentTimestamp = Int(Date().timeIntervalSince1970)
         
-        return true
+        var shouldWrite = false
+        var shouldRefresh = false
+
+        switch settingsUtils.getWidgetRefreshFrequency() {
+        case .DataChanged:
+            if previousMaximumCapacity != batteryData.maximumCapacity || previousCycleCount != batteryData.cycleCount {
+                shouldWrite = true
+                shouldRefresh = true
+            }
+
+        case .RefreshDataEveryTime:
+            shouldWrite = true
+            shouldRefresh = true
+
+        case .Manual:
+            if previousMaximumCapacity != batteryData.maximumCapacity || previousCycleCount != batteryData.cycleCount {
+                shouldWrite = true
+                shouldRefresh = false
+            }
+
+        case .Fixed5Minutes:
+            if currentTimestamp - previousTimestamp >= 300 {
+                shouldWrite = true
+                shouldRefresh = true
+            }
+        }
+
+        if shouldWrite {
+            dataManager.setString(key: "maximumCapacity", value: batteryData.maximumCapacity)
+            dataManager.setInt(key: "cycleCount", value: batteryData.cycleCount)
+            dataManager.setString(key: "updateDate", value: batteryData.updateDate)
+            dataManager.setInt(key: "updateTimeStamp", value: currentTimestamp)
+            dataManager.apply()
+
+            if shouldRefresh {
+                WidgetController.instance.refreshWidget()
+                NSLog("给Widget数据保存成功,已经刷新Widget")
+            } else {
+                NSLog("给Widget数据保存成功，但未刷新Widget")
+            }
+        }
     }
     
     func reloadWidgetSandboxPathRecord() -> Bool {

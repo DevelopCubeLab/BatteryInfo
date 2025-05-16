@@ -10,9 +10,9 @@ class SettingsUtils {
     
     // 语言设置
     enum ApplicationLanguage: Int {
-        case System = 0
-        case English = 1
-        case SimplifiedChinese = 2
+        case System = 0             // 跟随系统
+        case English = 1            // 英语
+        case SimplifiedChinese = 2  // 简体中文
     }
 
     enum MaximumCapacityAccuracy: Int {
@@ -28,6 +28,13 @@ class SettingsUtils {
         case DataChanged = 2  // 数据发生改变时记录，电池剩余容量发生变化或者电池循环次数变化时保存
         case EveryDay = 3     // 每天打开App的时候记录
         case Manual = 4       // 手动
+    }
+    
+    enum WidgetRefreshFrequency: Int {
+        case DataChanged = 0            // 当数据更改时
+        case RefreshDataEveryTime = 1   // 每次刷新数据时
+        case Manual = 2                 // 手动
+        case Fixed5Minutes = 3          // 距离上次更新超过5分钟
     }
     
     private init() {
@@ -241,6 +248,7 @@ class SettingsUtils {
         plistManager.remove(key: "HomeItemGroupSequence")
         plistManager.apply()
     }
+    
     /// 获取是否启用Widget
     func getEnableWidget() -> Bool {
         if #available(iOS 14.0, *) {
@@ -257,6 +265,23 @@ class SettingsUtils {
         } else {
             plistManager.setBool(key: "EnableWidget", value: false)
         }
+        plistManager.apply()
+    }
+    
+    /// 获取Widget的刷新频率
+    func getWidgetRefreshFrequency() -> WidgetRefreshFrequency {
+        let value = plistManager.getInt(key: "WidgetRefreshFrequency", defaultValue: WidgetRefreshFrequency.DataChanged.rawValue)
+        return WidgetRefreshFrequency(rawValue: value) ?? WidgetRefreshFrequency.DataChanged
+    }
+    
+    // 设置Widget的刷新频率
+    func setWidgetRefreshFrequency(value: WidgetRefreshFrequency) {
+        setWidgetRefreshFrequency(value: value.rawValue)
+    }
+    
+    /// 设置Widget的刷新频率
+    func setWidgetRefreshFrequency(value: Int) {
+        plistManager.setInt(key: "WidgetRefreshFrequency", value: value)
         plistManager.apply()
     }
 
