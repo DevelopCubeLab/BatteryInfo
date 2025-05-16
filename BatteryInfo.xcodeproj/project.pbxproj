@@ -11,6 +11,7 @@
 		171936852D8730DA00ECB17D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C79A2D79CD4D0064FB7A /* SwiftUI.framework */; };
 		171936902D8730DB00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		171D16682D8735E50025AE19 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 17B0EDBF2D49C07B00F77781 /* Localizable.xcstrings */; };
+		171F7FAE2DD65D0300837BFA /* ExtensionFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171F7FAD2DD65D0300837BFA /* ExtensionFoundation.framework */; };
 		1731F9BB2D50D02600AA1FD5 /* DeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731F9BA2D50D02600AA1FD5 /* DeviceController.m */; };
 		1781C7992D79CD4D0064FB7A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C7982D79CD4D0064FB7A /* WidgetKit.framework */; };
 		1781C79B2D79CD4D0064FB7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1781C79A2D79CD4D0064FB7A /* SwiftUI.framework */; };
@@ -71,16 +72,15 @@
 /* Begin PBXFileReference section */
 		171936832D8730DA00ECB17D /* BatteryInfoLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BatteryInfoLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		171D3B9B2D8979C900AA624E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WidgetSettingsIntent.strings"; sourceTree = "<group>"; };
+		171F7FAD2DD65D0300837BFA /* ExtensionFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionFoundation.framework; path = System/Library/Frameworks/ExtensionFoundation.framework; sourceTree = SDKROOT; };
 		1731F9B92D50D02600AA1FD5 /* DeviceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
 		1731F9BA2D50D02600AA1FD5 /* DeviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceController.m; sourceTree = "<group>"; };
-		173AC2172D7C1368002EE482 /* ExtensionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionKit.framework; path = System/Library/Frameworks/ExtensionKit.framework; sourceTree = SDKROOT; };
 		175BAB6C2D7C724300FB4733 /* BatteryInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BatteryInfo.entitlements; sourceTree = "<group>"; };
 		1781C7972D79CD4D0064FB7A /* BatteryInfoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BatteryInfoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1781C7982D79CD4D0064FB7A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1781C79A2D79CD4D0064FB7A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1781C7CA2D79FF5E0064FB7A /* WidgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetController.swift; sourceTree = "<group>"; };
 		1781C7E62D7A2E900064FB7A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = en; path = en.lproj/WidgetSettingsIntent.intentdefinition; sourceTree = "<group>"; };
-		1781C82A2D7C02A50064FB7A /* ExtensionFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionFoundation.framework; path = System/Library/Frameworks/ExtensionFoundation.framework; sourceTree = SDKROOT; };
 		179E78902D1D52A0009C29C9 /* BatteryInfo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BatteryInfo-Bridging-Header.h"; sourceTree = "<group>"; };
 		179E78912D1D52A0009C29C9 /* BatteryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryHelper.h; sourceTree = "<group>"; };
 		179E78982D1D5E49009C29C9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -168,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171F7FAE2DD65D0300837BFA /* ExtensionFoundation.framework in Frameworks */,
 				179E789D2D1D5E55009C29C9 /* IOKit.framework in Frameworks */,
 				17F66BE62D2A1C7A0097A29A /* BatteryHelper.a in Frameworks */,
 				179E789B2D1D5E4F009C29C9 /* CoreGraphics.framework in Frameworks */,
@@ -181,8 +182,7 @@
 		179E78972D1D5E49009C29C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				173AC2172D7C1368002EE482 /* ExtensionKit.framework */,
-				1781C82A2D7C02A50064FB7A /* ExtensionFoundation.framework */,
+				171F7FAD2DD65D0300837BFA /* ExtensionFoundation.framework */,
 				179E789C2D1D5E55009C29C9 /* IOKit.framework */,
 				179E789A2D1D5E4F009C29C9 /* CoreGraphics.framework */,
 				179E78982D1D5E49009C29C9 /* UIKit.framework */,
@@ -334,7 +334,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					171936822D8730DA00ECB17D = {
 						CreatedOnToolsVersion = 16.2;
@@ -640,6 +640,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = X2WABLB38D;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -661,13 +662,14 @@
 					"$(SDKROOT)/usr/include",
 					"$(SDKROOT)/System/Library/Frameworks",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SYSTEM_HEADER_SEARCH_PATHS = (
@@ -713,11 +715,13 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = X2WABLB38D;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -729,10 +733,11 @@
 					"$(SDKROOT)/usr/include",
 					"$(SDKROOT)/System/Library/Frameworks",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -748,7 +753,6 @@
 		17D996E42D1D50A60056394C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -792,7 +796,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BatteryInfo/BatteryInfo-Bridging-Header.h";
@@ -806,7 +810,6 @@
 		17D996E52D1D50A60056394C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -850,7 +853,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BatteryInfo/BatteryInfo-Bridging-Header.h";

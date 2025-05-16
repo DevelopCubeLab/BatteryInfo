@@ -5,7 +5,7 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
     
     private var tableView = UITableView()
     
-    private let tableTitleList = [nil, nil, NSLocalizedString("WidgetSandBoxPath", comment: ""),nil]
+    private let tableTitleList = [nil, nil, NSLocalizedString("WidgetSandBoxPath", comment: ""), nil, nil]
     
     private var tableCellList = [
         [NSLocalizedString("Enable", comment: "启用")],
