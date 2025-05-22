@@ -15,6 +15,12 @@
             "state" : "translated",
             "value" : "ATL新能源科技"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ATL"
+          }
         }
       }
     },
@@ -32,6 +38,12 @@
             "state" : "translated",
             "value" : "德赛"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desay"
+          }
         }
       }
     },
@@ -45,6 +57,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LG"
+          }
+        },
+        "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "LG"
@@ -66,6 +84,12 @@
             "state" : "translated",
             "value" : "新普"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simplo"
+          }
         }
       }
     },
@@ -82,6 +106,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "索尼"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sony"
           }
         }
       }
@@ -100,6 +130,12 @@
             "state" : "translated",
             "value" : "欣旺达"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunwoda"
+          }
         }
       }
     },
@@ -116,6 +152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未知制造商"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fabricante desconocido"
           }
         }
       }
