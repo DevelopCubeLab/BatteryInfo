@@ -14,6 +14,12 @@
             "state" : "translated",
             "value" : "关于"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acerca de"
+          }
         }
       }
     },
@@ -29,6 +35,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "配件电池电量: %@%%"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacidad actual del accesorio: %@%%"
           }
         }
       }
@@ -46,6 +58,12 @@
             "state" : "translated",
             "value" : "配件信息"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalles del accesorio"
+          }
         }
       }
     },
@@ -62,6 +80,12 @@
             "state" : "translated",
             "value" : "配件已连接电源: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accesorios conectados al cargador: %@"
+          }
         }
       }
     },
@@ -77,6 +101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "配件充电状态: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado de carga del accesorio: %@"
           }
         }
       }
@@ -95,6 +125,12 @@
             "state" : "translated",
             "value" : "提示"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alerta"
+          }
         }
       }
     },
@@ -110,6 +146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "全部数据"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos los datos"
           }
         }
       }
@@ -127,6 +169,12 @@
             "state" : "translated",
             "value" : "自动"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automático"
+          }
         }
       }
     },
@@ -142,6 +190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "App不会在后台时刷新和记录数据，并且不会在后台消耗电池电量"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La aplicación no actualizará ni registrará datos cuando esté en segundo plano, y no consumirá energía de la batería en segundo plano."
           }
         }
       }
@@ -159,6 +213,12 @@
             "state" : "translated",
             "value" : "定时刷新电池数据"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programar actualización de datos de batería"
+          }
         }
       }
     },
@@ -174,6 +234,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "可显示在首页的信息组"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupos disponibles"
           }
         }
       }
@@ -191,6 +257,12 @@
             "state" : "translated",
             "value" : "平均温度: %@℃"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperatura media: %@℃"
+          }
         }
       }
     },
@@ -206,6 +278,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池充电状态正常"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El estado de carga de la batería es normal"
           }
         }
       }
@@ -224,6 +302,12 @@
             "state" : "translated",
             "value" : "电池历史数据记录"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RegistrosDatosBateria"
+          }
         }
       }
     },
@@ -239,6 +323,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池数据来源于%@\n数据刷新时间: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuente de datos de la batería: %@\nHora de actualización: %@"
           }
         }
       }
@@ -256,6 +346,12 @@
             "state" : "translated",
             "value" : "电池已充满"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batería completamente cargada"
+          }
         }
       }
     },
@@ -271,6 +367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n记录中最高容量: %@ mAh\n记录中最低容量: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total de registros: %@ elementos\nRegistrado durante %@ días\nCambio en la salud de la batería: %@%%\nCambio de capacidad: %@ mAh\nCapacidad máxima registrada: %@ mAh\nCapacidad mínima registrada: %@ mAh\nAumento del contador de ciclos: %@ veces\nProm. de ciclos por día: %@ veces"
           }
         }
       }
@@ -288,6 +390,12 @@
             "state" : "translated",
             "value" : "电池已安装: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batería instalada: %@"
+          }
         }
       }
     },
@@ -303,6 +411,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池生命周期数据"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datos de vida útil de la batería"
           }
         }
       }
@@ -320,6 +434,12 @@
             "state" : "translated",
             "value" : "电池总工作时间: %@小时"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo total de funcionamiento de la batería: %@ horas"
+          }
         }
       }
     },
@@ -335,6 +455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "制造商: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fabricante de la batería: %@"
           }
         }
       }
@@ -352,6 +478,12 @@
             "state" : "translated",
             "value" : "电池温度过高"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sobrecalentamiento de la batería"
+          }
         }
       }
     },
@@ -367,6 +499,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "开机电压: %@V"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltaje de arranque: %@V"
           }
         }
       }
@@ -384,6 +522,12 @@
             "state" : "translated",
             "value" : "计算充电功率: %@W"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Potencia de carga calculada: %@W"
+          }
         }
       }
     },
@@ -399,6 +543,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         }
       }
@@ -416,6 +566,12 @@
             "state" : "translated",
             "value" : "向上取整"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redondeo por exceso"
+          }
         }
       }
     },
@@ -431,6 +587,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info Batería"
           }
         }
       }
@@ -448,6 +610,12 @@
             "state" : "translated",
             "value" : "当前充电协议: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protocolo de carga: %@"
+          }
         }
       }
     },
@@ -463,6 +631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información de carga"
           }
         }
       }
@@ -480,6 +654,12 @@
             "state" : "translated",
             "value" : "充电功率数据仅供参考，数据并非充电器输出实际功率，请以功率测量设备数据为准"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los datos de potencia de carga son solo de referencia, tome los datos del dispositivo de medición de potencia como estándar."
+          }
         }
       }
     },
@@ -495,6 +675,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器固件版本: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión de firmware del cargador: %@"
           }
         }
       }
@@ -512,6 +698,12 @@
             "state" : "translated",
             "value" : "充电器硬件版本: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión de hardware del cargador: %@"
+          }
         }
       }
     },
@@ -527,6 +719,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información del cargador"
           }
         }
       }
@@ -544,6 +742,12 @@
             "state" : "translated",
             "value" : "充电器制造商: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fabricante del cargador: %@"
+          }
         }
       }
     },
@@ -559,6 +763,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器型号: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modelo del cargador: %@"
           }
         }
       }
@@ -576,6 +786,12 @@
             "state" : "translated",
             "value" : "充电器名称: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre del cargador: %@"
+          }
         }
       }
     },
@@ -591,6 +807,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器信息仅供参考，如果您在连接带有名称的充电器后连接不带名称的充电器，充电器名称仍然显示之前的充电器名称，这可能是系统的bug，重启设备后可恢复正常"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La información del cargador es solo de referencia. Si conecta un cargador sin nombre después de conectar uno con nombre, el nombre del cargador seguirá mostrando el nombre del cargador anterior. Esto puede ser un error del sistema y el dispositivo puede volver a la normalidad después de un reinicio."
           }
         }
       }
@@ -608,6 +830,12 @@
             "state" : "translated",
             "value" : "充电中"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando"
+          }
         }
       }
     },
@@ -623,6 +851,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电电流: %@A"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corriente de carga: %@A"
           }
         }
       }
@@ -640,6 +874,12 @@
             "state" : "translated",
             "value" : "充电电压: %@V"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltaje de carga: %@V"
+          }
         }
       }
     },
@@ -655,6 +895,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已充满"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completa"
           }
         }
       }
@@ -672,6 +918,12 @@
             "state" : "translated",
             "value" : "关闭"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
         }
       }
     },
@@ -687,6 +939,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "确定"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmar"
           }
         }
       }
@@ -704,6 +962,12 @@
             "state" : "translated",
             "value" : "已连接"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectado"
+          }
         }
       }
     },
@@ -719,6 +983,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar"
           }
         }
       }
@@ -736,6 +1006,12 @@
             "state" : "translated",
             "value" : "复制全部信息"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar todos los datos"
+          }
         }
       }
     },
@@ -751,6 +1027,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制成功"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiado con éxito"
           }
         }
       }
@@ -769,6 +1051,12 @@
             "state" : "translated",
             "value" : "当前电池电量: %@%%"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacidad actual: %@%%"
+          }
         }
       }
     },
@@ -784,6 +1072,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "当前实时容量: %@ mAh"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacidad en tiempo real: %@ mAh"
           }
         }
       }
@@ -802,6 +1096,12 @@
             "state" : "translated",
             "value" : "当前电池温度: %@℃"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperatura actual: %@℃"
+          }
         }
       }
     },
@@ -818,6 +1118,12 @@
             "state" : "translated",
             "value" : "当前使用的协议: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protocolo en uso: %@"
+          }
         }
       }
     },
@@ -833,6 +1139,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "当前电压: %@V"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltaje actual: %@V"
           }
         }
       }
@@ -851,6 +1163,12 @@
             "state" : "translated",
             "value" : "循环次数: %@次"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Número de ciclos: %@"
+          }
         }
       }
     },
@@ -866,6 +1184,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "数据变化时"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando cambian los datos"
           }
         }
       }
@@ -883,6 +1207,12 @@
             "state" : "translated",
             "value" : "电池数据记录"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registro de datos"
+          }
         }
       }
     },
@@ -898,6 +1228,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@天"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ días"
           }
         }
       }
@@ -915,6 +1251,12 @@
             "state" : "translated",
             "value" : "删除"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar"
+          }
         }
       }
     },
@@ -930,6 +1272,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "删除全部记录"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar todos los registros"
           }
         }
       }
@@ -948,6 +1296,12 @@
             "state" : "translated",
             "value" : "此操作会删除所有历史记录，此操作不可逆"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta operación elimina todos los registros del historial y es irreversible."
+          }
         }
       }
     },
@@ -965,6 +1319,12 @@
             "state" : "translated",
             "value" : "确定要删除所有数据吗？"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Seguro que quieres eliminar todos los datos de los registros?"
+          }
         }
       }
     },
@@ -980,6 +1340,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "确认删除这条记录吗？"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Confirmas la eliminación de este registro?"
           }
         }
       }
@@ -998,6 +1364,12 @@
             "state" : "translated",
             "value" : "设计容量: %@ mAh"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacidad de diseño: %@ mAh"
+          }
         }
       }
     },
@@ -1015,6 +1387,12 @@
             "state" : "translated",
             "value" : "设备已启动：%d天 %d小时 %d分钟"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo de actividad del dispositivo: %d días %d horas %d minutos"
+          }
         }
       }
     },
@@ -1030,6 +1408,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descartar"
           }
         }
       }
@@ -1047,6 +1431,12 @@
             "state" : "translated",
             "value" : "首页显示的信息组"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupos mostrados en inicio"
+          }
         }
       }
     },
@@ -1062,6 +1452,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "包含*的信息组需要在特定条件下显示"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los grupos de información que contienen * deben mostrarse bajo condiciones específicas."
           }
         }
       }
@@ -1079,6 +1475,12 @@
             "state" : "translated",
             "value" : "'使用历史记录来推算设置中的电池健康数据刷新日期'功能需要开启'记录历史记录'功能"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para usar la función 'Calcular fecha de actualización de salud de batería en ajustes con historial', es necesario activar 'Habilitar registro de historial'."
+          }
         }
       }
     },
@@ -1095,6 +1497,12 @@
             "state" : "translated",
             "value" : "显示"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes de visualización"
+          }
         }
       }
     },
@@ -1110,6 +1518,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "双击首页底部按钮让列表返回顶部"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doble clic en el botón inferior de la página de inicio para volver al principio de la lista"
           }
         }
       }
@@ -1128,6 +1542,12 @@
             "state" : "translated",
             "value" : "启用"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar"
+          }
         }
       }
     },
@@ -1143,6 +1563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "历史记录统计"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estadísticas de registros del historial"
           }
         }
       }
@@ -1160,6 +1586,12 @@
             "state" : "translated",
             "value" : "每天"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada día"
+          }
         }
       }
     },
@@ -1175,6 +1607,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "将所有记录导出到CSV"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar todos los registros a CSV"
           }
         }
       }
@@ -1192,6 +1630,12 @@
             "state" : "translated",
             "value" : "向下取整"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redondeo por defecto"
+          }
         }
       }
     },
@@ -1207,6 +1651,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在未充电的状态下仍然显示充电数据"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar datos de carga incluso sin estar cargando"
           }
         }
       }
@@ -1225,6 +1675,12 @@
             "state" : "translated",
             "value" : "外接配件信息*"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Detalles del accesorio*"
+          }
         }
       }
     },
@@ -1241,6 +1697,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池基础信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información básica de batería"
           }
         }
       }
@@ -1259,6 +1721,12 @@
             "state" : "translated",
             "value" : "电池生命周期信息"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información de vida útil de batería"
+          }
         }
       }
     },
@@ -1275,6 +1743,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池Qmax信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información Qmax de batería"
           }
         }
       }
@@ -1293,6 +1767,12 @@
             "state" : "translated",
             "value" : "电池序列号信息"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información número de serie de batería"
+          }
         }
       }
     },
@@ -1309,6 +1789,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池电压信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información voltaje de batería"
           }
         }
       }
@@ -1327,6 +1813,12 @@
             "state" : "translated",
             "value" : "充电信息"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información de carga"
+          }
         }
       }
     },
@@ -1343,6 +1835,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器信息"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información del cargador"
           }
         }
       }
@@ -1361,6 +1859,12 @@
             "state" : "translated",
             "value" : "充电功率和不充电原因*"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Potencia de carga y motivo de no carga*"
+          }
         }
       }
     },
@@ -1377,6 +1881,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池未充电原因*"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información motivo de no carga*"
           }
         }
       }
@@ -1395,6 +1905,12 @@
             "state" : "translated",
             "value" : "设置中的电池信息*"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo Información de batería en Ajustes*"
+          }
         }
       }
     },
@@ -1412,6 +1928,12 @@
             "state" : "translated",
             "value" : "未知"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grupo desconocido"
+          }
         }
       }
     },
@@ -1427,6 +1949,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "历史记录"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
           }
         }
       }
@@ -1445,6 +1973,12 @@
             "state" : "translated",
             "value" : "在主界面显示历史记录界面"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar vista de historial en la pantalla de inicio"
+          }
         }
       }
     },
@@ -1462,6 +1996,12 @@
             "state" : "translated",
             "value" : "历史记录统计"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estadísticas de registros del historial"
+          }
         }
       }
     },
@@ -1478,6 +2018,12 @@
             "state" : "translated",
             "value" : "实时电流: %@mA"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corriente instantánea: %@mA"
+          }
         }
       }
     },
@@ -1491,6 +2037,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS %@"
+          }
+        },
+        "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "iOS %@"
@@ -1512,6 +2064,12 @@
             "state" : "translated",
             "value" : "iPad OS %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPadOS %@"
+          }
         }
       }
     },
@@ -1527,6 +2085,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电状态: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado de carga: %@"
           }
         }
       }
@@ -1544,6 +2108,12 @@
             "state" : "translated",
             "value" : "原始数据"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantener valor original"
+          }
         }
       }
     },
@@ -1559,6 +2129,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "界面语言"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes de idioma"
           }
         }
       }
@@ -1576,6 +2152,12 @@
             "state" : "translated",
             "value" : "限制电压: %@V"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltaje límite: %@V"
+          }
         }
       }
     },
@@ -1591,6 +2173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MagSafe 外接电池"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batería MagSafe"
           }
         }
       }
@@ -1608,6 +2196,12 @@
             "state" : "translated",
             "value" : "手动"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manual"
+          }
         }
       }
     },
@@ -1624,6 +2218,12 @@
             "state" : "translated",
             "value" : "添加记录"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir registro manualmente"
+          }
         }
       }
     },
@@ -1639,6 +2239,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "点击序列号可以隐藏显示，电池制造商信息来源于网络，通过序列号信息进行推算，如有错误请提出以进行更正和改进"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz clic en el número de serie para ocultarlo. La información del fabricante de la batería proviene de Internet y se calcula a través de la información del número de serie. Si hay errores, envíalos para su corrección y mejora."
           }
         }
       }
@@ -1657,6 +2263,12 @@
             "state" : "translated",
             "value" : "健康度: %@%%"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salud de la batería: %@%%"
+          }
         }
       }
     },
@@ -1672,6 +2284,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池健康度精准度"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Precisión de la salud de la batería"
           }
         }
       }
@@ -1689,6 +2307,12 @@
             "state" : "translated",
             "value" : "最大充电电流: %@mA"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corriente máxima de carga: %@mA"
+          }
         }
       }
     },
@@ -1704,6 +2328,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最大充电握手功率: %@W"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Potencia máxima de negociación de carga: %@W"
           }
         }
       }
@@ -1721,6 +2351,12 @@
             "state" : "translated",
             "value" : "最大放电电流: %@mA"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corriente máxima de descarga: %@mA"
+          }
         }
       }
     },
@@ -1736,6 +2372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "电池组最大电压: %@V"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltaje máximo del paquete de batería: %@V"
           }
         }
       }
@@ -1753,6 +2395,12 @@
             "state" : "translated",
             "value" : "最大Qmax: %@ mAh"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qmax máximo: %@ mAh"
+          }
         }
       }
     },
@@ -1768,6 +2416,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最高温度: %@℃"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperatura máxima: %@℃"
           }
         }
       }
@@ -1785,6 +2439,12 @@
             "state" : "translated",
             "value" : "电池组最小电压: %@V"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltaje mínimo del paquete de batería: %@V"
+          }
         }
       }
     },
@@ -1800,6 +2460,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最小Qmax: %@ mAh"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qmax mínimo: %@ mAh"
           }
         }
       }
@@ -1817,6 +2483,12 @@
             "state" : "translated",
             "value" : "最低温度: %@℃"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperatura mínima: %@℃"
+          }
         }
       }
     },
@@ -1832,6 +2504,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "缺少必要的权利，所以无法获取数据，如果您使用iOS或者iPad OS安装，请在越狱或TrollStore环境下进行安装，如果没有权限，App将无法获取更多电池信息。在未来的版本中您或许可以在权限受限的情况下使用，但是当前版本您必须拥有’IOPMPowerSourceClient’权利。"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faltan los permisos necesarios, no se puede acceder a los datos. Si está utilizando iOS o iPadOS para instalar, hágalo en un entorno con jailbreak o TrollStore. Sin los permisos, la App no podrá acceder a más información de la batería. En futuras versiones, es posible que pueda usarla con permisos restringidos, but en la versión actual, debe tener los permisos 'IOPMPowerSourceClient'."
           }
         }
       }
@@ -1849,6 +2527,12 @@
             "state" : "translated",
             "value" : "正在与充电器握手功率"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negociando con el cargador"
+          }
         }
       }
     },
@@ -1864,6 +2548,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "否"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
           }
         }
       }
@@ -1881,6 +2571,12 @@
             "state" : "translated",
             "value" : "没有记录"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ningún registro"
+          }
         }
       }
     },
@@ -1896,6 +2592,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未充电"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No está cargando"
           }
         }
       }
@@ -1913,6 +2615,12 @@
             "state" : "translated",
             "value" : "电池未充电原因: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motivo por el que no carga: %@"
+          }
         }
       }
     },
@@ -1928,6 +2636,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未连接"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No conectado"
           }
         }
       }
@@ -1945,6 +2659,12 @@
             "state" : "translated",
             "value" : "数据不足，无法生成统计数据。"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay suficientes datos para generar estadísticas."
+          }
         }
       }
     },
@@ -1960,6 +2680,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "<未包含>"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<No incluido>"
           }
         }
       }
@@ -1977,6 +2703,12 @@
             "state" : "translated",
             "value" : "优化电池充电"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carga optimizada de la batería"
+          }
         }
       }
     },
@@ -1992,6 +2724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "预估刷新日期: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posible fecha de actualización: %@"
           }
         }
       }
@@ -2009,6 +2747,12 @@
             "state" : "translated",
             "value" : "协议 %d: %@V %@A"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opción %d: %@V %@A"
+          }
         }
       }
     },
@@ -2024,6 +2768,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充电器可用充电档位: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opciones disponibles del cargador: %@"
           }
         }
       }
@@ -2041,6 +2791,12 @@
             "state" : "translated",
             "value" : "设备IOKit"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IOKit del dispositivo"
+          }
         }
       }
     },
@@ -2056,6 +2812,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "原始数据"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datos brutos"
           }
         }
       }
@@ -2073,6 +2835,12 @@
             "state" : "translated",
             "value" : "原始数据复制成功"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia de datos brutos exitosa"
+          }
         }
       }
     },
@@ -2088,6 +2856,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "记录日期: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha de creación del registro: %@"
           }
         }
       }
@@ -2106,6 +2880,12 @@
             "state" : "translated",
             "value" : "记录频率设置"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes de frecuencia de registro"
+          }
         }
       }
     },
@@ -2121,6 +2901,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "记录中显示'设计容量'"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar 'Capacidad de diseño' en el registro"
           }
         }
       }
@@ -2139,6 +2925,12 @@
             "state" : "translated",
             "value" : "剩余容量: %@ mAh"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacidad restante: %@ mAh"
+          }
         }
       }
     },
@@ -2154,6 +2946,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重设首页显示的信息组"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer grupos mostrados en inicio"
           }
         }
       }
@@ -2172,6 +2970,12 @@
             "state" : "translated",
             "value" : "确定重置首页显示的信息组吗？此操作会重置首页显示的信息组为默认的排序"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Seguro que quieres restablecer el grupo de información mostrado en la página de inicio? Esta operación restablecerá el grupo de información mostrado en la página de inicio al orden predeterminado."
+          }
         }
       }
     },
@@ -2187,6 +2991,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "四舍五入"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redondeo"
           }
         }
       }
@@ -2204,6 +3014,12 @@
             "state" : "translated",
             "value" : "序列号: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Número de serie: %@"
+          }
         }
       }
     },
@@ -2219,6 +3035,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
           }
         }
       }
@@ -2237,6 +3059,12 @@
             "state" : "translated",
             "value" : "设置中的电池健康数据"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información de batería en 'Ajustes'"
+          }
         }
       }
     },
@@ -2252,6 +3080,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置中的电池健康数据不是实时生成，App读取的是缓存数据，仅供参考"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los datos de salud de la batería en los ajustes no se generan en tiempo real; la App lee datos almacenados en caché, y los datos son solo de referencia."
           }
         }
       }
@@ -2269,6 +3103,12 @@
             "state" : "translated",
             "value" : "在首页显示CPU频率"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar frecuencia de CPU en inicio"
+          }
         }
       }
     },
@@ -2285,6 +3125,12 @@
             "state" : "translated",
             "value" : "显示在系统设置中的电池健康数据"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar en Información de batería de Ajustes"
+          }
         }
       }
     },
@@ -2300,6 +3146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "糟糕，虽然您已经使用TrollStore安装了App，但是没有获取到数据，数据接口暂时不支持您的设备，我们会尝试在后续版本中提供替代方案。可能需要耐心等待一段时间，非常抱歉，您可以使用其他替代方案。"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaya, aunque has instalado la App usando TrollStore, no se han obtenido los datos y la interfaz de datos no es compatible con tu dispositivo por el momento. Intentaremos ofrecer una alternativa en versiones posteriores. Puede que tarde un tiempo, ten paciencia. Lo siento mucho, puedes usar otras alternativas."
           }
         }
       }
@@ -2318,6 +3170,12 @@
             "state" : "translated",
             "value" : "特别感谢肖博vlog\n提供读取设置中电池健康数据的思路(RootHelper制作思路)"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agradecimiento especial a Xiaobovlog\nPor proporcionar ideas para leer datos de salud de la batería en ajustes (ideas de producción de RootHelper)"
+          }
         }
       }
     },
@@ -2335,6 +3193,12 @@
             "state" : "translated",
             "value" : "<未获取到>"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<Desconocido>"
+          }
         }
       }
     },
@@ -2350,6 +3214,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用历史记录来推算设置中的电池健康数据刷新日期"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar registros del historial para calcular la fecha de actualización de la salud de la batería en ajustes"
           }
         }
       }
@@ -2367,6 +3237,12 @@
             "state" : "translated",
             "value" : "使用系统语言"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar idioma del sistema"
+          }
         }
       }
     },
@@ -2382,6 +3258,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "版本"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión"
           }
         }
       }
@@ -2399,6 +3281,12 @@
             "state" : "translated",
             "value" : "无线充电: %@"
           }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargador inalámbrico: %@"
+          }
         }
       }
     },
@@ -2414,6 +3302,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "是"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sí"
           }
         }
       }
