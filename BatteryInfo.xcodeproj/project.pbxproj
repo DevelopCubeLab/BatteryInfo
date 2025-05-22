@@ -184,6 +184,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"es-ES",
 			);
 			mainGroup = 17D996C62D1D50A50056394C;
 			productRefGroup = 17D996D02D1D50A60056394C /* Products */;
