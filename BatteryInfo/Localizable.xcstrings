@@ -350,7 +350,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "电池总工作时间: %@小时"
+            "value" : "电池温度过高"
           }
         }
       }

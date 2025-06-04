@@ -310,13 +310,13 @@ class BatteryDataController {
             
             if let usbOption = batteryInfo?.adapterDetails?.usbHvcMenu {
                 
-                if usbOption.count > index { // 协议列表中有当前的档位信息
-                    let option = batteryInfo?.adapterDetails?.usbHvcMenu[index]
+                if usbOption.count > index, let option = batteryInfo?.adapterDetails?.usbHvcMenu[index] {
                     currentOption.append(
                         String.localizedStringWithFormat(
                             NSLocalizedString("PowerOptionDetail", comment: ""),
-                            option!.index + 1, String(format: "%.2f", Double(option!.maxVoltage) / 1000), String(format: "%.2f", round(Double(option!.maxCurrent) / 1000))
-                    ))
+                            option.index + 1, String(format: "%.2f", Double(option.maxVoltage) / 1000), String(format: "%.2f", round(Double(option.maxCurrent) / 1000))
+                        )
+                    )
                 } else { // 当前协议中没有档位信息
                     if let current = batteryInfo?.adapterDetails?.current, let adapterVoltage = batteryInfo?.adapterDetails?.adapterVoltage {
                         currentOption.append(
@@ -325,7 +325,6 @@ class BatteryDataController {
                                 index + 1, String(format: "%.2f", Double(adapterVoltage) / 1000), String(format: "%.2f", round(Double(current) / 1000))
                         ))
                     }
-                    
                 }
                 
             }
@@ -453,7 +452,7 @@ class BatteryDataController {
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("NotCharging", comment: ""))
                 )
-            } else if reason == 256 || reason == 272 { // 电池过热
+            } else if reason == 256 || reason == 272 || reason == 8448 { // 电池过热
                 return InfoItem(
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("BatteryOverheating", comment: ""))

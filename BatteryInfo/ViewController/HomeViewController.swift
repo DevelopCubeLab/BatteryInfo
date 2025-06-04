@@ -71,8 +71,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        startAutoRefresh() // 页面回来时重新启动定时器
-        loadBatteryData()
+        self.startAutoRefresh() // 页面回来时重新启动定时器和刷新界面
+        self.loadBatteryData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         DispatchQueue.main.async {
             if self.isViewLoaded && self.view.window != nil {
                 // 刷新列表
-                self.tableView.reloadData()
+                self.tableView.reloadDataSafely()
             }
         }
     }
@@ -171,8 +171,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.textLabel?.text = SystemInfoUtils.getDeviceUptimeUsingSysctl()
             }
         } else if indexPath.section >= 1 && indexPath.section <= batteryInfoGroups.count {
-            cell.textLabel?.text = batteryInfoGroups[indexPath.section - 1].items[indexPath.row].text
-            cell.tag = batteryInfoGroups[indexPath.section - 1].items[indexPath.row].id
+            let groupIndex = indexPath.section - 1
+            if groupIndex < batteryInfoGroups.count, indexPath.row < batteryInfoGroups[groupIndex].items.count {
+                cell.textLabel?.text = batteryInfoGroups[groupIndex].items[indexPath.row].text
+                cell.tag = batteryInfoGroups[groupIndex].items[indexPath.row].id
+            }
         } else if indexPath.section == batteryInfoGroups.count + 1 {
             cell.accessoryType = .disclosureIndicator
             if indexPath.row == 0 { // 显示全部数据
@@ -192,8 +195,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.showOSBuildVersion = !showOSBuildVersion
             tableView.reloadRows(at: [indexPath], with: .none)
         } else if indexPath.section >= 1 && indexPath.section <= batteryInfoGroups.count {
-            let cell = tableView.cellForRow(at: indexPath)
-            if let id = cell?.tag {
+            if let cell = tableView.cellForRow(at: indexPath), cell.tag != 0 {
+                let id = cell.tag
                 switch id {
                 case BatteryInfoItemID.batterySerialNumber, BatteryInfoItemID.chargerSerialNumber:
                     BatteryDataController.getInstance.toggleMaskSerialNumber()
@@ -222,4 +225,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.setContentOffset(offset, animated: true)
     }
 
+}
+
+// MARK: - Safe reloadData extension
+extension UITableView {
+    func reloadDataSafely() {
+        DispatchQueue.main.async {
+            guard self.window != nil else { return }
+            self.reloadData()
+        }
+    }
 }

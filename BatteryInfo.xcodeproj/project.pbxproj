@@ -76,7 +76,6 @@
 		17028E152DD7ACE800808E8B /* Exceptions for "BatteryInfo" folder in "BatteryInfoWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Base.lproj/WidgetSettingsIntent.intentdefinition,
 				Controller/WidgetController.swift,
 				Entity/BatteryInfoItem.swift,
 				Entity/WidgetBatteryData.swift,
@@ -515,6 +514,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -572,6 +572,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
