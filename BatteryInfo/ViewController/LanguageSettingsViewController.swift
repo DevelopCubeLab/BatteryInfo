@@ -7,7 +7,7 @@ class LanguageSettingsViewController: UIViewController, UITableViewDelegate, UIT
     
     private let settingsUtils = SettingsUtils.instance
     
-    private let tableCellList = [NSLocalizedString("UseSystemLanguage", comment: ""), "English", "简体中文"]
+    private let tableCellList = [NSLocalizedString("UseSystemLanguage", comment: ""), "English", "简体中文", "Spanish"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

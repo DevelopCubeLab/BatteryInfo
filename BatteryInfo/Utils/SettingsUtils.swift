@@ -11,8 +11,9 @@ class SettingsUtils {
     // 语言设置
     enum ApplicationLanguage: Int {
         case System = 0             // 跟随系统
-        case English = 1            // 英语
+        case English = 1            // English
         case SimplifiedChinese = 2  // 简体中文
+        case Spanish = 3            // Spanish
     }
 
     enum MaximumCapacityAccuracy: Int {

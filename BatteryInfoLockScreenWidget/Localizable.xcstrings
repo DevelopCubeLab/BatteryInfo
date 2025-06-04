@@ -9,6 +9,12 @@
             "value" : "Battery Info"
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info Batería"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",

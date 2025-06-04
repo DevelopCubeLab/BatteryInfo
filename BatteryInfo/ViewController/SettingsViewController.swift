@@ -3,7 +3,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let versionCode = "1.2.0"
+    let versionCode = "1.2.1"
     
     private var tableView = UITableView()
     
@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     private let tableTitleList = [nil, NSLocalizedString("MaximumCapacityAccuracy", comment: ""), NSLocalizedString("About", comment: "")]
     
-    private var tableCellList = [[NSLocalizedString("LanguageSettings", comment: ""), NSLocalizedString("DisplaySettings", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", "Havoc", NSLocalizedString("ThanksForXiaoboVlog", comment: "")]]
+    private var tableCellList = [[NSLocalizedString("LanguageSettings", comment: ""), NSLocalizedString("DisplaySettings", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", "Havoc", NSLocalizedString("ThanksForXiaoboVlog", comment: ""), NSLocalizedString("ThanksForDeciBelioS", comment: "")]]
     // NSLocalizedString("ShowCPUFrequency", comment: "")
     
     // 标记一下每个分组的编号，防止新增一组还需要修改好几处的代码
@@ -162,6 +162,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             } else if indexPath.row == 3 {
                 if let url = URL(string: "https://m.xiaobovlog.cn/") {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            } else if indexPath.row == 4 {
+                if let url = URL(string: "https://github.com/Deci8BelioS") {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }

@@ -34,6 +34,8 @@ class ApplicationLanguageController {
             setLanguage("en")
         case .SimplifiedChinese:
             setLanguage("zh-Hans")
+        case .Spanish:
+            setLanguage("es-ES")
         case .System:
             setLanguage(nil)
         }

@@ -9,16 +9,16 @@
             "value" : "About"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关于"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acerca de"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
           }
         }
       }
@@ -31,16 +31,16 @@
             "value" : "Accessory Current Capacity: %@%%"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "配件电池电量: %@%%"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Capacidad actual del accesorio: %@%%"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件电池电量: %@%%"
           }
         }
       }
@@ -53,16 +53,16 @@
             "value" : "Accessory Details"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "配件信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Detalles del accesorio"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件信息"
           }
         }
       }
@@ -75,16 +75,16 @@
             "value" : "Accessories connected to charger: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "配件已连接电源: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accesorios conectados al cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件已连接电源: %@"
           }
         }
       }
@@ -97,16 +97,16 @@
             "value" : "Accessory charging status: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "配件充电状态: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Estado de carga del accesorio: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配件充电状态: %@"
           }
         }
       }
@@ -120,16 +120,16 @@
             "value" : "Alert"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "提示"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alerta"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示"
           }
         }
       }
@@ -142,16 +142,16 @@
             "value" : "All Data"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "全部数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Todos los datos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部数据"
           }
         }
       }
@@ -164,16 +164,16 @@
             "value" : "Automatic"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自动"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automático"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动"
           }
         }
       }
@@ -186,16 +186,16 @@
             "value" : "The app will not refresh and record data when it is in the background, and it will not consume battery power in the background."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App不会在后台时刷新和记录数据，并且不会在后台消耗电池电量"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La aplicación no actualizará ni registrará datos cuando esté en segundo plano, y no consumirá energía de la batería en segundo plano."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App不会在后台时刷新和记录数据，并且不会在后台消耗电池电量"
           }
         }
       }
@@ -208,16 +208,16 @@
             "value" : "Schedule battery data refresh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "定时刷新电池数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Programar actualización de datos de batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "定时刷新电池数据"
           }
         }
       }
@@ -230,16 +230,16 @@
             "value" : "Available Groups"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "可显示在首页的信息组"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupos disponibles"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可显示在首页的信息组"
           }
         }
       }
@@ -252,16 +252,16 @@
             "value" : "Average Temperature: %@℃"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "平均温度: %@℃"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Temperatura media: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均温度: %@℃"
           }
         }
       }
@@ -274,16 +274,16 @@
             "value" : "Battery charge status is normal"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池充电状态正常"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El estado de carga de la batería es normal"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池充电状态正常"
           }
         }
       }
@@ -297,16 +297,16 @@
             "value" : "BatteryDataRecords"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池历史数据记录"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "RegistrosDatosBateria"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池历史数据记录"
           }
         }
       }
@@ -319,16 +319,16 @@
             "value" : "Battery data source is from %@\nUpdate time: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池数据来源于%@\n数据刷新时间: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fuente de datos de la batería: %@\nHora de actualización: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池数据来源于%@\n数据刷新时间: %@"
           }
         }
       }
@@ -341,16 +341,16 @@
             "value" : "Battery fully charged"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池已充满"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Batería completamente cargada"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池已充满"
           }
         }
       }
@@ -363,16 +363,16 @@
             "value" : "Total Records: %@ items\nRecorded over %@ days\nBattery Health Change: %@%%\nCapacity Change: %@ mAh\nRecorded maximum capacity: %@ mAh\nRecorded minimum capacity: %@ mAh\nCycle Count Increase: %@ time(s)\nAvg. Cycles per Day: %@ time(s)"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n记录中最高容量: %@ mAh\n记录中最低容量: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Total de registros: %@ elementos\nRegistrado durante %@ días\nCambio en la salud de la batería: %@%%\nCambio de capacidad: %@ mAh\nCapacidad máxima registrada: %@ mAh\nCapacidad mínima registrada: %@ mAh\nAumento del contador de ciclos: %@ veces\nProm. de ciclos por día: %@ veces"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总记录数: %@条\n累计记录%@天\n电池健康度变化: %@%%\n电池容量变化: %@ mAh\n记录中最高容量: %@ mAh\n记录中最低容量: %@ mAh\n循环次数增加: %@次\n平均每日循环次数: %@次"
           }
         }
       }
@@ -385,16 +385,16 @@
             "value" : "Battery Installed: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池已安装: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Batería instalada: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池已安装: %@"
           }
         }
       }
@@ -407,16 +407,16 @@
             "value" : "Battery LifeTime Data"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池生命周期数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datos de vida útil de la batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池生命周期数据"
           }
         }
       }
@@ -429,16 +429,16 @@
             "value" : "Battery Total Operating Time: %@ hours"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池总工作时间: %@小时"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tiempo total de funcionamiento de la batería: %@ horas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池总工作时间: %@小时"
           }
         }
       }
@@ -451,16 +451,16 @@
             "value" : "Battery Manufacturer: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "制造商: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fabricante de la batería: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "制造商: %@"
           }
         }
       }
@@ -473,16 +473,16 @@
             "value" : "Battery overheating"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池温度过高"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sobrecalentamiento de la batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池温度过高"
           }
         }
       }
@@ -495,16 +495,16 @@
             "value" : "Boot Voltage: %@V"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开机电压: %@V"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltaje de arranque: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开机电压: %@V"
           }
         }
       }
@@ -517,16 +517,16 @@
             "value" : "Calculated Charging Power: %@W"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "计算充电功率: %@W"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Potencia de carga calculada: %@W"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计算充电功率: %@W"
           }
         }
       }
@@ -539,16 +539,16 @@
             "value" : "Cancel"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "取消"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancelar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
           }
         }
       }
@@ -561,16 +561,16 @@
             "value" : "Ceiling"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "向上取整"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redondeo por exceso"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向上取整"
           }
         }
       }
@@ -583,16 +583,16 @@
             "value" : "Battery Info"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Info Batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池信息"
           }
         }
       }
@@ -605,16 +605,16 @@
             "value" : "Charge Type: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前充电协议: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Protocolo de carga: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前充电协议: %@"
           }
         }
       }
@@ -627,16 +627,16 @@
             "value" : "Charge Information"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Información de carga"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电信息"
           }
         }
       }
@@ -649,16 +649,16 @@
             "value" : "The charging power data is for reference only, please take the data from the power measurement device as the standard."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电功率数据仅供参考，数据并非充电器输出实际功率，请以功率测量设备数据为准"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Los datos de potencia de carga son solo de referencia, tome los datos del dispositivo de medición de potencia como estándar."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电功率数据仅供参考，数据并非充电器输出实际功率，请以功率测量设备数据为准"
           }
         }
       }
@@ -671,16 +671,16 @@
             "value" : "Charger Firmware Version: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器固件版本: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión de firmware del cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器固件版本: %@"
           }
         }
       }
@@ -693,16 +693,16 @@
             "value" : "Charger Hardware Version: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器硬件版本: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión de hardware del cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器硬件版本: %@"
           }
         }
       }
@@ -715,16 +715,16 @@
             "value" : "Charger Info"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Información del cargador"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器信息"
           }
         }
       }
@@ -737,16 +737,16 @@
             "value" : "Charger Manufacturer: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器制造商: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fabricante del cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器制造商: %@"
           }
         }
       }
@@ -759,16 +759,16 @@
             "value" : "Charger Model: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器型号: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modelo del cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器型号: %@"
           }
         }
       }
@@ -781,16 +781,16 @@
             "value" : "Charger Name: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器名称: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre del cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器名称: %@"
           }
         }
       }
@@ -803,16 +803,16 @@
             "value" : "The charger information is for reference only. If you connect a charger without a name after connecting a charger with a name, the charger name still displays the previous charger name. This may be a system bug, and the device can return to normal after a restart."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器信息仅供参考，如果您在连接带有名称的充电器后连接不带名称的充电器，充电器名称仍然显示之前的充电器名称，这可能是系统的bug，重启设备后可恢复正常"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La información del cargador es solo de referencia. Si conecta un cargador sin nombre después de conectar uno con nombre, el nombre del cargador seguirá mostrando el nombre del cargador anterior. Esto puede ser un error del sistema y el dispositivo puede volver a la normalidad después de un reinicio."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器信息仅供参考，如果您在连接带有名称的充电器后连接不带名称的充电器，充电器名称仍然显示之前的充电器名称，这可能是系统的bug，重启设备后可恢复正常"
           }
         }
       }
@@ -825,16 +825,16 @@
             "value" : "Charging"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电中"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cargando"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电中"
           }
         }
       }
@@ -847,16 +847,16 @@
             "value" : "Charging Current: %@A"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电电流: %@A"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Corriente de carga: %@A"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电电流: %@A"
           }
         }
       }
@@ -869,16 +869,16 @@
             "value" : "Charging Voltage: %@V"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电电压: %@V"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltaje de carga: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电电压: %@V"
           }
         }
       }
@@ -891,16 +891,16 @@
             "value" : "Full"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已充满"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Completa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已充满"
           }
         }
       }
@@ -913,16 +913,16 @@
             "value" : "Close"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关闭"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerrar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
           }
         }
       }
@@ -935,16 +935,16 @@
             "value" : "Confirm"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "确定"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Confirmar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定"
           }
         }
       }
@@ -957,16 +957,16 @@
             "value" : "Connected"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已连接"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Conectado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已连接"
           }
         }
       }
@@ -979,16 +979,16 @@
             "value" : "Copy"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "复制"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copiar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "复制"
           }
         }
       }
@@ -1001,16 +1001,16 @@
             "value" : "Copy all data"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "复制全部信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copiar todos los datos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "复制全部信息"
           }
         }
       }
@@ -1023,16 +1023,16 @@
             "value" : "Copy Successful"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "复制成功"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copiado con éxito"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "复制成功"
           }
         }
       }
@@ -1046,16 +1046,16 @@
             "value" : "Current Capacity: %@%%"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前电池电量: %@%%"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Capacidad actual: %@%%"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前电池电量: %@%%"
           }
         }
       }
@@ -1068,16 +1068,16 @@
             "value" : "Current Real-time Capacity: %@ mAh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前实时容量: %@ mAh"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Capacidad en tiempo real: %@ mAh"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前实时容量: %@ mAh"
           }
         }
       }
@@ -1091,16 +1091,16 @@
             "value" : "Current Temperature: %@℃"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前电池温度: %@℃"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Temperatura actual: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前电池温度: %@℃"
           }
         }
       }
@@ -1113,16 +1113,16 @@
             "value" : "Currently used opention: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前使用的协议: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Protocolo en uso: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前使用的协议: %@"
           }
         }
       }
@@ -1135,16 +1135,16 @@
             "value" : "Current Voltage: %@V"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前电压: %@V"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltaje actual: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前电压: %@V"
           }
         }
       }
@@ -1158,16 +1158,16 @@
             "value" : "Cycle Count: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "循环次数: %@次"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Número de ciclos: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "循环次数: %@次"
           }
         }
       }
@@ -1180,16 +1180,16 @@
             "value" : "When Data Changed"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据变化时"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cuando cambian los datos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据变化时"
           }
         }
       }
@@ -1202,16 +1202,16 @@
             "value" : "Data Record"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池数据记录"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registro de datos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池数据记录"
           }
         }
       }
@@ -1224,16 +1224,16 @@
             "value" : "%@ days"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@天"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ días"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@天"
           }
         }
       }
@@ -1246,16 +1246,16 @@
             "value" : "Delete"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "删除"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除"
           }
         }
       }
@@ -1268,16 +1268,16 @@
             "value" : "Delete All Records"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "删除全部记录"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar todos los registros"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除全部记录"
           }
         }
       }
@@ -1291,16 +1291,16 @@
             "value" : "This operation deletes all history records, and the operation is irreversible"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "此操作会删除所有历史记录，此操作不可逆"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esta operación elimina todos los registros del historial y es irreversible."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此操作会删除所有历史记录，此操作不可逆"
           }
         }
       }
@@ -1314,16 +1314,16 @@
             "value" : "Are you sure you want to delete all the records data?"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "确定要删除所有数据吗？"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Seguro que quieres eliminar todos los datos de los registros?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定要删除所有数据吗？"
           }
         }
       }
@@ -1336,16 +1336,16 @@
             "value" : "Confirm to delete this record?"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "确认删除这条记录吗？"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Confirmas la eliminación de este registro?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认删除这条记录吗？"
           }
         }
       }
@@ -1359,16 +1359,16 @@
             "value" : "Design Capacity: %@ mAh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设计容量: %@ mAh"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Capacidad de diseño: %@ mAh"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设计容量: %@ mAh"
           }
         }
       }
@@ -1382,16 +1382,16 @@
             "value" : "Device uptime: %d days %d hours %d minutes"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设备已启动：%d天 %d小时 %d分钟"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tiempo de actividad del dispositivo: %d días %d horas %d minutos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备已启动：%d天 %d小时 %d分钟"
           }
         }
       }
@@ -1404,16 +1404,16 @@
             "value" : "Dismiss"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关闭"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Descartar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
           }
         }
       }
@@ -1426,16 +1426,16 @@
             "value" : "Displayed Home Groups"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "首页显示的信息组"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupos mostrados en inicio"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首页显示的信息组"
           }
         }
       }
@@ -1448,16 +1448,16 @@
             "value" : "Information groups containing * need to be displayed under specific conditions."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "包含*的信息组需要在特定条件下显示"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Los grupos de información que contienen * deben mostrarse bajo condiciones específicas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包含*的信息组需要在特定条件下显示"
           }
         }
       }
@@ -1470,16 +1470,16 @@
             "value" : "'Use history records to calculate the battery health refresh date in the settings’Enable Record history records' function to be enabled."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "'使用历史记录来推算设置中的电池健康数据刷新日期'功能需要开启'记录历史记录'功能"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Para usar la función 'Calcular fecha de actualización de salud de batería en ajustes con historial', es necesario activar 'Habilitar registro de historial'."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'使用历史记录来推算设置中的电池健康数据刷新日期'功能需要开启'记录历史记录'功能"
           }
         }
       }
@@ -1492,16 +1492,16 @@
             "value" : "Display Settings"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustes de visualización"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示"
           }
         }
       }
@@ -1514,16 +1514,16 @@
             "value" : "Double clicking the bottom button on the homepage to return the list to the top"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "双击首页底部按钮让列表返回顶部"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Doble clic en el botón inferior de la página de inicio para volver al principio de la lista"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双击首页底部按钮让列表返回顶部"
           }
         }
       }
@@ -1537,16 +1537,16 @@
             "value" : "Enable"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启用"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Habilitar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用"
           }
         }
       }
@@ -1559,16 +1559,16 @@
             "value" : "History Records Statistics"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "历史记录统计"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Estadísticas de registros del historial"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录统计"
           }
         }
       }
@@ -1581,16 +1581,16 @@
             "value" : "Every Day"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每天"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cada día"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每天"
           }
         }
       }
@@ -1603,16 +1603,16 @@
             "value" : "Export all records to CSV"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将所有记录导出到CSV"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exportar todos los registros a CSV"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将所有记录导出到CSV"
           }
         }
       }
@@ -1623,6 +1623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fixed time 5 minutes"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tiempo fijo 5 minutos"
           }
         },
         "zh-Hans" : {
@@ -1641,16 +1647,16 @@
             "value" : "Floor"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "向下取整"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redondeo por defecto"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向下取整"
           }
         }
       }
@@ -1663,16 +1669,16 @@
             "value" : "Charging data is still displayed when uncharged"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在未充电的状态下仍然显示充电数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar datos de carga incluso sin estar cargando"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在未充电的状态下仍然显示充电数据"
           }
         }
       }
@@ -1686,16 +1692,16 @@
             "value" : "Accessory Details Group*"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "外接配件信息*"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Detalles del accesorio*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外接配件信息*"
           }
         }
       }
@@ -1709,16 +1715,16 @@
             "value" : "Battery Basic Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池基础信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información básica de batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池基础信息"
           }
         }
       }
@@ -1732,16 +1738,16 @@
             "value" : "Battery LifeTime Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池生命周期信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información de vida útil de batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池生命周期信息"
           }
         }
       }
@@ -1755,16 +1761,16 @@
             "value" : "Battery Qmax Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池Qmax信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información Qmax de batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池Qmax信息"
           }
         }
       }
@@ -1778,16 +1784,16 @@
             "value" : "Battery Serial Number Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池序列号信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información número de serie de batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池序列号信息"
           }
         }
       }
@@ -1801,16 +1807,16 @@
             "value" : "Battery Voltage Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池电压信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información voltaje de batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池电压信息"
           }
         }
       }
@@ -1824,16 +1830,16 @@
             "value" : "Charge Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información de carga"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电信息"
           }
         }
       }
@@ -1847,16 +1853,16 @@
             "value" : "Charger Info group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器信息"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información del cargador"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器信息"
           }
         }
       }
@@ -1870,16 +1876,16 @@
             "value" : "Charging Power and Not Charging Reason Group*"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电功率和不充电原因*"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Potencia de carga y motivo de no carga*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电功率和不充电原因*"
           }
         }
       }
@@ -1893,16 +1899,16 @@
             "value" : "Not Charge Reason Info*"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池未充电原因*"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Información motivo de no carga*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池未充电原因*"
           }
         }
       }
@@ -1916,16 +1922,16 @@
             "value" : "Settings Battery Info group*"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置中的电池信息*"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo Información de batería en Ajustes*"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置中的电池信息*"
           }
         }
       }
@@ -1939,16 +1945,16 @@
             "value" : "Unknown Group"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未知"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grupo desconocido"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
           }
         }
       }
@@ -1961,16 +1967,16 @@
             "value" : "History"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "历史记录"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Historial"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录"
           }
         }
       }
@@ -1984,16 +1990,16 @@
             "value" : "Display the history record view on the home view"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在主界面显示历史记录界面"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar vista de historial en la pantalla de inicio"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在主界面显示历史记录界面"
           }
         }
       }
@@ -2007,16 +2013,16 @@
             "value" : "History Records Statistics"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "历史记录统计"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Estadísticas de registros del historial"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录统计"
           }
         }
       }
@@ -2029,16 +2035,16 @@
             "value" : "Instant Current: %@mA"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "实时电流: %@mA"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Corriente instantánea: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实时电流: %@mA"
           }
         }
       }
@@ -2052,13 +2058,13 @@
             "value" : "iOS %@"
           }
         },
-        "zh-Hans" : {
+        "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "iOS %@"
           }
         },
-        "es-ES" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "iOS %@"
@@ -2075,16 +2081,16 @@
             "value" : "iPad OS %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPad OS %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "iPadOS %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad OS %@"
           }
         }
       }
@@ -2097,16 +2103,16 @@
             "value" : "Charging status: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电状态: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Estado de carga: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电状态: %@"
           }
         }
       }
@@ -2119,16 +2125,16 @@
             "value" : "Keep original value"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原始数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mantener valor original"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始数据"
           }
         }
       }
@@ -2141,16 +2147,16 @@
             "value" : "Language Settings"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "界面语言"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustes de idioma"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "界面语言"
           }
         }
       }
@@ -2163,16 +2169,16 @@
             "value" : "Limit Voltage: %@V"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "限制电压: %@V"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltaje límite: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "限制电压: %@V"
           }
         }
       }
@@ -2185,16 +2191,16 @@
             "value" : "MagSafe Battery Pack"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MagSafe 外接电池"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Batería MagSafe"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MagSafe 外接电池"
           }
         }
       }
@@ -2207,16 +2213,16 @@
             "value" : "Manual"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "手动"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Manual"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动"
           }
         }
       }
@@ -2229,16 +2235,16 @@
             "value" : "Manual Add Record"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加记录"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Añadir registro manualmente"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加记录"
           }
         }
       }
@@ -2251,16 +2257,16 @@
             "value" : "Click the serial number to hide the display. Battery manufacturer information comes from the Internet and is calculated through serial number information. If there are any errors, please submit them for correction and improvement."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "点击序列号可以隐藏显示，电池制造商信息来源于网络，通过序列号信息进行推算，如有错误请提出以进行更正和改进"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Haz clic en el número de serie para ocultarlo. La información del fabricante de la batería proviene de Internet y se calcula a través de la información del número de serie. Si hay errores, envíalos para su corrección y mejora."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击序列号可以隐藏显示，电池制造商信息来源于网络，通过序列号信息进行推算，如有错误请提出以进行更正和改进"
           }
         }
       }
@@ -2274,16 +2280,16 @@
             "value" : "Maximum Capacity: %@%%"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "健康度: %@%%"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salud de la batería: %@%%"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康度: %@%%"
           }
         }
       }
@@ -2296,16 +2302,16 @@
             "value" : "Maximum Capacity Accuracy"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池健康度精准度"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Precisión de la salud de la batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池健康度精准度"
           }
         }
       }
@@ -2318,16 +2324,16 @@
             "value" : "Maximum Charge Current: %@mA"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大充电电流: %@mA"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Corriente máxima de carga: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大充电电流: %@mA"
           }
         }
       }
@@ -2340,16 +2346,16 @@
             "value" : "Maximum charging handshake watts: %@W"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大充电握手功率: %@W"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Potencia máxima de negociación de carga: %@W"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大充电握手功率: %@W"
           }
         }
       }
@@ -2362,16 +2368,16 @@
             "value" : "Maximum Discharge Current: %@mA"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大放电电流: %@mA"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Corriente máxima de descarga: %@mA"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大放电电流: %@mA"
           }
         }
       }
@@ -2384,16 +2390,16 @@
             "value" : "Maximum Battery Pack Voltage: %@V"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池组最大电压: %@V"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltaje máximo del paquete de batería: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池组最大电压: %@V"
           }
         }
       }
@@ -2406,16 +2412,16 @@
             "value" : "Maximum Qmax: %@ mAh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大Qmax: %@ mAh"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Qmax máximo: %@ mAh"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大Qmax: %@ mAh"
           }
         }
       }
@@ -2428,16 +2434,16 @@
             "value" : "Maximum Temperature: %@℃"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最高温度: %@℃"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Temperatura máxima: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最高温度: %@℃"
           }
         }
       }
@@ -2450,16 +2456,16 @@
             "value" : "Minimum Battery Pack Voltage: %@V"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池组最小电压: %@V"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltaje mínimo del paquete de batería: %@V"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池组最小电压: %@V"
           }
         }
       }
@@ -2472,16 +2478,16 @@
             "value" : "Minimum Qmax: %@ mAh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最小Qmax: %@ mAh"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Qmax mínimo: %@ mAh"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最小Qmax: %@ mAh"
           }
         }
       }
@@ -2494,16 +2500,16 @@
             "value" : "Minimum Temperature: %@℃"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最低温度: %@℃"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Temperatura mínima: %@℃"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最低温度: %@℃"
           }
         }
       }
@@ -2516,16 +2522,16 @@
             "value" : "Lacking the necessary rights, data cannot be accessed. If you are using iOS or iPad OS to install, please do so in a jailbroken or TrollStore environment. If you do not have the permissions, the App will not be able to access more battery information. In future versions, you may be able to use it with restricted permissions, but in the current version, you must have the 'IOPMPowerSourceClient' rights."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "缺少必要的权利，所以无法获取数据，如果您使用iOS或者iPad OS安装，请在越狱或TrollStore环境下进行安装，如果没有权限，App将无法获取更多电池信息。在未来的版本中您或许可以在权限受限的情况下使用，但是当前版本您必须拥有’IOPMPowerSourceClient’权利。"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Faltan los permisos necesarios, no se puede acceder a los datos. Si está utilizando iOS o iPadOS para instalar, hágalo en un entorno con jailbreak o TrollStore. Sin los permisos, la App no podrá acceder a más información de la batería. En futuras versiones, es posible que pueda usarla con permisos restringidos, but en la versión actual, debe tener los permisos 'IOPMPowerSourceClient'."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缺少必要的权利，所以无法获取数据，如果您使用iOS或者iPad OS安装，请在越狱或TrollStore环境下进行安装，如果没有权限，App将无法获取更多电池信息。在未来的版本中您或许可以在权限受限的情况下使用，但是当前版本您必须拥有’IOPMPowerSourceClient’权利。"
           }
         }
       }
@@ -2538,16 +2544,16 @@
             "value" : "Negotiating with the charger"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在与充电器握手功率"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Negociando con el cargador"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在与充电器握手功率"
           }
         }
       }
@@ -2560,16 +2566,16 @@
             "value" : "No"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "否"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "否"
           }
         }
       }
@@ -2580,6 +2586,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Data"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sin datos"
           }
         },
         "zh-Hans" : {
@@ -2598,16 +2610,16 @@
             "value" : "No any record"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有记录"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ningún registro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有记录"
           }
         }
       }
@@ -2620,16 +2632,16 @@
             "value" : "Not Charging"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未充电"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No está cargando"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未充电"
           }
         }
       }
@@ -2642,16 +2654,16 @@
             "value" : "Not Charging Reason: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "电池未充电原因: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Motivo por el que no carga: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电池未充电原因: %@"
           }
         }
       }
@@ -2664,16 +2676,16 @@
             "value" : "Not Connected"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未连接"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No conectado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未连接"
           }
         }
       }
@@ -2686,16 +2698,16 @@
             "value" : "Not enough data to generate statistics."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据不足，无法生成统计数据。"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay suficientes datos para generar estadísticas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据不足，无法生成统计数据。"
           }
         }
       }
@@ -2708,16 +2720,16 @@
             "value" : "<Not Included>"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "<未包含>"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "<No incluido>"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<未包含>"
           }
         }
       }
@@ -2730,16 +2742,16 @@
             "value" : "Optimized Battery Charging"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "优化电池充电"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Carga optimizada de la batería"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "优化电池充电"
           }
         }
       }
@@ -2752,16 +2764,16 @@
             "value" : "Possible Refresh Date: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "预估刷新日期: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Posible fecha de actualización: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预估刷新日期: %@"
           }
         }
       }
@@ -2774,16 +2786,16 @@
             "value" : "Option %d: %@V %@A"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "协议 %d: %@V %@A"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opción %d: %@V %@A"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "协议 %d: %@V %@A"
           }
         }
       }
@@ -2796,16 +2808,16 @@
             "value" : "Charger available options: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充电器可用充电档位: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opciones disponibles del cargador: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充电器可用充电档位: %@"
           }
         }
       }
@@ -2818,16 +2830,16 @@
             "value" : "device IOKit"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设备IOKit"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "IOKit del dispositivo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备IOKit"
           }
         }
       }
@@ -2840,16 +2852,16 @@
             "value" : "Raw Data"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原始数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datos brutos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始数据"
           }
         }
       }
@@ -2862,16 +2874,16 @@
             "value" : "Successful copy of the raw data"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原始数据复制成功"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copia de datos brutos exitosa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始数据复制成功"
           }
         }
       }
@@ -2884,16 +2896,16 @@
             "value" : "Record Create Date: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "记录日期: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fecha de creación del registro: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录日期: %@"
           }
         }
       }
@@ -2907,16 +2919,16 @@
             "value" : "Record frequency settings"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "记录频率设置"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustes de frecuencia de registro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录频率设置"
           }
         }
       }
@@ -2929,16 +2941,16 @@
             "value" : "Record show 'Design Capacity'"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "记录中显示'设计容量'"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar 'Capacidad de diseño' en el registro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录中显示'设计容量'"
           }
         }
       }
@@ -2949,6 +2961,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refresh Data Every Time"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Actualizar datos cada vez"
           }
         },
         "zh-Hans" : {
@@ -2968,16 +2986,16 @@
             "value" : "Remaining Capacity: %@ mAh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "剩余容量: %@ mAh"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Capacidad restante: %@ mAh"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "剩余容量: %@ mAh"
           }
         }
       }
@@ -2988,6 +3006,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Request Refresh Widget"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Solicitar actualización del widget"
           }
         },
         "zh-Hans" : {
@@ -3006,6 +3030,12 @@
             "value" : "The app has requested system to refresh the widget, and the system may not respond to the request immediately. Do not frequently request refresh of widget status, the system may ignore these requests"
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La aplicación ha solicitado que el sistema actualice el widget, y es posible que no responda de inmediato. No solicite actualizaciones frecuentes del estado del widget, ya que el sistema podría ignorarlas."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3022,16 +3052,16 @@
             "value" : "Reset Displayed Home Groups"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "重设首页显示的信息组"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restablecer grupos mostrados en inicio"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重设首页显示的信息组"
           }
         }
       }
@@ -3045,16 +3075,16 @@
             "value" : "Are you sure you want to reset the information group displayed on the homepage? This operation will reset the information group displayed on the homepage to the default sorting."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "确定重置首页显示的信息组吗？此操作会重置首页显示的信息组为默认的排序"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Seguro que quieres restablecer el grupo de información mostrado en la página de inicio? Esta operación restablecerá el grupo de información mostrado en la página de inicio al orden predeterminado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定重置首页显示的信息组吗？此操作会重置首页显示的信息组为默认的排序"
           }
         }
       }
@@ -3065,6 +3095,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reset Widget SandBox Path"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Restablecer la ruta del Widget SandBox"
           }
         },
         "zh-Hans" : {
@@ -3083,6 +3119,12 @@
             "value" : "If the widget fails to retrieve data, and cannot refresh beyond 1 day, and the issue is still unresolved after attempting to restart the device, you can try resetting the widget sandbox directory to try to resolve this problem."
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Si el widget no logra recuperar datos y no puede actualizarse después de 1 día, y el problema sigue sin resolverse después de intentar reiniciar el dispositivo, puedes intentar restablecer el directorio sandbox del widget para intentar resolver este problema."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3099,16 +3141,16 @@
             "value" : "Round"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "四舍五入"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redondeo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "四舍五入"
           }
         }
       }
@@ -3121,16 +3163,16 @@
             "value" : "Serial Number: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "序列号: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Número de serie: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "序列号: %@"
           }
         }
       }
@@ -3143,16 +3185,16 @@
             "value" : "Settings"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
           }
         }
       }
@@ -3166,16 +3208,16 @@
             "value" : "Battery information in ‘Settings’"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置中的电池健康数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Información de batería en 'Ajustes'"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置中的电池健康数据"
           }
         }
       }
@@ -3188,16 +3230,16 @@
             "value" : "The battery health data in the settings is not generated in real time; the App reads cached data, and the data is for reference only."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置中的电池健康数据不是实时生成，App读取的是缓存数据，仅供参考"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Los datos de salud de la batería en los ajustes no se generan en tiempo real; la App lee datos almacenados en caché, y los datos son solo de referencia."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置中的电池健康数据不是实时生成，App读取的是缓存数据，仅供参考"
           }
         }
       }
@@ -3210,16 +3252,16 @@
             "value" : "Show CPU Frequency in Home"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在首页显示CPU频率"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar frecuencia de CPU en inicio"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在首页显示CPU频率"
           }
         }
       }
@@ -3232,16 +3274,16 @@
             "value" : "Show in Settings Battery Info"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示在系统设置中的电池健康数据"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar en Información de batería de Ajustes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示在系统设置中的电池健康数据"
           }
         }
       }
@@ -3254,16 +3296,38 @@
             "value" : "Oops, although you have installed the App using TrollStore, but the data has not been obtained, and the data interface does not support your device for the time being. We will try to provide an alternative in subsequent versions. It may take some time to wait patiently, and I'm very sorry, you can use other alternatives."
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaya, aunque has instalado la App usando TrollStore, no se han obtenido los datos y la interfaz de datos no es compatible con tu dispositivo por el momento. Intentaremos ofrecer una alternativa en versiones posteriores. Puede que tarde un tiempo, ten paciencia. Lo siento mucho, puedes usar otras alternativas."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "糟糕，虽然您已经使用TrollStore安装了App，但是没有获取到数据，数据接口暂时不支持您的设备，我们会尝试在后续版本中提供替代方案。可能需要耐心等待一段时间，非常抱歉，您可以使用其他替代方案。"
           }
+        }
+      }
+    },
+    "ThanksForDeciBelioS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Special thanks to Deci8BelioS\nProviding Spanish translations for the app"
+          }
         },
         "es-ES" : {
           "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Agradecimiento especial a Deci8BelioS\nPor la traducción al español de la aplicación."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
             "state" : "translated",
-            "value" : "Vaya, aunque has instalado la App usando TrollStore, no se han obtenido los datos y la interfaz de datos no es compatible con tu dispositivo por el momento. Intentaremos ofrecer una alternativa en versiones posteriores. Puede que tarde un tiempo, ten paciencia. Lo siento mucho, puedes usar otras alternativas."
+            "value" : "感谢DeciBelioS提供西班牙语的翻译"
           }
         }
       }
@@ -3277,16 +3341,16 @@
             "value" : "Special thanks to Xiaobovlog\nProviding ideas for reading battery health data in settings (RootHelper production ideas)"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "特别感谢肖博vlog\n提供读取设置中电池健康数据的思路(RootHelper制作思路)"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Agradecimiento especial a Xiaobovlog\nPor proporcionar ideas para leer datos de salud de la batería en ajustes (ideas de producción de RootHelper)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特别感谢肖博vlog\n提供读取设置中电池健康数据的思路(RootHelper制作思路)"
           }
         }
       }
@@ -3300,16 +3364,16 @@
             "value" : "<Unknown>"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "<未获取到>"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "<Desconocido>"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<未获取到>"
           }
         }
       }
@@ -3320,6 +3384,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update: %@"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Actualizar: %@"
           }
         },
         "zh-Hans" : {
@@ -3338,16 +3408,16 @@
             "value" : "Use history records to calculate the battery health refresh date in the settings"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用历史记录来推算设置中的电池健康数据刷新日期"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usar registros del historial para calcular la fecha de actualización de la salud de la batería en ajustes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用历史记录来推算设置中的电池健康数据刷新日期"
           }
         }
       }
@@ -3360,16 +3430,16 @@
             "value" : "Use System Language"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用系统语言"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usar idioma del sistema"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用系统语言"
           }
         }
       }
@@ -3382,16 +3452,16 @@
             "value" : "Version"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版本"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本"
           }
         }
       }
@@ -3402,6 +3472,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Widget appearance can be set by long pressing the widget in the home screen, each widget can set the appearance and whether the refresh time is displayed separately."
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La apariencia del widget se puede configurar presionando prolongadamente el widget en la pantalla de inicio; cada widget puede configurar su apariencia y si el tiempo de actualización se muestra por separado."
           }
         },
         "zh-Hans" : {
@@ -3420,6 +3496,12 @@
             "value" : "Maximum Capacity: %@%%"
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Capacidad máxima: %@%%"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3434,6 +3516,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Widget Refresh Frequency"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Frecuencia de actualización del widget"
           }
         },
         "zh-Hans" : {
@@ -3452,6 +3540,12 @@
             "value" : "The refresh frequency of the widget depends on system scheduling, and the number of refreshes per day is limited. It is recommended to refresh when data changes to save refreshes.\n\nIf the widget is not refreshed by the system, and you want to refresh the data immediately, you need to reboot device or reboot userspace."
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La frecuencia de actualización del widget depende de la programación del sistema, y ​​el número de actualizaciones diarias es limitado. Se recomienda actualizar cuando cambien los datos para ahorrar tiempo.\n\nSi el sistema no actualiza el widget y desea actualizar los datos inmediatamente, debe reiniciar el dispositivo o el espacio de usuario."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3468,6 +3562,12 @@
             "value" : "Widget SandBox Path"
           }
         },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ruta del Widget SandBox"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3479,6 +3579,12 @@
     "WidgetSettings" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget"
+          }
+        },
+        "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Widget"
@@ -3500,16 +3606,16 @@
             "value" : "Wireless Charger: %@"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无线充电: %@"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cargador inalámbrico: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无线充电: %@"
           }
         }
       }
@@ -3522,16 +3628,16 @@
             "value" : "Yes"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "是"
-          }
-        },
         "es-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sí"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是"
           }
         }
       }
