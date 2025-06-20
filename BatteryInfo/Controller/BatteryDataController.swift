@@ -452,12 +452,12 @@ class BatteryDataController {
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("NotCharging", comment: ""))
                 )
-            } else if reason == 256 || reason == 272 || reason == 8448 { // 电池过热
+            } else if reason == 256 || reason == 272 || reason == 8448 || reason == 16 { // 电池过热
                 return InfoItem(
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("BatteryOverheating", comment: ""))
                 )
-            } else if reason == 1024 || reason == 8192 { // 正在与充电器握手
+            } else if reason == 1024 || reason == 8192 || reason == 8193 || reason == 8208 { // 正在与充电器握手
                 return InfoItem(
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("NegotiatingWithCharger", comment: ""))
