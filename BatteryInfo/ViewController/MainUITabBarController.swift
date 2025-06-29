@@ -1,7 +1,3 @@
-// Protocol for view controllers that can scroll to top
-protocol ScrollableToTop {
-    func scrollToTop()
-}
 import Foundation
 import UIKit
 
@@ -96,4 +92,9 @@ class MainUITabBarController: UITabBarController, UITabBarControllerDelegate {
         lastTapTimestamp = now
         lastSelectedIndex = selectedIndex
     }
+}
+
+// Protocol for view controllers that can scroll to top
+protocol ScrollableToTop {
+    func scrollToTop()
 }

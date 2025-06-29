@@ -266,6 +266,16 @@
         }
       }
     },
+    "BackgroundDaemonSettings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "后台助手"
+          }
+        }
+      }
+    },
     "BatteryChargeNormal" : {
       "localizations" : {
         "en" : {
@@ -1679,6 +1689,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在未充电的状态下仍然显示充电数据"
+          }
+        }
+      }
+    },
+    "FullChargeCapacity" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full Charge Capacity: %@ mAh"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacidad de carga completa: %@ mAh"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "满充容量: %@ mAh"
           }
         }
       }
@@ -3244,28 +3276,6 @@
         }
       }
     },
-    "ShowCPUFrequency" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Show CPU Frequency in Home"
-          }
-        },
-        "es-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar frecuencia de CPU en inicio"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在首页显示CPU频率"
-          }
-        }
-      }
-    },
     "ShowSettingsBatteryInfo" : {
       "localizations" : {
         "en" : {
@@ -3616,6 +3626,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无线充电: %@"
+          }
+        }
+      }
+    },
+    "WorkModeIOKit" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过IOKit直接获取\n(需要TrollStore或者越狱安装App)"
+          }
+        }
+      }
+    },
+    "WorkModeSettings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "工作模式"
+          }
+        }
+      }
+    },
+    "WorkModeViaServices" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过电脑获取数据\n(无需TrollStore或者越狱安装App)"
           }
         }
       }

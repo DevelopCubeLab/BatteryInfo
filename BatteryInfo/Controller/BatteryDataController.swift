@@ -201,6 +201,21 @@ class BatteryDataController {
         }
     }
     
+    // 获取电池满充容量
+    private func getBatteryFullChargeCapacity() -> InfoItem {
+        if let fullChargeCapacity = batteryInfo?.fullChargeCapacity {
+            return InfoItem(
+                id: BatteryInfoItemID.fullChargeCapacity,
+                text: String.localizedStringWithFormat(NSLocalizedString("FullChargeCapacity", comment: ""), String(fullChargeCapacity))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.fullChargeCapacity,
+                text: String.localizedStringWithFormat(NSLocalizedString("FullChargeCapacity", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
     // 获取电池当前电压
     private func getCurrentVoltage() -> InfoItem {
         if let voltage = batteryInfo?.voltage {
@@ -912,6 +927,8 @@ class BatteryDataController {
         batteryBasicInfoGroup.addItem(getBatteryCurrentCapacity())
         // 电池当前实时容量
         batteryBasicInfoGroup.addItem(getBatteryCurrentRAWCapacity())
+        // 电池满充容量
+        batteryBasicInfoGroup.addItem(getBatteryFullChargeCapacity())
         // 电池当前电压
         batteryBasicInfoGroup.addItem(getCurrentVoltage())
         // 电池当前电流

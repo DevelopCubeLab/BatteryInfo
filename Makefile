@@ -5,7 +5,7 @@ include $(THEOS)/makefiles/common.mk
 
 # 使用 Xcode 项目构建
 XCODEPROJ_NAME = BatteryInfo
-BUILD_VERSION = "1.2.1"
+BUILD_VERSION = "1.2.2"
 
 # 指定 Theos 使用 xcodeproj 规则
 include $(THEOS_MAKE_PATH)/xcodeproj.mk
@@ -30,6 +30,7 @@ before-package::
 	@echo -e "\033[32mCopy RootHelper to package..."
 	# 这里必须要手动复制RootHelper到包内，不要放到Xcode工程目录下，不然就无法运行二进制文件
 	@cp -f SettingsBatteryHelper/SettingsBatteryHelper $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/
+	@cp -f BatteryInfoDaemon/BatteryInfoDaemon $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/
 
 # 打包后重命名为 .tipa 只有打ipa包的时候才需要，打deb包不需要
 after-package::

@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 import WidgetKit
 
@@ -23,6 +22,7 @@ struct SimpleLockScreenProvider: TimelineProvider {
     }
 }
 
+@available(iOSApplicationExtension 16.0, *)
 struct BatteryInfoLockScreenWidget: Widget {
     let kind: String = "BatteryInfoLockScreenWidget"
     

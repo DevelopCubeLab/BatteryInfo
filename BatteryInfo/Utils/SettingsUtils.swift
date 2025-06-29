@@ -15,6 +15,11 @@ class SettingsUtils {
         case SimplifiedChinese = 2  // 简体中文
         case Spanish = 3            // Spanish
     }
+    
+    enum ApplicationWorkMode: Int {
+        case IOKit = 0             // 通过TrollStore或者越狱直接获取
+        case ViaServices = 1       // 通过电脑或者NAS代理获取数据
+    }
 
     enum MaximumCapacityAccuracy: Int {
         case Keep = 0       // 保留原始数据
@@ -65,6 +70,28 @@ class SettingsUtils {
     /// 设置App语言设置
     func setApplicationLanguage(value: Int) {
         plistManager.setInt(key: "ApplicationLanguage", value: value)
+        plistManager.apply()
+    }
+    
+    /// 获取App工作模式
+    func getApplicationWorkMode() -> ApplicationWorkMode {
+        let value = plistManager.getInt(key: "ApplicationWorkMode", defaultValue: ApplicationWorkMode.IOKit.rawValue)
+        if SettingsUtils.checkInstallPermission() { // 判断用户当前的状态
+            return ApplicationWorkMode(rawValue: value) ?? ApplicationWorkMode.IOKit
+        } else {
+            return ApplicationWorkMode.ViaServices
+        }
+    }
+    
+    func setApplicationWorkMode(value: ApplicationWorkMode) {
+        setApplicationWorkMode(value: value.rawValue)
+    }
+    
+    func setApplicationWorkMode(value: Int) {
+        if !SettingsUtils.checkInstallPermission() && value == ApplicationWorkMode.IOKit.rawValue { // 无Root权限的用户无法使用IOKit直接获取数据
+            return
+        }
+        plistManager.setInt(key: "ApplicationWorkMode", value: value)
         plistManager.apply()
     }
 
@@ -301,5 +328,12 @@ class SettingsUtils {
     func removeWidgetSandboxDirectoryPath() {
         plistManager.remove(key: "WidgetSandboxPath")
         plistManager.apply()
+    }
+    
+    // 检查Unsandbox权限的方法
+    static func checkInstallPermission() -> Bool {
+        let path = "/var/mobile/Library/Preferences"
+        let writeable = access(path, W_OK) == 0
+        return writeable
     }
 }
