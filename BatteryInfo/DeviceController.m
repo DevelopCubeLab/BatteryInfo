@@ -15,8 +15,8 @@ extern int posix_spawnattr_set_persona_gid_np(const posix_spawnattr_t* __restric
 // @See https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L297
 - (void) Respring
 {
-	killall(@"SpringBoard", YES);
-	exit(0);
+    killall(@"SpringBoard", YES);
+    exit(0);
 }
 
 // @See https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L79
@@ -151,6 +151,54 @@ int spawnRoot(NSString* path, NSArray* args, NSString** stdOut, NSString** stdEr
     return WEXITSTATUS(status);
 }
 
+int spanRoot(NSString* path, NSArray* args, pid_t* outPid)
+{
+    NSMutableArray* argsM = args.mutableCopy ?: [NSMutableArray new];
+    [argsM insertObject:path atIndex:0];
+
+    NSUInteger argCount = [argsM count];
+    char **argsC = (char **)malloc((argCount + 1) * sizeof(char*));
+    for (NSUInteger i = 0; i < argCount; i++)
+    {
+        argsC[i] = strdup([[argsM objectAtIndex:i] UTF8String]);
+    }
+    argsC[argCount] = NULL;
+
+    posix_spawnattr_t attr;
+    posix_spawnattr_init(&attr);
+
+    posix_spawnattr_set_persona_np(&attr, 99, POSIX_SPAWN_PERSONA_FLAGS_OVERRIDE);
+    posix_spawnattr_set_persona_uid_np(&attr, 0);
+    posix_spawnattr_set_persona_gid_np(&attr, 0);
+
+    posix_spawn_file_actions_t action;
+    posix_spawn_file_actions_init(&action);
+
+    pid_t task_pid;
+    int spawnError = posix_spawn(&task_pid, [path UTF8String], &action, &attr, (char* const*)argsC, NULL);
+    posix_spawnattr_destroy(&attr);
+    posix_spawn_file_actions_destroy(&action);
+
+    for (NSUInteger i = 0; i < argCount; i++)
+    {
+        free(argsC[i]);
+    }
+    free(argsC);
+
+    if(spawnError != 0)
+    {
+        NSLog(@"posix_spawn error %d\n", spawnError);
+        return spawnError;
+    }
+
+    if (outPid)
+    {
+        *outPid = task_pid;
+    }
+
+    return 0;
+}
+
 NSString* getNSStringFromFile(int fd)
 {
     NSMutableString* ms = [NSMutableString new];
@@ -173,69 +221,88 @@ int fd_is_valid(int fd)
 // @See https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L279
 void killall(NSString* processName, BOOL softly)
 {
-	enumerateProcessesUsingBlock(^(pid_t pid, NSString* executablePath, BOOL* stop)
-	{
-		if([executablePath.lastPathComponent isEqualToString:processName])
-		{
-			if(softly)
-			{
-				kill(pid, SIGTERM);
-			}
-			else
-			{
-				kill(pid, SIGKILL);
-			}
-		}
-	});
+    enumerateProcessesUsingBlock(^(pid_t pid, NSString* executablePath, BOOL* stop)
+    {
+        if([executablePath.lastPathComponent isEqualToString:processName])
+        {
+            if(softly)
+            {
+                kill(pid, SIGTERM);
+            }
+            else
+            {
+                kill(pid, SIGKILL);
+            }
+        }
+    });
+}
+
+// Returns the number of processes killed
+int killallWithResult(NSString* processName, BOOL softly)
+{
+    __block int killedCount = 0;
+
+    enumerateProcessesUsingBlock(^(pid_t pid, NSString* executablePath, BOOL* stop)
+    {
+        if([executablePath.lastPathComponent isEqualToString:processName])
+        {
+            int signal = softly ? SIGTERM : SIGKILL;
+            if (kill(pid, signal) == 0) {
+                killedCount++;
+            }
+        }
+    });
+
+    return killedCount;
 }
 
 void enumerateProcessesUsingBlock(void (^enumerator)(pid_t pid, NSString* executablePath, BOOL* stop))
 {
-	static int maxArgumentSize = 0;
-	if (maxArgumentSize == 0) {
-		size_t size = sizeof(maxArgumentSize);
-		if (sysctl((int[]){ CTL_KERN, KERN_ARGMAX }, 2, &maxArgumentSize, &size, NULL, 0) == -1) {
-			perror("sysctl argument size");
-			maxArgumentSize = 4096; // Default
-		}
-	}
-	int mib[3] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL};
-	struct kinfo_proc *info;
-	size_t length;
-	int count;
+    static int maxArgumentSize = 0;
+    if (maxArgumentSize == 0) {
+        size_t size = sizeof(maxArgumentSize);
+        if (sysctl((int[]){ CTL_KERN, KERN_ARGMAX }, 2, &maxArgumentSize, &size, NULL, 0) == -1) {
+            perror("sysctl argument size");
+            maxArgumentSize = 4096; // Default
+        }
+    }
+    int mib[3] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL};
+    struct kinfo_proc *info;
+    size_t length;
+    int count;
 
-	if (sysctl(mib, 3, NULL, &length, NULL, 0) < 0)
-		return;
-	if (!(info = malloc(length)))
-		return;
-	if (sysctl(mib, 3, info, &length, NULL, 0) < 0) {
-		free(info);
-		return;
-	}
-	count = length / sizeof(struct kinfo_proc);
-	for (int i = 0; i < count; i++) {
-		@autoreleasepool {
-		pid_t pid = info[i].kp_proc.p_pid;
-		if (pid == 0) {
-			continue;
-		}
-		size_t size = maxArgumentSize;
-		char* buffer = (char *)malloc(length);
-		if (sysctl((int[]){ CTL_KERN, KERN_PROCARGS2, pid }, 3, buffer, &size, NULL, 0) == 0) {
-			NSString* executablePath = [NSString stringWithCString:(buffer+sizeof(int)) encoding:NSUTF8StringEncoding];
+    if (sysctl(mib, 3, NULL, &length, NULL, 0) < 0)
+        return;
+    if (!(info = malloc(length)))
+        return;
+    if (sysctl(mib, 3, info, &length, NULL, 0) < 0) {
+        free(info);
+        return;
+    }
+    count = length / sizeof(struct kinfo_proc);
+    for (int i = 0; i < count; i++) {
+        @autoreleasepool {
+        pid_t pid = info[i].kp_proc.p_pid;
+        if (pid == 0) {
+            continue;
+        }
+        size_t size = maxArgumentSize;
+        char* buffer = (char *)malloc(length);
+        if (sysctl((int[]){ CTL_KERN, KERN_PROCARGS2, pid }, 3, buffer, &size, NULL, 0) == 0) {
+            NSString* executablePath = [NSString stringWithCString:(buffer+sizeof(int)) encoding:NSUTF8StringEncoding];
 
-			BOOL stop = NO;
-			enumerator(pid, executablePath, &stop);
-			if(stop)
-			{
-				free(buffer);
-				break;
-			}
-		}
-		free(buffer);
-		}
-	}
-	free(info);
+            BOOL stop = NO;
+            enumerator(pid, executablePath, &stop);
+            if(stop)
+            {
+                free(buffer);
+                break;
+            }
+        }
+        free(buffer);
+        }
+    }
+    free(info);
 }
 
 @end

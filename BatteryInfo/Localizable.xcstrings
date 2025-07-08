@@ -268,6 +268,18 @@
     },
     "BackgroundDaemonSettings" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Background Daemon Settings"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración de Demonio de Fondo"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -933,6 +945,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭"
+          }
+        }
+      }
+    },
+    "ComingSoon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coming Soon…"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximamente…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开发中..."
           }
         }
       }
@@ -1637,7 +1671,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Tiempo fijo 5 minutos"
           }
         },
@@ -2622,7 +2656,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Sin datos"
           }
         },
@@ -2997,7 +3031,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Actualizar datos cada vez"
           }
         },
@@ -3042,7 +3076,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Solicitar actualización del widget"
           }
         },
@@ -3064,7 +3098,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "La aplicación ha solicitado que el sistema actualice el widget, y es posible que no responda de inmediato. No solicite actualizaciones frecuentes del estado del widget, ya que el sistema podría ignorarlas."
           }
         },
@@ -3131,7 +3165,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Restablecer la ruta del Widget SandBox"
           }
         },
@@ -3153,7 +3187,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Si el widget no logra recuperar datos y no puede actualizarse después de 1 día, y el problema sigue sin resolverse después de intentar reiniciar el dispositivo, puedes intentar restablecer el directorio sandbox del widget para intentar resolver este problema."
           }
         },
@@ -3330,7 +3364,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Agradecimiento especial a Deci8BelioS\nPor la traducción al español de la aplicación."
           }
         },
@@ -3398,7 +3432,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Actualizar: %@"
           }
         },
@@ -3486,7 +3520,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "La apariencia del widget se puede configurar presionando prolongadamente el widget en la pantalla de inicio; cada widget puede configurar su apariencia y si el tiempo de actualización se muestra por separado."
           }
         },
@@ -3508,7 +3542,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Capacidad máxima: %@%%"
           }
         },
@@ -3530,7 +3564,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Frecuencia de actualización del widget"
           }
         },
@@ -3552,7 +3586,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "La frecuencia de actualización del widget depende de la programación del sistema, y ​​el número de actualizaciones diarias es limitado. Se recomienda actualizar cuando cambien los datos para ahorrar tiempo.\n\nSi el sistema no actualiza el widget y desea actualizar los datos inmediatamente, debe reiniciar el dispositivo o el espacio de usuario."
           }
         },
@@ -3574,7 +3608,7 @@
         },
         "es-ES" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ruta del Widget SandBox"
           }
         },
@@ -3632,6 +3666,18 @@
     },
     "WorkModeIOKit" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get battery info directly through IOKit\n(Requires TrollStore or jailbreak to install the App)"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtener información de la batería directamente a través de IOKit\n\n(Requiere TrollStore o jailbreak para instalar la App)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3642,6 +3688,18 @@
     },
     "WorkModeSettings" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Work Mode Settings"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración del Modo de Trabajo"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3652,6 +3710,18 @@
     },
     "WorkModeViaServices" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get battery info through computer\n(No need for TrollStore or jailbreak installation)"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtener información de la batería a través de la computadora\n\n(No es necesario instalar TrollStore o jailbreak)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",

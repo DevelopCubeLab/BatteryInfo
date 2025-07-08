@@ -30,7 +30,7 @@ before-package::
 	@echo -e "\033[32mCopy RootHelper to package..."
 	# 这里必须要手动复制RootHelper到包内，不要放到Xcode工程目录下，不然就无法运行二进制文件
 	@cp -f SettingsBatteryHelper/SettingsBatteryHelper $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/
-	@cp -f BatteryInfoDaemon/BatteryInfoDaemon $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/
+#	@cp -f BatteryInfoDaemon/BatteryInfoDaemon $(THEOS_STAGING_DIR)/Applications/$(XCODEPROJ_NAME).app/
 
 # 打包后重命名为 .tipa 只有打ipa包的时候才需要，打deb包不需要
 after-package::
