@@ -3021,6 +3021,72 @@
         }
       }
     },
+    "RecordShowLimitVoltage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record show 'Limit Voltage'"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar 'Voltaje límite' en el registro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录中显示'限制电压'"
+          }
+        }
+      }
+    },
+    "RecordShowMaximumQMax" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record show 'Maximum QMax'"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar 'Qmax máximo' en el registro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录中显示'最大QMax'"
+          }
+        }
+      }
+    },
+    "RecordShowMinimumQMax" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record show 'Minimum QMax'"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar 'Qmax mínimo' en el registro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录中显示'最小QMax'"
+          }
+        }
+      }
+    },
     "RefreshDataEveryTime" : {
       "localizations" : {
         "en" : {

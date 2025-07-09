@@ -8,6 +8,9 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
     private var historyDataRecords: [BatteryDataRecord] = []
     
     private var recordShowDesignCapacity = SettingsUtils.instance.getRecordShowDesignCapacity()
+    private var recordShowMaximumQMax = SettingsUtils.instance.getRecordShowMaximumQMax()
+    private var recordShowMinimumQMax = SettingsUtils.instance.getRecordShowMinimumQMax()
+    private var recordShowLimitVoltage = SettingsUtils.instance.getRecordShowLimitVoltage()
     
     private var capacityAccuracy: SettingsUtils.MaximumCapacityAccuracy?
     
@@ -82,7 +85,11 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
         // 防止 ViewController 释放后仍然执行 UI 更新
         DispatchQueue.main.async {
             if self.isViewLoaded && self.view.window != nil {
+                // 重新获取配置
                 self.recordShowDesignCapacity = SettingsUtils.instance.getRecordShowDesignCapacity()
+                self.recordShowMaximumQMax = SettingsUtils.instance.getRecordShowMaximumQMax()
+                self.recordShowMinimumQMax = SettingsUtils.instance.getRecordShowMinimumQMax()
+                self.recordShowLimitVoltage = SettingsUtils.instance.getRecordShowLimitVoltage()
                 // 刷新列表
                 self.tableView.reloadData()
             }
@@ -143,12 +150,26 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
                     
                     if self.recordShowDesignCapacity { // 是否显示设计容量
                         cell.textLabel?.text = cell.textLabel?.text?.appending(
-                            String.localizedStringWithFormat(NSLocalizedString("DesignCapacity", comment: ""), String(design)) + "\n" +
-                            String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryFormatUtils.formatTimestamp(recordData.createDate)))
-                    } else {
-                        cell.textLabel?.text = cell.textLabel?.text?.appending(
-                            String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryFormatUtils.formatTimestamp(recordData.createDate)))
+                            String.localizedStringWithFormat(NSLocalizedString("DesignCapacity", comment: ""), String(design)) + "\n")
                     }
+                    
+                    if self.recordShowMaximumQMax, let maximumQMax = recordData.maximumQMax { // 是否显示最大QMax
+                        cell.textLabel?.text = cell.textLabel?.text?.appending(
+                            String.localizedStringWithFormat(NSLocalizedString("MaximumQmax", comment: ""), String(maximumQMax)) + "\n")
+                    }
+                    
+                    if self.recordShowMinimumQMax, let minimumQMax = recordData.minimumQMax { // 是否显示最小QMax
+                        cell.textLabel?.text = cell.textLabel?.text?.appending(
+                            String.localizedStringWithFormat(NSLocalizedString("MinimumQmax", comment: ""), String(minimumQMax)) + "\n")
+                    }
+                    
+                    if self.recordShowLimitVoltage, let limitVoltage = recordData.limitVoltage { // 是否显示限制电压
+                        cell.textLabel?.text = cell.textLabel?.text?.appending(
+                            String.localizedStringWithFormat(NSLocalizedString("LimitVoltage", comment: ""), String(format: "%.2f", Double(limitVoltage) / 1000)) + "\n")
+                    }
+                    
+                    // 记录日期加上
+                    cell.textLabel?.text = cell.textLabel?.text?.appending(String.localizedStringWithFormat(NSLocalizedString("RecordCreateDate", comment: ""), BatteryFormatUtils.formatTimestamp(recordData.createDate)))
                 }
                 
             }
@@ -165,20 +186,10 @@ class HistoryRecordViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
-            
-            guard let batteryInfoDict = getBatteryInfo() as? [String: Any] else {
-                return
-            }
-            
-            let batteryInfo = BatteryRAWInfo(dict: batteryInfoDict)
-            
             // 记录历史数据
-            if let cycleCount = batteryInfo.cycleCount, let nominalChargeCapacity = batteryInfo.nominalChargeCapacity, let designCapacity = batteryInfo.designCapacity {
-                
-                if BatteryDataController.recordBatteryData(manualRecord: true, cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity) {
-                    loadHistoryDataRecords()
-                    self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
-                }
+            if BatteryDataController.getInstance.recordBatteryData(manualRecord: true) {
+                loadHistoryDataRecords()
+                self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
             }
         }
         

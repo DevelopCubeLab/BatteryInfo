@@ -189,6 +189,36 @@ class SettingsUtils {
         plistManager.setBool(key: "RecordShowDesignCapacity", value: value)
         plistManager.apply()
     }
+    
+    // 获取是否在历史记录中显示最大QMax
+    func getRecordShowMaximumQMax() -> Bool {
+        return plistManager.getBool(key: "RecordShowMaximumQMax", defaultValue: false)
+    }
+    
+    func setRecordShowMaximumQMax(value: Bool) {
+        plistManager.setBool(key: "RecordShowMaximumQMax", value: value)
+        plistManager.apply()
+    }
+    
+    // 获取是否在历史记录中显示最小QMax
+    func getRecordShowMinimumQMax() -> Bool {
+        return plistManager.getBool(key: "RecordShowMinimumQMax", defaultValue: true)
+    }
+    
+    func setRecordShowMinimumQMax(value: Bool) {
+        plistManager.setBool(key: "RecordShowMinimumQMax", value: value)
+        plistManager.apply()
+    }
+    
+    // 获取是否在历史记录中显示限制电压
+    func getRecordShowLimitVoltage() -> Bool {
+        return plistManager.getBool(key: "RecordShowLimitVoltage", defaultValue: true)
+    }
+    
+    func setRecordShowLimitVoltage(value: Bool) {
+        plistManager.setBool(key: "RecordShowLimitVoltage", value: value)
+        plistManager.apply()
+    }
 
     // 获取启用历史数据统计功能
     func getEnableHistoryStatistics() -> Bool {

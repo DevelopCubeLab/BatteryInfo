@@ -9,7 +9,19 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
     
     private let tableTitleList = [nil, NSLocalizedString("RecordFrequencySettings", comment: "记录频率设置"), nil, nil]
     
-    private let tableCellList = [[NSLocalizedString("Enable", comment: "启用"), NSLocalizedString("HistoryRecordViewInHomeView", comment: "在主界面显示历史记录界面"), NSLocalizedString("RecordShowDesignCapacity", comment: ""), NSLocalizedString("EnableHistoryStatistics", comment: "")], [NSLocalizedString("Automatic", comment: ""), NSLocalizedString("DataChanged", comment: ""), NSLocalizedString("EveryDay", comment: ""), NSLocalizedString("Manual", comment: "")], [NSLocalizedString("ExportAllRecordsToCSV", comment: "")], [NSLocalizedString("DeleteAllRecords", comment: "")]]
+    private let tableCellList = [[NSLocalizedString("Enable", comment: "启用"),
+                                  NSLocalizedString("HistoryRecordViewInHomeView", comment: "在主界面显示历史记录界面"),
+                                  NSLocalizedString("RecordShowDesignCapacity", comment: ""),
+                                  NSLocalizedString("RecordShowMaximumQMax", comment: ""),
+                                  NSLocalizedString("RecordShowMinimumQMax", comment: ""),
+                                  NSLocalizedString("RecordShowLimitVoltage", comment: ""),
+                                  NSLocalizedString("EnableHistoryStatistics", comment: "")],
+                                 [NSLocalizedString("Automatic", comment: ""),
+                                  NSLocalizedString("DataChanged", comment: ""),
+                                  NSLocalizedString("EveryDay", comment: ""),
+                                  NSLocalizedString("Manual", comment: "")],
+                                 [NSLocalizedString("ExportAllRecordsToCSV", comment: "")],
+                                 [NSLocalizedString("DeleteAllRecords", comment: "")]]
     
     private var reloadMainTabBar = false
     
@@ -88,6 +100,12 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
             } else if indexPath.row == 2 {
                 switchView.isOn = SettingsUtils.instance.getRecordShowDesignCapacity()
             } else if indexPath.row == 3 {
+                switchView.isOn = SettingsUtils.instance.getRecordShowMaximumQMax()
+            } else if indexPath.row == 4 {
+                switchView.isOn = SettingsUtils.instance.getRecordShowMinimumQMax()
+            } else if indexPath.row == 5 {
+                switchView.isOn = SettingsUtils.instance.getRecordShowLimitVoltage()
+            } else if indexPath.row == 6 {
                 switchView.isOn = SettingsUtils.instance.getEnableHistoryStatistics()
             }
         } else if indexPath.section == 1 {
@@ -160,6 +178,12 @@ class DataRecordSettingsViewController: UIViewController, UITableViewDelegate, U
         } else if sender.tag == 2 {
             settingsUtils.setRecordShowDesignCapacity(value: sender.isOn) // 切换显示设计容量开关
         } else if sender.tag == 3 {
+            settingsUtils.setRecordShowMaximumQMax(value: sender.isOn) // 切换显示最大QMax开关
+        } else if sender.tag == 4 {
+            settingsUtils.setRecordShowMinimumQMax(value: sender.isOn) // 切换显示最小QMax开关
+        } else if sender.tag == 5 {
+            settingsUtils.setRecordShowLimitVoltage(value: sender.isOn) // 切换显示限制电压
+        } else if sender.tag == 6 {
             settingsUtils.setEnableHistoryStatistics(value: sender.isOn) // 切换启用历史数据统计
         }
     }
