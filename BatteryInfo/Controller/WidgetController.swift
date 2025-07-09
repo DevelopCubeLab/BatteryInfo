@@ -79,7 +79,7 @@ class WidgetController {
     }
     
     // 给主程序保存电池数据
-    func setWidgetBatteryData(batteryData: WidgetBatteryData) {
+    func setWidgetBatteryData(forceReload: Bool, batteryData: WidgetBatteryData) {
         
         // 主程序设置的实例
         let settingsUtils = SettingsUtils.instance
@@ -135,6 +135,11 @@ class WidgetController {
                 shouldWrite = true
                 shouldRefresh = true
             }
+        }
+        
+        if forceReload { // 给强制刷新widget做的优化
+            shouldWrite = true
+            shouldRefresh = true
         }
 
         if shouldWrite {

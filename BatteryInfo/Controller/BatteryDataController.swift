@@ -25,20 +25,26 @@ class BatteryDataController {
         batteryInfo = provider.fetchBatteryInfo()
         
         // 顺便就记录电池的历史记录了
+        if recordBatteryData(manualRecord: false) {
+            NSLog("历史记录增加新的记录成功")
+        }
+        
+        // 刷新widget的数据
+        refreshWidgetData(forceReload: false)
+    }
+    
+    // 新增一个方法这样可以允许用户强制刷新widget
+    func refreshWidgetData(forceReload: Bool) {
+        
         if let cycleCount = batteryInfo?.cycleCount {
-
-            if recordBatteryData(manualRecord: false) {
-                print("历史记录增加新的记录成功")
-            }
-            
             // 提供给小组件的电池数据
             if #available(iOS 14.0, *) {
                 if settingsUtils.getEnableWidget() {
-                    WidgetController.instance.setWidgetBatteryData(batteryData: WidgetBatteryData(maximumCapacity: self.calculateMaximumCapacity() ?? "--%", cycleCount: cycleCount))
+                    WidgetController.instance.setWidgetBatteryData(forceReload: forceReload, batteryData: WidgetBatteryData(maximumCapacity: self.calculateMaximumCapacity() ?? "--%", cycleCount: cycleCount))
                 }
             }
-            
         }
+        
     }
     
     func getBatteryRAWInfo() -> [String: Any]? {

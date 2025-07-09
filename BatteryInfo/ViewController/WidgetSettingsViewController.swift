@@ -154,8 +154,8 @@ class WidgetSettingsViewController: UIViewController, UITableViewDelegate, UITab
             // 设置当前的cell选中状态
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         } else if indexPath.section == 2 {
-            // 请求系统刷新Widget
-            widgetController.refreshWidget()
+            // 重新写入最新数据并且请求系统刷新widget
+            BatteryDataController.getInstance.refreshWidgetData(forceReload: true)
             
             let alert = UIAlertController(
                 title: NSLocalizedString("Alert", comment: ""),
