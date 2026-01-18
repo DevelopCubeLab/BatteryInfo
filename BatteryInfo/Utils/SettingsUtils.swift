@@ -10,11 +10,17 @@ class SettingsUtils {
     
     // 语言设置
     enum ApplicationLanguage: Int {
-        case System = 0
-        case English = 1
-        case SimplifiedChinese = 2
+        case System = 0             // 跟随系统
+        case English = 1            // English
+        case SimplifiedChinese = 2  // 简体中文
+        case Spanish = 3            // Spanish
     }
     
+    enum ApplicationWorkMode: Int {
+        case IOKit = 0             // 通过TrollStore或者越狱直接获取
+        case ViaServices = 1       // 通过电脑或者NAS代理获取数据
+    }
+
     enum MaximumCapacityAccuracy: Int {
         case Keep = 0       // 保留原始数据
         case Ceiling = 1    // 向上取整
@@ -28,6 +34,13 @@ class SettingsUtils {
         case DataChanged = 2  // 数据发生改变时记录，电池剩余容量发生变化或者电池循环次数变化时保存
         case EveryDay = 3     // 每天打开App的时候记录
         case Manual = 4       // 手动
+    }
+    
+    enum WidgetRefreshFrequency: Int {
+        case DataChanged = 0            // 当数据更改时
+        case RefreshDataEveryTime = 1   // 每次刷新数据时
+        case Manual = 2                 // 手动
+        case Fixed5Minutes = 3          // 距离上次更新超过5分钟
     }
     
     private init() {
@@ -48,18 +61,40 @@ class SettingsUtils {
         let value = plistManager.getInt(key: "ApplicationLanguage", defaultValue: ApplicationLanguage.System.rawValue)
         return ApplicationLanguage(rawValue: value) ?? ApplicationLanguage.System
     }
-    
+
     /// 设置App语言设置
     func setApplicationLanguage(value: ApplicationLanguage) {
         setApplicationLanguage(value: value.rawValue)
     }
-    
+
     /// 设置App语言设置
     func setApplicationLanguage(value: Int) {
         plistManager.setInt(key: "ApplicationLanguage", value: value)
         plistManager.apply()
     }
     
+    /// 获取App工作模式
+    func getApplicationWorkMode() -> ApplicationWorkMode {
+        let value = plistManager.getInt(key: "ApplicationWorkMode", defaultValue: ApplicationWorkMode.IOKit.rawValue)
+        if SettingsUtils.checkInstallPermission() { // 判断用户当前的状态
+            return ApplicationWorkMode(rawValue: value) ?? ApplicationWorkMode.IOKit
+        } else {
+            return ApplicationWorkMode.ViaServices
+        }
+    }
+    
+    func setApplicationWorkMode(value: ApplicationWorkMode) {
+        setApplicationWorkMode(value: value.rawValue)
+    }
+    
+    func setApplicationWorkMode(value: Int) {
+        if !SettingsUtils.checkInstallPermission() && value == ApplicationWorkMode.IOKit.rawValue { // 无Root权限的用户无法使用IOKit直接获取数据
+            return
+        }
+        plistManager.setInt(key: "ApplicationWorkMode", value: value)
+        plistManager.apply()
+    }
+
     func getAutoRefreshDataView() -> Bool {
         return plistManager.getBool(key: "AutoRefreshDataView", defaultValue: true)
     }
@@ -87,28 +122,28 @@ class SettingsUtils {
         plistManager.setBool(key: "ShowSettingsBatteryInfo", value: value)
         plistManager.apply()
     }
-    
+
     /// 获取是否使用历史记录中的数据推算设置中的电池健康度的刷新日期
     func getUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate() -> Bool {
         // 必须开启历史记录功能才能获取
         return getEnableRecordBatteryData() && plistManager.getBool(key: "UseHistoryRecordToCalculate", defaultValue: true)
     }
-    
+
     func setUseHistoryRecordToCalculateSettingsBatteryInfoRefreshDate(value: Bool) {
         plistManager.setBool(key: "UseHistoryRecordToCalculate", value: value)
         plistManager.apply()
     }
-    
+
     /// 获取是否允许双击首页TabBar按钮来让列表滚动到顶部
     func getDoubleClickTabBarButtonToScrollToTop() -> Bool {
         return plistManager.getBool(key: "DoubleClickTabBarButtonToScrollToTop", defaultValue: true)
     }
-    
+
     func setDoubleClickTabBarButtonToScrollToTop(value: Bool) {
         plistManager.setBool(key: "DoubleClickTabBarButtonToScrollToTop", value: value)
         plistManager.apply()
     }
-    
+
     /// 获取健康度准确度设置
     /// - return 返回选项 默认值向上取整，减少用户对电池健康的焦虑 [Doge]
     func getMaximumCapacityAccuracy() -> MaximumCapacityAccuracy {
@@ -155,16 +190,46 @@ class SettingsUtils {
         plistManager.apply()
     }
     
+    // 获取是否在历史记录中显示最大QMax
+    func getRecordShowMaximumQMax() -> Bool {
+        return plistManager.getBool(key: "RecordShowMaximumQMax", defaultValue: false)
+    }
+    
+    func setRecordShowMaximumQMax(value: Bool) {
+        plistManager.setBool(key: "RecordShowMaximumQMax", value: value)
+        plistManager.apply()
+    }
+    
+    // 获取是否在历史记录中显示最小QMax
+    func getRecordShowMinimumQMax() -> Bool {
+        return plistManager.getBool(key: "RecordShowMinimumQMax", defaultValue: true)
+    }
+    
+    func setRecordShowMinimumQMax(value: Bool) {
+        plistManager.setBool(key: "RecordShowMinimumQMax", value: value)
+        plistManager.apply()
+    }
+    
+    // 获取是否在历史记录中显示限制电压
+    func getRecordShowLimitVoltage() -> Bool {
+        return plistManager.getBool(key: "RecordShowLimitVoltage", defaultValue: true)
+    }
+    
+    func setRecordShowLimitVoltage(value: Bool) {
+        plistManager.setBool(key: "RecordShowLimitVoltage", value: value)
+        plistManager.apply()
+    }
+
     // 获取启用历史数据统计功能
     func getEnableHistoryStatistics() -> Bool {
         return plistManager.getBool(key: "EnableHistoryStatistics", defaultValue: true)
     }
-    
+
     func setEnableHistoryStatistics(value: Bool) {
         plistManager.setBool(key: "EnableHistoryStatistics", value: value)
         plistManager.apply()
     }
-    
+
     /// 获取记录电池记录频率设置
     func getRecordFrequency() -> RecordFrequency {
         var value = getRecordFrequencyRawValue()
@@ -224,7 +289,7 @@ class SettingsUtils {
 
         return intArray
     }
-    
+
     // 保存首页显示的信息组的顺序
     func setHomeItemGroupSequence(_ sequence: [Int]) {
         let set = Set(sequence)
@@ -235,10 +300,70 @@ class SettingsUtils {
         plistManager.setArray(key: "HomeItemGroupSequence", value: sequence)
         plistManager.apply()
     }
-    
+
     // 重设首页显示的信息组顺序
     func resetHomeItemGroupSequence() {
         plistManager.remove(key: "HomeItemGroupSequence")
         plistManager.apply()
+    }
+    
+    /// 获取是否启用Widget
+    func getEnableWidget() -> Bool {
+        if #available(iOS 14.0, *) {
+            return plistManager.getBool(key: "EnableWidget", defaultValue: true)
+        } else { // iOS 14.0开始才支持Widget
+            return false
+        }
+    }
+
+    /// 设置是否启用Widget
+    func setEnableWidget(enable: Bool) {
+        if #available(iOS 14.0, *) {
+            plistManager.setBool(key: "EnableWidget", value: enable)
+        } else {
+            plistManager.setBool(key: "EnableWidget", value: false)
+        }
+        plistManager.apply()
+    }
+    
+    /// 获取Widget的刷新频率
+    func getWidgetRefreshFrequency() -> WidgetRefreshFrequency {
+        let value = plistManager.getInt(key: "WidgetRefreshFrequency", defaultValue: WidgetRefreshFrequency.DataChanged.rawValue)
+        return WidgetRefreshFrequency(rawValue: value) ?? WidgetRefreshFrequency.DataChanged
+    }
+    
+    // 设置Widget的刷新频率
+    func setWidgetRefreshFrequency(value: WidgetRefreshFrequency) {
+        setWidgetRefreshFrequency(value: value.rawValue)
+    }
+    
+    /// 设置Widget的刷新频率
+    func setWidgetRefreshFrequency(value: Int) {
+        plistManager.setInt(key: "WidgetRefreshFrequency", value: value)
+        plistManager.apply()
+    }
+
+    /// 获取Widget沙盒的根目录
+    func getWidgetSandboxDirectoryPath() -> String {
+        return plistManager.getString(key: "WidgetSandboxPath", defaultValue: "")
+    }
+
+    /// 设置Widget沙盒的根目录
+    func setWidgetSandboxDirectoryPath(path: String) {
+        plistManager.setString(key: "WidgetSandboxPath", value: path)
+        plistManager.apply()
+    }
+
+    /// 删除Widget沙盒目录
+    func removeWidgetSandboxDirectoryPath() {
+        plistManager.remove(key: "WidgetSandboxPath")
+        plistManager.apply()
+    }
+    
+    // 检查Unsandbox权限的方法
+    static func checkInstallPermission() -> Bool {
+        let path = "/var/mobile/Library/Preferences"
+        let writeable = access(path, W_OK) == 0
+        return writeable
     }
 }

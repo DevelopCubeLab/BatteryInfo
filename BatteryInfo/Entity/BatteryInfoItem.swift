@@ -72,8 +72,9 @@ enum BatteryInfoItemID {
     static let temperature = 105
     static let currentCapacity = 106
     static let currentRAWCapacity = 107
-    static let currentVoltage = 108
-    static let instantAmperage = 109
+    static let fullChargeCapacity = 108
+    static let currentVoltage = 109
+    static let instantAmperage = 110
     
     static let isCharging = 201
     static let chargeDescription = 202

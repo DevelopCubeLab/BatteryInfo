@@ -18,5 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         return true
     }
+    
+    // app从后台返回的时候就自动刷新下数据
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        BatteryDataController.getInstance.refreshBatteryInfo()
+    }
 
 }

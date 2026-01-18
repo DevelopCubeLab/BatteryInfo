@@ -11,8 +11,9 @@ struct BatteryRAWInfo {
     var instantAmperage: Int?         // 当前电流
     var currentCapacity: Int?         // 当前电量百分比
     var appleRawCurrentCapacity: Int? // 当前电池剩余的毫安数
-    var designCapacity: Int?  // 电池设计容量
-    var nominalChargeCapacity: Int? // 电池当前的最大容量
+    var designCapacity: Int?          // 电池设计容量
+    var nominalChargeCapacity: Int?   // 电池当前的最大容量
+    var fullChargeCapacity: Int?      // 满充容量
     var isCharging: Bool?             // 是否充电
     var cycleCount: Int?              // 循环次数
     var temperature: Int?             // 电池温度
@@ -39,6 +40,7 @@ extension BatteryRAWInfo {
         self.appleRawCurrentCapacity = dict["AppleRawCurrentCapacity"] as? Int
         self.designCapacity = dict["DesignCapacity"] as? Int
         self.nominalChargeCapacity = dict["NominalChargeCapacity"] as? Int
+        self.fullChargeCapacity = dict["AppleRawMaxCapacity"] as? Int
         self.isCharging = (dict["IsCharging"] as? Int) == 1
         self.cycleCount = dict["CycleCount"] as? Int
         self.temperature = dict["Temperature"] as? Int

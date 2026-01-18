@@ -3,7 +3,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let versionCode = "1.1.9"
+    let versionCode = "1.2.2"
     
     private var tableView = UITableView()
     
@@ -11,8 +11,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     private let tableTitleList = [nil, NSLocalizedString("MaximumCapacityAccuracy", comment: ""), NSLocalizedString("About", comment: "")]
     
-    private let tableCellList = [[NSLocalizedString("LanguageSettings", comment: ""), NSLocalizedString("DisplaySettings", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")], [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")], [NSLocalizedString("Version", comment: ""), "GitHub", "Havoc", NSLocalizedString("ThanksForXiaoboVlog", comment: "")]]
-    // NSLocalizedString("ShowCPUFrequency", comment: "")
+    private var tableCellList = [
+        [NSLocalizedString("LanguageSettings", comment: ""), NSLocalizedString("WorkModeSettings", comment: ""), NSLocalizedString("DisplaySettings", comment: ""), NSLocalizedString("DataRecordSettings", comment: "")],
+        // , NSLocalizedString("BackgroundDaemonSettings", comment: "")
+        [NSLocalizedString("KeepOriginal", comment: ""), NSLocalizedString("Ceiling", comment: ""), NSLocalizedString("Round", comment: ""), NSLocalizedString("Floor", comment: "")],
+        [NSLocalizedString("Version", comment: ""), "GitHub", "Havoc", NSLocalizedString("ThanksForXiaoboVlog", comment: ""), NSLocalizedString("ThanksForDeciBelioS", comment: "")]
+    ]
     
     // 标记一下每个分组的编号，防止新增一组还需要修改好几处的代码
     private let maximumCapacityAccuracyAtSection = 1
@@ -30,6 +34,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             tableView = UITableView(frame: .zero, style: .grouped)
         }
 
+        if #available(iOS 14.0, *) { // 只在iOS 14.0或者以上系统版本才显示Widget设置
+            tableCellList[0].append(NSLocalizedString("WidgetSettings", comment: ""))
+        }
+        
         // 设置表格视图的代理和数据源
         tableView.delegate = self
         tableView.dataSource = self
@@ -120,18 +128,32 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
-            if indexPath.row == 0 {
+            if indexPath.row == 0 { // 语言设置
                 let languageSettingsViewController = LanguageSettingsViewController()
                 languageSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
                 self.navigationController?.pushViewController(languageSettingsViewController, animated: true)
-            } else if indexPath.row == 1 {
+            } else if indexPath.row == 1 { // 工作模式设置
+                let workModeSettingsViewController = WorkModeSettingsViewController()
+                workModeSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
+                self.navigationController?.pushViewController(workModeSettingsViewController, animated: true)
+            } else if indexPath.row == 2 { // 显示设置
                 let displaySettingsViewController = DisplaySettingsViewController()
                 displaySettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
                 self.navigationController?.pushViewController(displaySettingsViewController, animated: true)
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 3 { // 数据记录设置
                 let dataRecordSettingsViewController = DataRecordSettingsViewController()
                 dataRecordSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
                 self.navigationController?.pushViewController(dataRecordSettingsViewController, animated: true)
+            } else if indexPath.row == 5 { // 后台助手设置
+//                let backgroundDaemonSettingsViewController = BackgroundDaemonSettingsViewController()
+//                backgroundDaemonSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
+//                self.navigationController?.pushViewController(backgroundDaemonSettingsViewController, animated: true)
+            } else if indexPath.row == 4 { // Widget设置
+                if #available(iOS 14.0, *) {
+                    let widgetSettingsViewController = WidgetSettingsViewController()
+                    widgetSettingsViewController.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
+                    self.navigationController?.pushViewController(widgetSettingsViewController, animated: true)
+                }
             }
         } else if indexPath.section == maximumCapacityAccuracyAtSection { // 切换设置
             // 取消之前的选择
@@ -151,6 +173,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             } else if indexPath.row == 3 {
                 if let url = URL(string: "https://m.xiaobovlog.cn/") {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            } else if indexPath.row == 4 {
+                if let url = URL(string: "https://github.com/Deci8BelioS") {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }

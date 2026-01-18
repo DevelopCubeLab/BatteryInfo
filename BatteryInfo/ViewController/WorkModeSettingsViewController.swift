@@ -1,18 +1,20 @@
 import Foundation
 import UIKit
 
-class LanguageSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WorkModeSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var tableView = UITableView()
     
     private let settingsUtils = SettingsUtils.instance
     
-    private let tableCellList = [NSLocalizedString("UseSystemLanguage", comment: ""), "English", "简体中文", "español"]
+    private let canUseIOKit = SettingsUtils.checkInstallPermission()
+    
+    private let tableCellList = [NSLocalizedString("WorkModeIOKit", comment: ""), NSLocalizedString("WorkModeViaServices", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = NSLocalizedString("LanguageSettings", comment: "")
+        title = NSLocalizedString("WorkModeSettings", comment: "")
         
         // iOS 15 之后的版本使用新的UITableView样式
         if #available(iOS 15.0, *) {
@@ -52,6 +54,11 @@ class LanguageSettingsViewController: UIViewController, UITableViewDelegate, UIT
         return tableCellList.count
     }
     
+    // MARK: - 设置每个分组的底部标题 可以为分组设置尾部文本，如果没有尾部可以返回 nil
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return NSLocalizedString("ComingSoon", comment: "")
+    }
+    
     // MARK: - 构造每个Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
@@ -60,12 +67,23 @@ class LanguageSettingsViewController: UIViewController, UITableViewDelegate, UIT
         cell.textLabel?.numberOfLines = 0 // 允许换行
         
         cell.selectionStyle = .default
-        if indexPath.row == settingsUtils.getApplicationLanguage().rawValue {
+        if indexPath.row == settingsUtils.getApplicationWorkMode().rawValue {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
         }
-            
+        
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                cell.textLabel?.isEnabled = canUseIOKit
+                cell.isUserInteractionEnabled = canUseIOKit
+            }
+        }
+        
+        // MARK: = TODO 暂时未开发完成服务端，暂时禁止设置
+        cell.textLabel?.isEnabled = false
+        cell.isUserInteractionEnabled = false
+        
         return cell
     }
     
@@ -73,46 +91,17 @@ class LanguageSettingsViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // 取消之前的选择
-        tableView.cellForRow(at: IndexPath(row: settingsUtils.getApplicationLanguage().rawValue, section: indexPath.section))?.accessoryType = .none
-        // 保存选项
-        settingsUtils.setApplicationLanguage(value: indexPath.row)
-        // 设置当前的cell选中状态
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        
-        // 刷新界面显示
-        ApplicationLanguageController.loadLanguageFromSettings()
-        reloadAppRootView()
-        
-        // 重新初始化数据提供者，解决语言切换的小bug
-        BatteryDataController.configureInstance(provider: IOKitBatteryDataProvider())
-    }
-    
-    func reloadAppRootView() {
-        guard let window = UIApplication.shared.windows.first else { return }
-
-        let tabBarController = MainUITabBarController()
-        window.rootViewController = tabBarController
-        window.makeKeyAndVisible()
-
-        // 切换到设置 tab
-        tabBarController.selectedIndex = settingsUtils.getShowHistoryRecordViewInHomeView() ? 2 : 1
-
-        // 在设置导航控制器中重新 push LanguageSettingsViewController
-        if let settingsNav = tabBarController.viewControllers?[2] as? UINavigationController {
-            
-            // 创建一个 SettingsViewController，并设置标题和 tabBarItem
-            let settingsVC = SettingsViewController()
-            settingsVC.title = NSLocalizedString("Settings", comment: "")
-            settingsVC.tabBarItem = MainUITabBarController.createTabBarItem(title: "Settings", image: "gear", selectedImage: "gear.fill", fallbackImage: "")
-            
-            // 重建栈：Settings → LanguageSettings
-            settingsNav.setViewControllers([settingsVC], animated: false)
-            
-            let languageVC = LanguageSettingsViewController()
-            languageVC.hidesBottomBarWhenPushed = true // 隐藏底部导航栏
-            settingsNav.pushViewController(languageVC, animated: false)
+        if indexPath.section == 0 && indexPath.row == 0{
+            if !canUseIOKit {
+                return
+            }
         }
         
+        // 取消之前的选择
+        tableView.cellForRow(at: IndexPath(row: settingsUtils.getApplicationWorkMode().rawValue, section: indexPath.section))?.accessoryType = .none
+        // 保存选项
+        settingsUtils.setApplicationWorkMode(value: indexPath.row)
+        // 设置当前的cell选中状态
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
 }

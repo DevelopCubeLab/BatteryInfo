@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>get-task-allow</key>
+	<true/>
 	<key>platform-application</key>
 	<true/>
 	<key>com.apple.private.security.no-sandbox</key>
@@ -10,17 +12,17 @@
 	<true/>
 	<key>com.apple.private.security.storage.AppDataContainers</key>
 	<true/>
+	<key>com.apple.private.security.container-required</key>
+	<string>com.developlab.BatteryInfo.BatteryInfoWidget</string>
 	<key>com.apple.security.iokit-user-client-class</key>
 	<array>
 		<string>IOPMPowerSourceClient</string>
 	</array>
 	<key>com.apple.security.exception.iokit-user-client-class</key>
 	<array>
-    	<string>IOAccelerator</string>
-    	<string>IOGPUDeviceUserClient</string>
-    	<string>IOSurfaceRootUserClient</string>
+		<string>IOAccelerator</string>
+		<string>IOGPUDeviceUserClient</string>
+		<string>IOSurfaceRootUserClient</string>
 	</array>
-	<key>com.apple.private.security.system-application</key>
-	<true/>
 </dict>
 </plist>

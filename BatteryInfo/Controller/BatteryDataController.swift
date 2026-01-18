@@ -25,15 +25,26 @@ class BatteryDataController {
         batteryInfo = provider.fetchBatteryInfo()
         
         // 顺便就记录电池的历史记录了
-        if let cycleCount = batteryInfo?.cycleCount, let nominalChargeCapacity = batteryInfo?.nominalChargeCapacity, let designCapacity = batteryInfo?.designCapacity {
-
-            if Self.recordBatteryData(manualRecord: false,
-                                      cycleCount: cycleCount,
-                                      nominalChargeCapacity: nominalChargeCapacity,
-                                      designCapacity: designCapacity) {
-                print("历史记录增加新的记录成功")
+        if recordBatteryData(manualRecord: false) {
+            NSLog("历史记录增加新的记录成功")
+        }
+        
+        // 刷新widget的数据
+        refreshWidgetData(forceReload: false)
+    }
+    
+    // 新增一个方法这样可以允许用户强制刷新widget
+    func refreshWidgetData(forceReload: Bool) {
+        
+        if let cycleCount = batteryInfo?.cycleCount {
+            // 提供给小组件的电池数据
+            if #available(iOS 14.0, *) {
+                if settingsUtils.getEnableWidget() {
+                    WidgetController.instance.setWidgetBatteryData(forceReload: forceReload, batteryData: WidgetBatteryData(maximumCapacity: self.calculateMaximumCapacity() ?? "--%", cycleCount: cycleCount))
+                }
             }
         }
+        
     }
     
     func getBatteryRAWInfo() -> [String: Any]? {
@@ -193,6 +204,21 @@ class BatteryDataController {
         }
     }
     
+    // 获取电池满充容量
+    private func getBatteryFullChargeCapacity() -> InfoItem {
+        if let fullChargeCapacity = batteryInfo?.fullChargeCapacity {
+            return InfoItem(
+                id: BatteryInfoItemID.fullChargeCapacity,
+                text: String.localizedStringWithFormat(NSLocalizedString("FullChargeCapacity", comment: ""), String(fullChargeCapacity))
+            )
+        } else {
+            return InfoItem(
+                id: BatteryInfoItemID.fullChargeCapacity,
+                text: String.localizedStringWithFormat(NSLocalizedString("FullChargeCapacity", comment: ""), NSLocalizedString("Unknown", comment: ""))
+            )
+        }
+    }
+    
     // 获取电池当前电压
     private func getCurrentVoltage() -> InfoItem {
         if let voltage = batteryInfo?.voltage {
@@ -302,13 +328,13 @@ class BatteryDataController {
             
             if let usbOption = batteryInfo?.adapterDetails?.usbHvcMenu {
                 
-                if usbOption.count > index { // 协议列表中有当前的档位信息
-                    let option = batteryInfo?.adapterDetails?.usbHvcMenu[index]
+                if usbOption.count > index, let option = batteryInfo?.adapterDetails?.usbHvcMenu[index] {
                     currentOption.append(
                         String.localizedStringWithFormat(
                             NSLocalizedString("PowerOptionDetail", comment: ""),
-                            option!.index + 1, String(format: "%.2f", Double(option!.maxVoltage) / 1000), String(format: "%.2f", round(Double(option!.maxCurrent) / 1000))
-                    ))
+                            option.index + 1, String(format: "%.2f", Double(option.maxVoltage) / 1000), String(format: "%.2f", round(Double(option.maxCurrent) / 1000))
+                        )
+                    )
                 } else { // 当前协议中没有档位信息
                     if let current = batteryInfo?.adapterDetails?.current, let adapterVoltage = batteryInfo?.adapterDetails?.adapterVoltage {
                         currentOption.append(
@@ -317,7 +343,6 @@ class BatteryDataController {
                                 index + 1, String(format: "%.2f", Double(adapterVoltage) / 1000), String(format: "%.2f", round(Double(current) / 1000))
                         ))
                     }
-                    
                 }
                 
             }
@@ -445,12 +470,12 @@ class BatteryDataController {
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("NotCharging", comment: ""))
                 )
-            } else if reason == 256 || reason == 272 { // 电池过热
+            } else if reason == 256 || reason == 272 || reason == 8448 || reason == 16 { // 电池过热
                 return InfoItem(
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("BatteryOverheating", comment: ""))
                 )
-            } else if reason == 1024 || reason == 8192 { // 正在与充电器握手
+            } else if reason == 1024 || reason == 8192 || reason == 8193 || reason == 8208 { // 正在与充电器握手
                 return InfoItem(
                     id: BatteryInfoItemID.notChargingReason,
                     text: String.localizedStringWithFormat(NSLocalizedString("NotChargingReason", comment: ""), NSLocalizedString("NegotiatingWithCharger", comment: ""))
@@ -529,10 +554,10 @@ class BatteryDataController {
     
     // 获取最小QMax
     private func getBatteryMinimumQmax() -> InfoItem {
-        if let maximumQmax = batteryInfo?.batteryData?.lifetimeData?.minimumQmax {
+        if let minimumQmax = batteryInfo?.batteryData?.lifetimeData?.minimumQmax {
             return InfoItem(
                 id: BatteryInfoItemID.minimumQmax,
-                text: String.localizedStringWithFormat(NSLocalizedString("MinimumQmax", comment: ""), String(maximumQmax))
+                text: String.localizedStringWithFormat(NSLocalizedString("MinimumQmax", comment: ""), String(minimumQmax))
             )
         } else {
             return InfoItem(
@@ -905,6 +930,8 @@ class BatteryDataController {
         batteryBasicInfoGroup.addItem(getBatteryCurrentCapacity())
         // 电池当前实时容量
         batteryBasicInfoGroup.addItem(getBatteryCurrentRAWCapacity())
+        // 电池满充容量
+        batteryBasicInfoGroup.addItem(getBatteryFullChargeCapacity())
         // 电池当前电压
         batteryBasicInfoGroup.addItem(getCurrentVoltage())
         // 电池当前电流
@@ -1360,60 +1387,66 @@ class BatteryDataController {
         let writeable = access(path, W_OK) == 0
         return writeable
     }
-
-
-    static func recordBatteryData(manualRecord: Bool, cycleCount: Int, nominalChargeCapacity: Int, designCapacity: Int) -> Bool {
+    
+    // 记录新数据
+    func recordBatteryData(manualRecord: Bool) -> Bool {
         
-        let databaseManager = BatteryRecordDatabaseManager.shared
-        let settingsUtils = SettingsUtils.instance
-        
-        // 判断是否开启了记录
-        if !settingsUtils.getEnableRecordBatteryData() {
-            return true
-        }
-        
-        if manualRecord { // 手动添加一条记录
-            return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-        }
-        
-        switch settingsUtils.getRecordFrequency() {
-        case .Automatic:
-            if databaseManager.getRecordCount() == 0 { // 如果数据库还没数据就直接先创建一个
-                return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-            }
-            let lastRecord = databaseManager.getLatestRecord()
-            if lastRecord != nil {
-                if !BatteryFormatUtils.isSameDay(timestamp1: Int(Date().timeIntervalSince1970), timestamp2: Int(lastRecord?.createDate ?? 0)) ||
-                    lastRecord?.cycleCount != cycleCount ||
-                    lastRecord?.nominalChargeCapacity != nominalChargeCapacity {
-                    return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-                }
+        if let cycleCount = batteryInfo?.cycleCount, let nominalChargeCapacity = batteryInfo?.nominalChargeCapacity, let designCapacity = batteryInfo?.designCapacity, let maximumQMax = batteryInfo?.batteryData?.lifetimeData?.maximumQmax, let minimumQmax = batteryInfo?.batteryData?.lifetimeData?.minimumQmax, let limitVoltage = batteryInfo?.chargerData?.vacVoltageLimit {
+            
+            let newRecord = BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity, maximumQMax: maximumQMax, minimumQMax: minimumQmax, limitVoltage: limitVoltage)
+            
+            let databaseManager = BatteryRecordDatabaseManager.shared
+            let settingsUtils = SettingsUtils.instance
+            
+            // 判断是否开启了记录
+            if !settingsUtils.getEnableRecordBatteryData() {
+                return true
             }
             
-        case .DataChanged:
-            if databaseManager.getRecordCount() == 0 { // 如果数据库还没数据就直接先创建一个
-                return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-            }
-            let lastRecord = databaseManager.getLatestRecord()
-            if lastRecord != nil {
-                if lastRecord?.cycleCount != cycleCount || lastRecord?.nominalChargeCapacity != nominalChargeCapacity {
-                    return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-                }
-            }
-        case .EveryDay:
-            if databaseManager.getRecordCount() == 0 { // 如果数据库还没数据就直接先创建一个
-                return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-            }
-            let lastRecord = databaseManager.getLatestRecord()
-            if lastRecord != nil {
-                if !BatteryFormatUtils.isSameDay(timestamp1: Int(Date().timeIntervalSince1970), timestamp2: Int(lastRecord?.createDate ?? 0)) { // 判断与当前的记录是否是同一天
-                    return databaseManager.insertRecord(BatteryDataRecord(cycleCount: cycleCount, nominalChargeCapacity: nominalChargeCapacity, designCapacity: designCapacity))
-                }
+            if manualRecord { // 手动添加一条记录
+                return databaseManager.insertRecord(newRecord)
             }
             
-        default: return false
+            switch settingsUtils.getRecordFrequency() {
+            case .Automatic:
+                if databaseManager.getRecordCount() == 0 { // 如果数据库还没数据就直接先创建一个
+                    return databaseManager.insertRecord(newRecord)
+                }
+                let lastRecord = databaseManager.getLatestRecord()
+                if lastRecord != nil {
+                    if !BatteryFormatUtils.isSameDay(timestamp1: Int(Date().timeIntervalSince1970), timestamp2: Int(lastRecord?.createDate ?? 0)) ||
+                        lastRecord?.cycleCount != cycleCount ||
+                        lastRecord?.nominalChargeCapacity != nominalChargeCapacity || lastRecord?.minimumQMax != minimumQmax || lastRecord?.limitVoltage != limitVoltage {
+                        return databaseManager.insertRecord(newRecord)
+                    }
+                }
+                
+            case .DataChanged:
+                if databaseManager.getRecordCount() == 0 { // 如果数据库还没数据就直接先创建一个
+                    return databaseManager.insertRecord(newRecord)
+                }
+                let lastRecord = databaseManager.getLatestRecord()
+                if lastRecord != nil {
+                    // 判断与最后一条记录是否相同
+                    if lastRecord?.cycleCount != cycleCount || lastRecord?.nominalChargeCapacity != nominalChargeCapacity || lastRecord?.minimumQMax != minimumQmax || lastRecord?.limitVoltage != limitVoltage {
+                        return databaseManager.insertRecord(newRecord)
+                    }
+                }
+            case .EveryDay:
+                if databaseManager.getRecordCount() == 0 { // 如果数据库还没数据就直接先创建一个
+                    return databaseManager.insertRecord(newRecord)
+                }
+                let lastRecord = databaseManager.getLatestRecord()
+                if lastRecord != nil {
+                    if !BatteryFormatUtils.isSameDay(timestamp1: Int(Date().timeIntervalSince1970), timestamp2: Int(lastRecord?.createDate ?? 0)) { // 判断与当前的记录是否是同一天
+                        return databaseManager.insertRecord(newRecord)
+                    }
+                }
+                
+            default: return false
+            }
+            
         }
-        
         
         return false
     }
